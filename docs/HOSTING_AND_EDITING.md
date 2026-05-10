@@ -62,6 +62,7 @@ In the GitHub repository:
 5. After DNS resolves, enable `Enforce HTTPS`.
 
 The workflow includes `actions/configure-pages@v5` with `enablement: true`, matching the Nebula workflow pattern.
+The other official Pages actions are kept on current Node 24-capable major versions where available.
 
 ## Bluehost DNS
 
@@ -98,4 +99,3 @@ DNS can take time to propagate. GitHub will not finish HTTPS certificate setup u
 - If the workflow succeeds but a file is missing on the site, confirm the file is copied into `_site` in `.github/workflows/deploy-pages.yml`.
 - If HTTPS cannot be enforced yet, wait for DNS propagation and re-check the Pages settings.
 - If a future agent wants to add a framework, first prove why static HTML/CSS is insufficient.
-
