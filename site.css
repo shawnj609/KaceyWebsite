@@ -1,14 +1,14 @@
 :root {
-  --page: #f6f8f5;
-  --surface: #ffffff;
-  --ink: #17201d;
-  --muted: #5d6964;
-  --line: #d9e2dd;
-  --green: #2f6f58;
-  --green-deep: #204c3c;
-  --blue: #426ba8;
-  --coral: #c95b42;
-  --shadow: 0 24px 60px rgba(22, 35, 30, 0.12);
+  --page: #ff4fbe;
+  --surface: #fff3fb;
+  --ink: #2b0621;
+  --muted: #71315f;
+  --line: #ff9de2;
+  --green: #ff197f;
+  --green-deep: #c90063;
+  --blue: #6f36ff;
+  --coral: #ff5a00;
+  --shadow: 0 24px 70px rgba(157, 0, 96, 0.28);
 }
 
 * {
@@ -22,7 +22,9 @@ html {
 body {
   margin: 0;
   background:
-    linear-gradient(180deg, #eef5f1 0%, var(--page) 38%, #ffffff 100%);
+    radial-gradient(circle at 18% 14%, rgba(255, 255, 255, 0.72), transparent 20rem),
+    radial-gradient(circle at 82% 28%, rgba(255, 239, 94, 0.28), transparent 18rem),
+    linear-gradient(180deg, #ff7ad5 0%, var(--page) 42%, #ff1fa6 100%);
   color: var(--ink);
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
@@ -36,8 +38,8 @@ a {
   position: sticky;
   top: 0;
   z-index: 10;
-  border-bottom: 1px solid rgba(217, 226, 221, 0.78);
-  background: rgba(246, 248, 245, 0.86);
+  border-bottom: 1px solid rgba(255, 157, 226, 0.78);
+  background: rgba(255, 79, 190, 0.74);
   backdrop-filter: blur(18px);
 }
 
@@ -80,7 +82,7 @@ main,
 
 .nav-links a:hover {
   color: var(--ink);
-  background: rgba(47, 111, 88, 0.08);
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .hero {
@@ -171,21 +173,120 @@ h3 {
 }
 
 .portrait-panel {
+  position: relative;
   margin: 0;
   padding: 10px;
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
   box-shadow: var(--shadow);
+  overflow: hidden;
 }
 
 .portrait {
+  position: relative;
+  z-index: 1;
   display: block;
   width: 100%;
   aspect-ratio: 4 / 5;
   object-fit: cover;
   object-position: center;
   border-radius: 6px;
+}
+
+.face-flames {
+  position: absolute;
+  z-index: 2;
+  left: 60%;
+  top: 18%;
+  width: 34%;
+  height: 34%;
+  pointer-events: none;
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 18px rgba(255, 88, 0, 0.86));
+}
+
+.flame,
+.flame-core {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  display: block;
+  transform-origin: 50% 100%;
+}
+
+.flame {
+  width: 38%;
+  height: 82%;
+  border-radius: 46% 54% 48% 52% / 74% 72% 28% 26%;
+  background:
+    radial-gradient(circle at 52% 70%, #fff9a8 0 15%, transparent 16%),
+    linear-gradient(180deg, #fff25a 0%, #ff9100 38%, #ff2600 72%, rgba(255, 0, 102, 0.52) 100%);
+  opacity: 0.94;
+  animation: flame-dance 0.72s infinite alternate ease-in-out;
+}
+
+.flame-one {
+  height: 100%;
+  transform: translateX(-50%) rotate(-18deg) skewX(-6deg);
+}
+
+.flame-two {
+  left: 34%;
+  width: 30%;
+  height: 74%;
+  animation-delay: -0.18s;
+  transform: translateX(-50%) rotate(-36deg) skewX(-10deg);
+}
+
+.flame-three {
+  left: 67%;
+  width: 30%;
+  height: 70%;
+  animation-delay: -0.32s;
+  transform: translateX(-50%) rotate(22deg) skewX(8deg);
+}
+
+.flame-four {
+  left: 78%;
+  bottom: 8%;
+  width: 22%;
+  height: 52%;
+  animation-delay: -0.46s;
+  transform: translateX(-50%) rotate(46deg) skewX(10deg);
+}
+
+.flame-core {
+  width: 22%;
+  height: 48%;
+  border-radius: 50% 50% 44% 56% / 78% 80% 20% 22%;
+  background: linear-gradient(180deg, #ffffff 0%, #ffe94f 44%, rgba(255, 110, 0, 0.88) 100%);
+  opacity: 0.96;
+  animation: flame-pulse 0.56s infinite alternate ease-in-out;
+}
+
+@keyframes flame-dance {
+  from {
+    translate: -4px 2px;
+    scale: 0.9 1.03;
+  }
+
+  to {
+    translate: 5px -8px;
+    scale: 1.08 0.94;
+  }
+}
+
+@keyframes flame-pulse {
+  from {
+    translate: 0 2px;
+    scale: 0.88 0.95;
+  }
+
+  to {
+    translate: 0 -7px;
+    scale: 1.12 1.04;
+  }
 }
 
 .section {
@@ -201,7 +302,7 @@ h3 {
   border: 1px solid var(--line);
   border-radius: 8px;
   background:
-    linear-gradient(135deg, rgba(66, 107, 168, 0.12), transparent 42%),
+    linear-gradient(135deg, rgba(255, 111, 216, 0.4), transparent 42%),
     var(--surface);
   padding: clamp(24px, 4vw, 44px);
 }
@@ -240,8 +341,8 @@ h3 {
 .contact-panel {
   align-items: center;
   background:
-    linear-gradient(135deg, rgba(47, 111, 88, 0.13), transparent 48%),
-    #fbfdfc;
+    linear-gradient(135deg, rgba(255, 90, 0, 0.18), transparent 48%),
+    #fff3fb;
 }
 
 .footer {
@@ -306,4 +407,3 @@ h3 {
     width: 100%;
   }
 }
-
