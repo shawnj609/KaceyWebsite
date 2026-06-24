@@ -26,14 +26,31 @@ This repo is patterned after `shawnj609/NebulaWebsiteV2`, which deploys a static
 - Keep the workflow bundle list in sync when adding production files or folders.
 - Preserve `CNAME` unless the canonical domain changes.
 
+## Kacey Preview And Approval Flow
+
+When Kacey asks for a change, make the local edits first and then show her the site on localhost before suggesting any push to production.
+
+1. Start the local server from the repository root, the folder that contains `index.html`, `site.css`, and `assets/`:
+
+```powershell
+cd C:\Users\shawn\Code\Repos\KaceyWEbsite\KaceyWebsite
+python -m http.server 8080
+```
+
+2. Open `http://localhost:8080/` or `http://localhost:8080/index.html`. Do not use `http://localhost:8080/index`; Python's static server does not map that path to `index.html`.
+3. If port `8080` is already in use, either stop the stale local server or use the next clear port, such as `python -m http.server 8081`, and tell Kacey the exact localhost URL.
+4. Ask Kacey to review the localhost version. Do not push to `main` until she approves the local preview.
+5. After Kacey approves, ask whether she wants the change pushed to `main` so GitHub Pages can publish it to the real website.
+
 ## Verification
 
 Before committing meaningful changes:
 
-1. Run a local static server with `python -m http.server 8080`.
-2. Check `http://localhost:8080/index.html` on desktop and mobile width.
+1. Run a local static server from the repository root with `python -m http.server 8080`.
+2. Check `http://localhost:8080/` or `http://localhost:8080/index.html` on desktop and mobile width.
 3. Confirm image paths, navigation anchors, and responsive layout work.
-4. Push to `main` and check the GitHub Actions Pages deployment.
+4. Get Kacey's approval on the localhost preview.
+5. Push to `main` only after approval, then check the GitHub Actions Pages deployment.
 
 ## Documentation Updates
 

@@ -16,21 +16,35 @@ This repo intentionally follows the simple production pattern from `shawnj609/Ne
 
 ## Run Locally
 
-From the repo root:
+Start the server from the repo root, the folder that contains `index.html`, `site.css`, and `assets/`:
 
-```bash
+```powershell
+cd C:\Users\shawn\Code\Repos\KaceyWEbsite\KaceyWebsite
 python -m http.server 8080
 ```
 
 Then open:
 
+- `http://localhost:8080/`
 - `http://localhost:8080/index.html`
+
+Do not use `http://localhost:8080/index`; Python's static server does not map that path to `index.html`.
+
+If `8080` is already in use, stop the stale server or run on another port:
+
+```powershell
+python -m http.server 8081
+```
 
 Opening `index.html` directly in a browser also works because the site has no build step.
 
+## Agent Preview Flow
+
+When Kacey asks for site changes, show the edited site on localhost first and ask her to approve that preview. After she approves the local version, ask whether she wants the change pushed to `main`; pushing to `main` is what publishes the change to the real GitHub Pages site.
+
 ## Deploy
 
-Push to `main`:
+After local preview approval, push to `main`:
 
 ```bash
 git push origin main

@@ -25,15 +25,25 @@ Kacey's repo uses the same model with one deliberate difference: the deployment 
 ## Local Editing Flow
 
 1. Edit `index.html`, `site.css`, and any files in `assets/`.
-2. Run a local server from the repo root:
+2. Run a local server from the repo root, the folder that contains `index.html`, `site.css`, and `assets/`:
 
-```bash
+```powershell
+cd C:\Users\shawn\Code\Repos\KaceyWEbsite\KaceyWebsite
 python -m http.server 8080
 ```
 
-3. Open `http://localhost:8080/index.html`.
+3. Open `http://localhost:8080/` or `http://localhost:8080/index.html`. Do not use `http://localhost:8080/index`; Python's static server returns `404` for that path.
 4. Verify layout at desktop and mobile widths.
-5. Commit and push to `main`.
+5. Ask Kacey to approve the localhost preview.
+6. After approval, ask whether she wants the change pushed to `main` so GitHub Pages can publish it to the real site.
+
+If port `8080` is already in use, stop the stale server or use another clear port such as:
+
+```powershell
+python -m http.server 8081
+```
+
+Tell Kacey the exact localhost URL you used.
 
 ## Deploy Flow
 
