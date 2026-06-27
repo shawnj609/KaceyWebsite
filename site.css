@@ -120,6 +120,17 @@ main {
   color: var(--muted);
 }
 
+.construction-note {
+  max-width: 42rem;
+  margin: clamp(34px, 6vw, 58px) auto 0;
+  color: var(--ink);
+  font-size: clamp(0.98rem, 1.8vw, 1.18rem);
+  font-weight: 600;
+  line-height: 1.45;
+  text-align: center;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.78);
+}
+
 .hero {
   min-height: 100vh;
   display: grid;
