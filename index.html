@@ -21,12 +21,27 @@
   <main id="top">
     <section class="hero">
       <div class="hero-copy">
-        <h1>Kacey Samiee</h1>
+        <h1>
+          <span>Kacey</span>
+          <span class="last-name-swap">
+            <span class="last-name-default">Samiee</span>
+            <span class="last-name-hover">No Pants</span>
+          </span>
+        </h1>
         <nav class="nav" aria-label="Primary navigation">
           <div class="nav-links">
-            <a href="#actor">Actor</a>
-            <a href="#drone-artist">Drone Artist</a>
-            <a href="#artist">Artist</a>
+            <a class="swap-link" href="#actor">
+              <span class="default-label">Actor</span>
+              <span class="hover-label">Filmmaker</span>
+            </a>
+            <a class="swap-link" href="#drone-artist">
+              <span class="default-label">Drone Artist</span>
+              <span class="hover-label">Mother Of Drones</span>
+            </a>
+            <a class="swap-link" id="about-link" href="#about">
+              <span class="default-label">About</span>
+              <span class="hover-label">Artist</span>
+            </a>
           </div>
         </nav>
       </div>
@@ -51,6 +66,21 @@
         }
       });
     }
+
+    document.querySelectorAll(".swap-link").forEach(function (link) {
+      link.addEventListener("mouseenter", function () {
+        link.classList.add("is-hovered");
+      });
+      link.addEventListener("mouseleave", function () {
+        link.classList.remove("is-hovered");
+      });
+      link.addEventListener("focus", function () {
+        link.classList.add("is-hovered");
+      });
+      link.addEventListener("blur", function () {
+        link.classList.remove("is-hovered");
+      });
+    });
   </script>
 </body>
 </html>

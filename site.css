@@ -78,19 +78,42 @@ main {
 .nav-links {
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: clamp(22px, 6vw, 96px);
 }
 
 .nav-links a {
-  min-height: 38px;
+  position: relative;
+  justify-content: center;
+  width: clamp(120px, 22vw, 220px);
+  height: 38px;
   display: inline-flex;
   align-items: center;
   color: var(--ink);
   font-size: clamp(1.12rem, 2vw, 1.45rem);
   font-weight: 650;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.78);
+}
+
+.swap-link .hover-label {
+  position: absolute;
+  z-index: 2;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.swap-link:not(.reveal-link):hover .default-label,
+.swap-link:not(.reveal-link):focus .default-label,
+.swap-link:not(.reveal-link).is-hovered .default-label {
+  opacity: 0;
+}
+
+.swap-link:hover .hover-label,
+.swap-link:focus .hover-label,
+.swap-link.is-hovered .hover-label {
+  opacity: 1;
 }
 
 .nav-links a:hover {
@@ -126,6 +149,36 @@ h1 {
   line-height: 0.88;
   letter-spacing: 0;
   white-space: nowrap;
+}
+
+h1 > span {
+  display: inline-block;
+}
+
+.last-name-swap {
+  display: inline-grid;
+  min-width: 2.4em;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+.last-name-swap span {
+  display: block;
+  grid-area: 1 / 1;
+}
+
+.last-name-hover {
+  opacity: 0;
+}
+
+.hero-copy:has(#about-link:hover) .last-name-default,
+.hero-copy:has(#about-link:focus) .last-name-default {
+  opacity: 0;
+}
+
+.hero-copy:has(#about-link:hover) .last-name-hover,
+.hero-copy:has(#about-link:focus) .last-name-hover {
+  opacity: 1;
 }
 
 @media (max-width: 860px) {
