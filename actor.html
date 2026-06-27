@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Actor and filmmaker page for Kacey Samiee."/>
+  <title>Actor and Filmmaker | Kacey Samiee</title>
+  <link rel="stylesheet" href="site.css"/>
+</head>
+<body class="solid-page">
+  <nav class="home-menu" aria-label="Site navigation">
+    <a class="home-icon" href="index.html" aria-label="Home"></a>
+    <div class="home-menu-links">
+      <a href="actor.html">Actor and Filmmaker</a>
+      <a href="mother-of-drones.html">Mother of Drones</a>
+      <a href="about.html">About</a>
+    </div>
+  </nav>
+  <main>
+    <section class="subpage">
+      <div class="subpage-copy">
+        <h1 class="subpage-title">Actor and Filmmaker</h1>
+      </div>
+    </section>
+  </main>
+  <script>
+    document.querySelectorAll(".home-menu").forEach(function (menu) {
+      menu.addEventListener("mouseenter", function () {
+        menu.classList.add("is-open");
+      });
+      menu.addEventListener("mouseleave", function () {
+        menu.classList.remove("is-open");
+      });
+    });
+  </script>
+</body>
+</html>

@@ -34,6 +34,9 @@ jobs:
         run: |
           mkdir -p _site
           cp index.html _site/
+          cp actor.html _site/
+          cp mother-of-drones.html _site/
+          cp about.html _site/
           cp site.css _site/
           cp CNAME _site/
           cp .nojekyll _site/
