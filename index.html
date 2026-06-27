@@ -10,71 +10,47 @@
 <body>
   <div class="site-video-background" aria-hidden="true">
     <iframe
-      src="https://www.youtube.com/embed/UNyYJboGUTU?autoplay=1&mute=1&loop=1&playlist=UNyYJboGUTU&controls=0&modestbranding=1&playsinline=1&rel=0"
+      id="background-video"
+      src="https://www.youtube-nocookie.com/embed/UNyYJboGUTU?autoplay=1&mute=1&loop=1&playlist=UNyYJboGUTU&controls=0&disablekb=1&fs=0&iv_load_policy=3&modestbranding=1&playsinline=1&rel=0&showinfo=0&enablejsapi=1"
       title=""
       allow="autoplay; encrypted-media; picture-in-picture"
+      referrerpolicy="strict-origin-when-cross-origin"
       tabindex="-1"
     ></iframe>
   </div>
-  <header class="site-header">
-    <nav class="nav" aria-label="Primary navigation">
-      <a class="brand" href="#top">Kacey Samiee</a>
-      <div class="nav-links">
-        <a href="#actor">Actor</a>
-        <a href="#drone-artist">Drone Artist</a>
-        <a href="#artist">Artist</a>
-      </div>
-    </nav>
-  </header>
-
   <main id="top">
     <section class="hero">
       <div class="hero-copy">
         <h1>Kacey Samiee</h1>
-        <p class="lede">
-          Actor and drone artist bringing movement, character, and sky-high visual energy to the screen.
-        </p>
+        <nav class="nav" aria-label="Primary navigation">
+          <div class="nav-links">
+            <a href="#actor">Actor</a>
+            <a href="#drone-artist">Drone Artist</a>
+            <a href="#artist">Artist</a>
+          </div>
+        </nav>
       </div>
-    </section>
-
-    <section class="section intro-band" id="actor">
-      <div>
-        <p class="eyebrow">Actor</p>
-        <h2>Performance with presence, humor, and heat.</h2>
-      </div>
-      <p>
-        Kacey brings lived-in energy to camera work, character moments, and collaborative sets.
-        This section can grow into reels, credits, headshots, press, and booking details.
-      </p>
-    </section>
-
-    <section class="section split-sections" aria-label="Creative work">
-      <article class="feature-card actor-card">
-        <span class="card-number">01</span>
-        <h3>Actor</h3>
-        <p>Screen-ready storytelling for commercials, film, branded work, and experimental projects.</p>
-      </article>
-      <article class="feature-card drone-card" id="drone-artist">
-        <span class="card-number">02</span>
-        <h3>Drone Artist</h3>
-        <p>Aerial visuals with a bold eye for motion, scale, texture, and impossible-looking angles.</p>
-      </article>
-    </section>
-
-    <section class="section contact-panel" id="artist">
-      <div>
-        <p class="eyebrow">Artist</p>
-        <h2>Work shaped by instinct, image, and movement.</h2>
-      </div>
-      <p>
-        A home for creative direction, visual experiments, collaborations, and the wider world around
-        Kacey's performance and aerial work.
-      </p>
     </section>
   </main>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    var backgroundPlayer;
 
-  <footer class="footer">
-    <p>&copy; 2026 Kacey Samiee. Built as a static GitHub Pages site.</p>
-  </footer>
+    function onYouTubeIframeAPIReady() {
+      backgroundPlayer = new YT.Player("background-video", {
+        events: {
+          onReady: function (event) {
+            event.target.mute();
+            event.target.playVideo();
+          },
+          onStateChange: function (event) {
+            if (event.data === YT.PlayerState.ENDED) {
+              event.target.playVideo();
+            }
+          }
+        }
+      });
+    }
+  </script>
 </body>
 </html>
