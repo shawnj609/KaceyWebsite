@@ -101,9 +101,9 @@ main {
   min-height: 100vh;
   display: grid;
   grid-template-columns: 1fr;
-  align-items: center;
+  align-items: start;
   justify-items: center;
-  padding: clamp(36px, 6vw, 72px) 0;
+  padding: clamp(110px, 19vh, 190px) 0 clamp(36px, 6vw, 72px);
   text-align: center;
 }
 
