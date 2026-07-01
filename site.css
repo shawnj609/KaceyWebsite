@@ -29,7 +29,7 @@ body {
 
 .actor-page {
   background:
-    radial-gradient(circle at 50% 42%, rgba(90, 43, 23, 0.88) 0, rgba(51, 20, 10, 0.92) 48%, #160905 100%);
+    radial-gradient(circle at 68% 42%, rgba(92, 44, 24, 0.94) 0, rgba(47, 19, 9, 0.96) 52%, #150804 100%);
   overflow: hidden;
 }
 
@@ -311,7 +311,8 @@ h1 > span {
   inset: 0;
   z-index: 0;
   display: grid;
-  place-items: center;
+  align-items: center;
+  justify-items: end;
   pointer-events: none;
 }
 
@@ -324,23 +325,24 @@ h1 > span {
 
 .actor-portrait-bg::before {
   background:
-    radial-gradient(circle at 50% 44%, rgba(70, 28, 13, 0) 0 42%, rgba(43, 17, 8, 0.42) 68%, #160905 100%);
+    radial-gradient(circle at 68% 44%, rgba(70, 28, 13, 0) 0 34%, rgba(43, 17, 8, 0.38) 62%, #150804 100%);
 }
 
 .actor-portrait-bg::after {
   background:
-    linear-gradient(90deg, rgba(22, 9, 5, 0.72), transparent 22%, transparent 78%, rgba(22, 9, 5, 0.72)),
-    linear-gradient(180deg, rgba(22, 9, 5, 0.72), transparent 22%, transparent 76%, rgba(22, 9, 5, 0.8));
+    linear-gradient(90deg, #150804 0, rgba(21, 8, 4, 0.86) 18%, transparent 44%, transparent 78%, rgba(21, 8, 4, 0.72)),
+    linear-gradient(180deg, rgba(21, 8, 4, 0.76), transparent 24%, transparent 72%, #150804);
 }
 
 .actor-portrait-bg img {
-  width: min(72vw, 760px);
-  height: min(100vh, 1180px);
+  width: min(60vw, 720px);
+  height: 100vh;
+  margin-right: clamp(8px, 4vw, 72px);
   object-fit: cover;
-  object-position: center;
+  object-position: center 18%;
   opacity: 0.96;
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 0 58%, rgba(0, 0, 0, 0.78) 70%, transparent 92%);
-  mask-image: radial-gradient(ellipse at center, #000 0 58%, rgba(0, 0, 0, 0.78) 70%, transparent 92%);
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 0 54%, rgba(0, 0, 0, 0.72) 70%, transparent 94%);
+  mask-image: radial-gradient(ellipse at center, #000 0 54%, rgba(0, 0, 0, 0.72) 70%, transparent 94%);
 }
 
 .actor-hero {
@@ -348,13 +350,13 @@ h1 > span {
   display: grid;
   align-items: start;
   justify-items: start;
-  padding: clamp(170px, 27vh, 260px) 0 clamp(36px, 6vw, 72px);
+  padding: clamp(132px, 22vh, 220px) 0 clamp(36px, 6vw, 72px);
 }
 
 .actor-heading {
   position: relative;
   z-index: 1;
-  width: min(880px, 100%);
+  width: min(560px, 100%);
   margin-left: clamp(52px, 7vw, 96px);
   text-align: left;
   text-shadow: 0 4px 26px rgba(0, 0, 0, 0.74);
@@ -365,7 +367,7 @@ h1 > span {
   gap: 0.08em;
   margin: 0;
   color: #f3e6cf;
-  font-size: clamp(2.65rem, 5.1vw, 5.8rem);
+  font-size: clamp(2.4rem, 4.5vw, 5rem);
   line-height: 0.9;
   white-space: normal;
 }
