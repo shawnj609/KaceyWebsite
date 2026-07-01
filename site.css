@@ -29,7 +29,7 @@ body {
 
 .actor-page {
   background:
-    radial-gradient(circle at 68% 42%, rgba(92, 44, 24, 0.94) 0, rgba(47, 19, 9, 0.96) 52%, #150804 100%);
+    radial-gradient(circle at 66% 42%, #4b2415 0, #35180e 46%, #160905 100%);
   overflow: hidden;
 }
 
@@ -325,13 +325,13 @@ h1 > span {
 
 .actor-portrait-bg::before {
   background:
-    radial-gradient(circle at 68% 44%, rgba(70, 28, 13, 0) 0 34%, rgba(43, 17, 8, 0.38) 62%, #150804 100%);
+    radial-gradient(circle at 67% 42%, rgba(89, 43, 25, 0.62) 0, rgba(57, 26, 15, 0.42) 48%, rgba(22, 9, 5, 0.96) 100%);
 }
 
 .actor-portrait-bg::after {
   background:
-    linear-gradient(90deg, #150804 0, rgba(21, 8, 4, 0.86) 18%, transparent 44%, transparent 78%, rgba(21, 8, 4, 0.72)),
-    linear-gradient(180deg, rgba(21, 8, 4, 0.76), transparent 24%, transparent 72%, #150804);
+    linear-gradient(90deg, #160905 0, rgba(22, 9, 5, 0.88) 18%, rgba(22, 9, 5, 0.08) 43%, rgba(22, 9, 5, 0.08) 75%, rgba(22, 9, 5, 0.74)),
+    linear-gradient(180deg, rgba(22, 9, 5, 0.62), transparent 20%, transparent 72%, #160905);
 }
 
 .actor-portrait-bg img {
@@ -341,8 +341,10 @@ h1 > span {
   object-fit: cover;
   object-position: center 18%;
   opacity: 0.96;
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 0 54%, rgba(0, 0, 0, 0.72) 70%, transparent 94%);
-  mask-image: radial-gradient(ellipse at center, #000 0 54%, rgba(0, 0, 0, 0.72) 70%, transparent 94%);
+  -webkit-mask-image:
+    radial-gradient(ellipse 70% 78% at 52% 44%, #000 0 58%, rgba(0, 0, 0, 0.78) 72%, transparent 94%);
+  mask-image:
+    radial-gradient(ellipse 70% 78% at 52% 44%, #000 0 58%, rgba(0, 0, 0, 0.78) 72%, transparent 94%);
 }
 
 .actor-hero {
