@@ -7,7 +7,7 @@
   <title>About | Kacey Samiee</title>
   <link rel="stylesheet" href="site.css"/>
 </head>
-<body class="solid-page">
+<body class="solid-page about-page">
   <nav class="home-menu" aria-label="Site navigation">
     <a class="home-icon" href="index.html" aria-label="Home"></a>
     <div class="home-menu-links">
@@ -17,13 +17,33 @@
     </div>
   </nav>
   <main>
-    <section class="subpage">
-      <div class="subpage-copy">
-        <h1 class="subpage-title">What's the Deal</h1>
-        <nav class="subpage-menu" aria-label="About navigation">
-          <a href="#professional-bio">A Professional Bio</a>
-          <a href="#unhinged-truth">The Unhinged Truth</a>
-        </nav>
+    <section class="about-bio-stage" aria-labelledby="about-title">
+      <div class="about-intro">
+        <h1 class="subpage-title" id="about-title">What's the Deal</h1>
+      </div>
+      <div class="about-bio-options">
+        <article class="about-bio-option about-bio-professional is-active" id="professional-bio" tabindex="0">
+          <h2>A Professional Bio</h2>
+          <div class="about-bio-reveal" aria-hidden="true">
+            <img src="assets/about-portrait-primary.png" alt=""/>
+            <div class="about-bio-copy">
+              <p>
+                Professional bio goes here. This can be the polished version: credits, skills, voice, projects, and the clean public-facing story.
+              </p>
+            </div>
+          </div>
+        </article>
+        <article class="about-bio-option about-bio-unhinged" id="unhinged-truth" tabindex="0">
+          <h2>The Unhinged Truth</h2>
+          <div class="about-bio-reveal" aria-hidden="true">
+            <img src="assets/about-sonic-portrait.jpg" alt=""/>
+            <div class="about-bio-copy">
+              <p>
+                The realistic and unhinged bio goes here. This can be the funny, honest, no-pants version of what is actually happening.
+              </p>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
   </main>
@@ -35,6 +55,22 @@
       menu.addEventListener("mouseleave", function () {
         menu.classList.remove("is-open");
       });
+    });
+
+    const bioOptions = document.querySelectorAll(".about-bio-option");
+
+    bioOptions.forEach(function (option) {
+      function makeActive() {
+        bioOptions.forEach(function (otherOption) {
+          otherOption.classList.remove("is-active");
+        });
+        option.classList.add("is-active");
+      }
+
+      option.addEventListener("mouseenter", makeActive);
+      option.addEventListener("mouseover", makeActive);
+      option.addEventListener("pointerenter", makeActive);
+      option.addEventListener("focus", makeActive);
     });
   </script>
 </body>

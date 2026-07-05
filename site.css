@@ -27,6 +27,12 @@ body {
   background: #000000;
 }
 
+.mother-page {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background: #000000;
+}
+
 .actor-page {
   background:
     radial-gradient(circle at 66% 42%, #4b2415 0, #35180e 46%, #160905 100%);
@@ -75,6 +81,182 @@ a {
   width: 100vw;
   height: 100vh;
   object-fit: cover;
+}
+
+.mother-video-background {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  background: #000000;
+  pointer-events: none;
+}
+
+.mother-video-background::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    radial-gradient(circle at 50% 42%, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) 52%, rgba(0, 0, 0, 0.78) 100%),
+    rgba(0, 0, 0, 0.28);
+}
+
+.mother-video-background video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+}
+
+.mother-page .subpage-copy {
+  max-width: min(900px, 100%);
+}
+
+.mother-page .subpage-title {
+  white-space: normal;
+}
+
+.mother-main {
+  width: min(1180px, calc(100% - 32px));
+}
+
+.mother-hero {
+  position: relative;
+  z-index: 1;
+}
+
+.mother-scroll-text {
+  margin-top: clamp(28px, 5vw, 54px);
+}
+
+.mother-bio-section {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: grid;
+  align-items: center;
+  justify-items: end;
+  padding: clamp(88px, 12vh, 140px) 0 clamp(72px, 9vw, 110px);
+  scroll-margin-top: 0;
+  background:
+    radial-gradient(circle at 24% 42%, #b6002b 0, #970022 45%, #610014 100%);
+}
+
+.mother-bio-section::before {
+  position: absolute;
+  inset: 0 calc(50% - 50vw);
+  z-index: -1;
+  content: "";
+  background:
+    radial-gradient(circle at 25% 42%, rgba(191, 0, 45, 0.62), transparent 42%),
+    linear-gradient(90deg, rgba(183, 0, 43, 0.9), rgba(98, 0, 20, 0.94));
+}
+
+.mother-bio-section::after {
+  position: absolute;
+  inset: 0 calc(50% - 50vw);
+  z-index: -1;
+  content: "";
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.12), transparent 20%, transparent 88%, rgba(107, 0, 24, 0.18));
+}
+
+.mother-bio-photo {
+  position: absolute;
+  inset: 0 calc(50% - 50vw);
+  z-index: -1;
+  display: grid;
+  align-items: center;
+  justify-items: start;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.mother-bio-photo img {
+  width: auto;
+  max-width: min(58vw, 740px);
+  height: 100vh;
+  object-fit: contain;
+  object-position: left center;
+  opacity: 0.98;
+  -webkit-mask-image:
+    linear-gradient(90deg, #000 0, #000 64%, rgba(0, 0, 0, 0.84) 74%, rgba(0, 0, 0, 0.26) 90%, transparent 100%);
+  mask-image:
+    linear-gradient(90deg, #000 0, #000 64%, rgba(0, 0, 0, 0.84) 74%, rgba(0, 0, 0, 0.26) 90%, transparent 100%);
+}
+
+.mother-bio-copy {
+  position: relative;
+  z-index: 1;
+  width: min(470px, 100%);
+  margin-right: clamp(30px, 6vw, 82px);
+  color: #f3e6cf;
+  text-align: left;
+  text-shadow: 0 4px 26px rgba(0, 0, 0, 0.82);
+}
+
+.mother-bio-copy h2 {
+  display: grid;
+  gap: 0.02em;
+  margin: 0;
+  font-family: "Kuinca", "Didot", "Bodoni 72", "Bodoni 72 Display", Georgia, serif;
+  font-size: clamp(3.2rem, 7vw, 6.4rem);
+  font-weight: 700;
+  line-height: 0.84;
+}
+
+.mother-bio-copy .gold-text {
+  color: #c7a04d;
+  transform: translateX(clamp(16px, 3vw, 46px));
+}
+
+.mother-bio-copy p {
+  width: min(420px, 100%);
+  margin: clamp(24px, 4vw, 38px) 0 0;
+  color: rgba(243, 230, 207, 0.82);
+  font-size: clamp(1rem, 1.45vw, 1.18rem);
+  font-weight: 600;
+  line-height: 1.55;
+}
+
+.mother-design-section::before {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.78), rgba(12, 0, 4, 0.94) 24%, rgba(0, 0, 0, 0.9) 100%),
+    radial-gradient(circle at 18% 20%, rgba(198, 0, 52, 0.24), transparent 38%),
+    radial-gradient(circle at 76% 42%, rgba(199, 160, 77, 0.15), transparent 34%),
+    #050001;
+}
+
+.mother-design-grid .work-card img {
+  object-position: center 24%;
+}
+
+.mother-video-tile {
+  background:
+    linear-gradient(135deg, rgba(198, 0, 52, 0.42), rgba(0, 0, 0, 0.62)),
+    url("assets/mother-bio-portrait.png") center 58% / cover;
+}
+
+.hekate-section::before {
+  background:
+    linear-gradient(180deg, rgba(7, 0, 3, 0.82), rgba(0, 0, 0, 0.94) 28%, rgba(0, 0, 0, 0.9) 100%),
+    radial-gradient(circle at 22% 34%, rgba(198, 0, 52, 0.26), transparent 34%),
+    radial-gradient(circle at 78% 22%, rgba(199, 160, 77, 0.22), transparent 30%),
+    #030001;
+}
+
+.hekate-grid .work-card img {
+  object-position: center 32%;
+}
+
+.hekate-video-tile {
+  background:
+    linear-gradient(135deg, rgba(199, 160, 77, 0.34), rgba(104, 0, 28, 0.5), rgba(0, 0, 0, 0.76)),
+    url("assets/mother-bio-portrait.png") center 54% / cover;
 }
 
 main {
@@ -304,6 +486,243 @@ h1 > span {
 
 .subpage-menu a:hover {
   color: var(--muted);
+}
+
+.about-page {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 50% 14%, rgba(77, 72, 58, 0.18), transparent 38%),
+    #000000;
+}
+
+.about-page main {
+  width: min(1260px, calc(100% - 32px));
+}
+
+.about-bio-stage {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  gap: clamp(24px, 4vw, 38px);
+  padding: clamp(108px, 14vh, 156px) 0 clamp(42px, 7vw, 84px);
+}
+
+.about-intro {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  text-shadow: 0 3px 24px rgba(0, 0, 0, 0.82);
+}
+
+.about-bio-options {
+  position: relative;
+  min-height: clamp(430px, 56vh, 620px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: clamp(24px, 6vw, 90px);
+}
+
+.about-bio-option {
+  position: relative;
+  z-index: 1;
+  min-height: auto;
+  display: block;
+  outline: 0;
+}
+
+.about-bio-option h2 {
+  position: relative;
+  z-index: 3;
+  width: auto;
+  margin: 0;
+  color: var(--ink);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: clamp(1.05rem, 1.9vw, 1.35rem);
+  font-weight: 650;
+  line-height: 1.2;
+  text-align: center;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.78);
+  text-transform: lowercase;
+  white-space: nowrap;
+  transition: color 180ms ease, opacity 180ms ease;
+}
+
+.about-bio-option:hover,
+.about-bio-option:focus-within,
+.about-bio-option:focus {
+  z-index: 2;
+}
+
+.about-bio-option:hover h2,
+.about-bio-option:focus-within h2,
+.about-bio-option:focus h2 {
+  color: var(--muted);
+}
+
+.about-bio-options:has(.about-bio-professional:hover) .about-bio-unhinged h2,
+.about-bio-options:has(.about-bio-professional:focus) .about-bio-unhinged h2,
+.about-bio-options:has(.about-bio-professional:focus-within) .about-bio-unhinged h2 {
+  opacity: 1;
+}
+
+.about-bio-options:has(.about-bio-unhinged:hover) .about-bio-professional h2,
+.about-bio-options:has(.about-bio-unhinged:focus) .about-bio-professional h2,
+.about-bio-options:has(.about-bio-unhinged:focus-within) .about-bio-professional h2 {
+  opacity: 1;
+}
+
+.about-bio-reveal {
+  position: fixed;
+  top: clamp(248px, 36vh, 310px);
+  right: max(24px, calc(50vw - 630px));
+  bottom: clamp(34px, 6vh, 64px);
+  left: max(24px, calc(50vw - 630px));
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.92fr) minmax(320px, 1fr);
+  align-items: center;
+  gap: clamp(34px, 7vw, 92px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 240ms ease;
+}
+
+.about-bio-professional .about-bio-reveal::before {
+  position: absolute;
+  inset: -16% max(-12vw, -140px) -18% max(-12vw, -140px);
+  z-index: -1;
+  content: "";
+  background:
+    radial-gradient(ellipse at 28% 48%, rgba(65, 62, 52, 0.82), rgba(42, 40, 34, 0.88) 38%, rgba(23, 22, 19, 0.86) 68%, rgba(0, 0, 0, 0) 100%);
+  pointer-events: none;
+}
+
+.about-bio-option:hover .about-bio-reveal,
+.about-bio-option:focus-within .about-bio-reveal,
+.about-bio-option:focus .about-bio-reveal {
+  opacity: 1;
+}
+
+.about-bio-options .about-bio-option .about-bio-reveal,
+.about-bio-options:has(.about-bio-option.is-active) .about-bio-option .about-bio-reveal {
+  opacity: 0;
+}
+
+.about-bio-options .about-bio-option.is-active .about-bio-reveal,
+.about-bio-options:has(.about-bio-professional.is-active) .about-bio-professional .about-bio-reveal,
+.about-bio-options:has(.about-bio-unhinged.is-active) .about-bio-unhinged .about-bio-reveal {
+  opacity: 1;
+}
+
+.about-bio-option.is-active h2 {
+  color: var(--muted);
+}
+
+.about-bio-options:has(.about-bio-professional:hover) .about-bio-unhinged .about-bio-reveal,
+.about-bio-options:has(.about-bio-professional:focus) .about-bio-unhinged .about-bio-reveal,
+.about-bio-options:has(.about-bio-professional:focus-within) .about-bio-unhinged .about-bio-reveal,
+.about-bio-options:has(.about-bio-unhinged:hover) .about-bio-professional .about-bio-reveal,
+.about-bio-options:has(.about-bio-unhinged:focus) .about-bio-professional .about-bio-reveal,
+.about-bio-options:has(.about-bio-unhinged:focus-within) .about-bio-professional .about-bio-reveal {
+  opacity: 0;
+}
+
+.about-bio-options:has(.about-bio-unhinged:hover) .about-bio-unhinged .about-bio-reveal,
+.about-bio-options:has(.about-bio-unhinged:focus) .about-bio-unhinged .about-bio-reveal,
+.about-bio-options:has(.about-bio-unhinged:focus-within) .about-bio-unhinged .about-bio-reveal {
+  opacity: 1;
+}
+
+.about-bio-options:has(.about-bio-professional:hover) .about-bio-professional .about-bio-reveal {
+  opacity: 1;
+}
+
+.about-bio-options:has(.about-bio-professional:hover) .about-bio-unhinged .about-bio-reveal {
+  opacity: 0;
+}
+
+.about-bio-options:has(.about-bio-unhinged:hover) .about-bio-professional .about-bio-reveal {
+  opacity: 0;
+}
+
+.about-bio-options:has(.about-bio-professional.is-active) .about-bio-professional .about-bio-reveal,
+.about-bio-options:has(.about-bio-unhinged.is-active) .about-bio-unhinged .about-bio-reveal {
+  opacity: 1;
+}
+
+.about-bio-options:has(.about-bio-professional.is-active) .about-bio-unhinged .about-bio-reveal,
+.about-bio-options:has(.about-bio-unhinged.is-active) .about-bio-professional .about-bio-reveal {
+  opacity: 0;
+}
+
+.about-bio-reveal img {
+  width: min(38vw, 430px);
+  max-height: 100%;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 24px 56px rgba(0, 0, 0, 0.58));
+}
+
+.about-bio-professional .about-bio-reveal img {
+  -webkit-mask-image:
+    linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.42) 7%, #000 18%, #000 58%, rgba(0, 0, 0, 0.62) 74%, rgba(0, 0, 0, 0.2) 91%, transparent 100%),
+    linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.38) 8%, #000 22%, #000 90%, transparent 100%);
+  mask-image:
+    linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.42) 7%, #000 18%, #000 58%, rgba(0, 0, 0, 0.62) 74%, rgba(0, 0, 0, 0.2) 91%, transparent 100%),
+    linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.38) 8%, #000 22%, #000 90%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+.about-bio-copy {
+  width: min(430px, 100%);
+  align-self: center;
+  padding: clamp(88px, 13vw, 150px) 0 0;
+  color: rgba(243, 230, 207, 0.88);
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+  font-weight: 600;
+  line-height: 1.58;
+  text-shadow: 0 3px 20px rgba(0, 0, 0, 0.78);
+}
+
+.about-bio-professional .about-bio-reveal img {
+  justify-self: start;
+}
+
+.about-bio-professional:hover h2,
+.about-bio-professional:focus-within h2,
+.about-bio-professional:focus h2 {
+  text-align: center;
+}
+
+.about-bio-professional .about-bio-copy {
+  justify-self: end;
+  text-align: left;
+}
+
+.about-bio-unhinged .about-bio-reveal {
+  grid-template-columns: minmax(320px, 1fr) minmax(280px, 0.92fr);
+}
+
+.about-bio-unhinged .about-bio-reveal img {
+  grid-column: 2;
+  justify-self: end;
+  width: min(36vw, 390px);
+}
+
+.about-bio-unhinged:hover h2,
+.about-bio-unhinged:focus-within h2,
+.about-bio-unhinged:focus h2 {
+  text-align: center;
+}
+
+.about-bio-unhinged .about-bio-copy {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+  text-align: right;
 }
 
 .actor-portrait-bg {
@@ -624,6 +1043,12 @@ h1 > span {
     url("assets/kacey.webp") center / cover;
 }
 
+.hekate-video-tile {
+  background:
+    linear-gradient(135deg, rgba(199, 160, 77, 0.34), rgba(104, 0, 28, 0.5), rgba(0, 0, 0, 0.76)),
+    url("assets/mother-bio-portrait.png") center 54% / cover;
+}
+
 .video-tile::before {
   position: absolute;
   inset: 0;
@@ -704,6 +1129,74 @@ h1 > span {
   .work-grid {
     grid-auto-rows: clamp(150px, 34vw, 230px);
   }
+
+  .about-bio-stage {
+    padding-top: clamp(96px, 13vh, 132px);
+  }
+
+  .about-bio-options {
+    min-height: auto;
+    gap: 46px;
+  }
+
+  .about-bio-option {
+    min-height: auto;
+    gap: 22px;
+  }
+
+  .about-bio-option h2 {
+    font-size: clamp(2.4rem, 10vw, 4.8rem);
+  }
+
+  .about-bio-reveal,
+  .about-bio-unhinged .about-bio-reveal {
+    position: relative;
+    inset: auto;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .about-bio-reveal img,
+  .about-bio-unhinged .about-bio-reveal img {
+    grid-column: auto;
+    width: min(74vw, 360px);
+    max-height: none;
+    justify-self: center;
+  }
+
+  .about-bio-copy,
+  .about-bio-unhinged .about-bio-copy {
+    grid-column: auto;
+    grid-row: auto;
+    width: min(470px, 100%);
+    justify-self: center;
+    text-align: center;
+  }
+
+  .mother-bio-photo {
+    align-items: end;
+    justify-items: center;
+  }
+
+  .mother-bio-photo img {
+    width: auto;
+    max-width: none;
+    height: 100vh;
+    object-fit: contain;
+    object-position: center bottom;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+
+  .mother-bio-copy {
+    width: min(430px, calc(100vw - 56px));
+    margin-right: auto;
+    margin-left: clamp(28px, 6vw, 52px);
+    align-self: start;
+    padding-top: clamp(32px, 8vh, 72px);
+  }
 }
 
 @media (max-width: 520px) {
@@ -778,6 +1271,66 @@ h1 > span {
 
   .video-tile {
     aspect-ratio: 16 / 10;
+  }
+
+  .about-page main {
+    width: min(100% - 22px, 1120px);
+  }
+
+  .about-bio-stage {
+    gap: 42px;
+  }
+
+  .about-bio-option h2 {
+    font-size: clamp(2.15rem, 12vw, 3.2rem);
+  }
+
+  .about-bio-reveal img,
+  .about-bio-unhinged .about-bio-reveal img {
+    width: min(86vw, 330px);
+  }
+
+  .about-bio-copy,
+  .about-bio-unhinged .about-bio-copy {
+    font-size: 0.98rem;
+  }
+
+  .mother-page .subpage-title {
+    max-width: 340px;
+    font-size: clamp(2.8rem, 15vw, 4rem);
+    line-height: 0.92;
+  }
+
+  .mother-main {
+    width: min(100% - 22px, 1120px);
+  }
+
+  .mother-bio-section {
+    min-height: 110vh;
+  }
+
+  .mother-bio-photo img {
+    width: 100vw;
+    object-position: center bottom;
+  }
+
+  .mother-bio-copy {
+    width: min(315px, calc(100vw - 44px));
+    margin-left: 0;
+    padding-top: 34px;
+  }
+
+  .mother-bio-copy h2 {
+    font-size: clamp(2.7rem, 15vw, 4rem);
+  }
+
+  .mother-bio-copy .gold-text {
+    transform: none;
+  }
+
+  .mother-bio-copy p {
+    max-width: 285px;
+    font-size: 0.98rem;
   }
 
 }

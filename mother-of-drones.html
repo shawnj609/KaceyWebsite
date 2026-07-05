@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Mother of Drones page for Kacey Samiee."/>
   <title>Mother of Drones | Kacey Samiee</title>
-  <link rel="stylesheet" href="site.css"/>
+  <link rel="stylesheet" href="site.css?v=mother-scroll-20260704"/>
 </head>
-<body class="solid-page">
+<body class="solid-page mother-page">
   <nav class="home-menu" aria-label="Site navigation">
     <a class="home-icon" href="index.html" aria-label="Home"></a>
     <div class="home-menu-links">
@@ -16,10 +16,82 @@
       <a href="about.html">About</a>
     </div>
   </nav>
-  <main>
-    <section class="subpage">
+  <div class="mother-video-background" aria-hidden="true">
+    <video autoplay muted loop playsinline preload="auto" src="assets/mother-of-drones-background.mov">
+      <source src="assets/mother-of-drones-background.mov" type="video/quicktime"/>
+    </video>
+  </div>
+  <main class="mother-main">
+    <section class="subpage mother-hero">
       <div class="subpage-copy">
         <h1 class="subpage-title">Mother of Drones</h1>
+        <a class="actor-scroll-text mother-scroll-text" href="#drone-bio">bio + design work below</a>
+      </div>
+    </section>
+    <section class="mother-bio-section" id="drone-bio" aria-labelledby="drone-bio-title">
+      <div class="mother-bio-photo" aria-hidden="true">
+        <img src="assets/mother-bio-portrait.png" alt=""/>
+      </div>
+      <div class="mother-bio-copy reveal-on-scroll">
+        <h2 id="drone-bio-title">
+          <span>Drone</span>
+          <span class="gold-text">Artist</span>
+        </h2>
+        <p>
+          Short bio goes here. This section can introduce your drone work, design practice, and the world behind Mother of Drones.
+        </p>
+      </div>
+    </section>
+    <section class="actor-gallery-section mother-design-section" id="design-work" aria-labelledby="design-work-title">
+      <div class="scroll-gallery-heading reveal-on-scroll">
+        <h2 id="design-work-title">
+          <span>design</span>
+          <span class="gold-text">work</span>
+        </h2>
+      </div>
+      <div class="work-grid mother-design-grid" aria-label="Drone design work gallery">
+        <a class="work-card work-card-wide reveal-on-scroll" href="assets/mother-bio-portrait.png">
+          <img src="assets/mother-bio-portrait.png" alt="Kacey Samiee holding a drone"/>
+          <span>design</span>
+        </a>
+        <div class="work-card video-tile mother-video-tile reveal-on-scroll" aria-label="Drone video">
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>video</span>
+        </div>
+        <a class="work-card reveal-on-scroll" href="assets/kacey.webp">
+          <img src="assets/kacey.webp" alt="Kacey Samiee outdoors"/>
+          <span>field work</span>
+        </a>
+        <a class="work-card reveal-on-scroll" href="assets/kacey-instagram.jpg">
+          <img src="assets/kacey-instagram.jpg" alt="Kacey Samiee profile portrait"/>
+          <span>process</span>
+        </a>
+      </div>
+    </section>
+    <section class="actor-gallery-section hekate-section" id="hekates-torch" aria-labelledby="hekates-torch-title">
+      <div class="scroll-gallery-heading reveal-on-scroll">
+        <h2 id="hekates-torch-title">
+          <span>Hekate's</span>
+          <span class="gold-text">Torch</span>
+        </h2>
+      </div>
+      <div class="work-grid hekate-grid" aria-label="Hekate's Torch gallery">
+        <a class="work-card work-card-wide reveal-on-scroll" href="assets/mother-bio-portrait.png">
+          <img src="assets/mother-bio-portrait.png" alt="Placeholder for Hekate's Torch"/>
+          <span>photo</span>
+        </a>
+        <div class="work-card video-tile hekate-video-tile reveal-on-scroll" aria-label="Hekate's Torch video placeholder">
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>video</span>
+        </div>
+        <a class="work-card reveal-on-scroll" href="assets/about-sonic-portrait.jpg">
+          <img src="assets/about-sonic-portrait.jpg" alt="Placeholder for Hekate's Torch"/>
+          <span>photo</span>
+        </a>
+        <div class="work-card video-tile hekate-video-tile reveal-on-scroll" aria-label="Hekate's Torch video placeholder">
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>video</span>
+        </div>
       </div>
     </section>
   </main>
@@ -32,6 +104,26 @@
         menu.classList.remove("is-open");
       });
     });
+
+    var revealItems = document.querySelectorAll(".reveal-on-scroll");
+    if ("IntersectionObserver" in window) {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.18 });
+
+      revealItems.forEach(function (item) {
+        revealObserver.observe(item);
+      });
+    } else {
+      revealItems.forEach(function (item) {
+        item.classList.add("is-visible");
+      });
+    }
   </script>
 </body>
 </html>
