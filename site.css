@@ -985,13 +985,13 @@ h1 > span {
   width: auto;
   max-width: min(56vw, 760px);
   height: 100vh;
-  margin-left: clamp(56px, 8vw, 128px);
+  margin-left: 0;
   object-fit: contain;
   object-position: left top;
   -webkit-mask-image:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.52) 0, rgba(0, 0, 0, 0.86) 8%, #000 16%, #000 74%, rgba(0, 0, 0, 0.76) 86%, transparent 100%);
+    linear-gradient(90deg, #000 0, #000 74%, rgba(0, 0, 0, 0.76) 86%, transparent 100%);
   mask-image:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.52) 0, rgba(0, 0, 0, 0.86) 8%, #000 16%, #000 74%, rgba(0, 0, 0, 0.76) 86%, transparent 100%);
+    linear-gradient(90deg, #000 0, #000 74%, rgba(0, 0, 0, 0.76) 86%, transparent 100%);
 }
 
 .about-professional-section .about-scroll-copy {
@@ -1030,13 +1030,13 @@ h1 > span {
   width: auto;
   max-width: min(56vw, 760px);
   height: 100vh;
-  margin-right: clamp(56px, 8vw, 128px);
+  margin-right: 0;
   object-fit: contain;
   object-position: right top;
   -webkit-mask-image:
-    linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.76) 14%, #000 26%, #000 82%, rgba(0, 0, 0, 0.35) 93%, transparent 100%);
+    linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.76) 14%, #000 26%, #000 100%);
   mask-image:
-    linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.76) 14%, #000 26%, #000 82%, rgba(0, 0, 0, 0.35) 93%, transparent 100%);
+    linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.76) 14%, #000 26%, #000 100%);
 }
 
 .about-facts-section .about-scroll-copy {
