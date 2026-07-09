@@ -968,12 +968,12 @@ h1 > span {
 
 .about-professional-section::before {
   background:
-    linear-gradient(90deg, #1b1c17 0, #1d1d18 46%, #10100e 66%, #000000 100%);
+    linear-gradient(90deg, #1a1b16 0, #1b1c17 42%, #171813 58%, #0d0d0b 74%, #000000 100%);
 }
 
 .about-professional-section::after {
   background:
-    linear-gradient(90deg, rgba(27, 28, 23, 0.12) 0, rgba(27, 28, 23, 0.02) 42%, rgba(0, 0, 0, 0.34) 64%, rgba(0, 0, 0, 0.94) 88%, #000000 100%);
+    linear-gradient(90deg, rgba(26, 27, 22, 0.02) 0, rgba(26, 27, 22, 0.02) 48%, rgba(0, 0, 0, 0.26) 68%, rgba(0, 0, 0, 0.94) 88%, #000000 100%);
 }
 
 .about-professional-section .about-scroll-photo {
@@ -989,9 +989,9 @@ h1 > span {
   object-fit: contain;
   object-position: left top;
   -webkit-mask-image:
-    linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.35) 7%, #000 18%, #000 74%, rgba(0, 0, 0, 0.76) 86%, transparent 100%);
+    linear-gradient(90deg, rgba(0, 0, 0, 0.52) 0, rgba(0, 0, 0, 0.86) 8%, #000 16%, #000 74%, rgba(0, 0, 0, 0.76) 86%, transparent 100%);
   mask-image:
-    linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.35) 7%, #000 18%, #000 74%, rgba(0, 0, 0, 0.76) 86%, transparent 100%);
+    linear-gradient(90deg, rgba(0, 0, 0, 0.52) 0, rgba(0, 0, 0, 0.86) 8%, #000 16%, #000 74%, rgba(0, 0, 0, 0.76) 86%, transparent 100%);
 }
 
 .about-professional-section .about-scroll-copy {
