@@ -243,32 +243,63 @@ a {
     url("assets/mother-bio-portrait.png") center 58% / cover;
 }
 
-.hekate-section::before {
+.hekate-hero-section {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  display: grid;
+  align-items: start;
+  justify-items: start;
+  padding: clamp(132px, 22vh, 220px) 0 clamp(36px, 6vw, 72px);
+  scroll-margin-top: 0;
+}
+
+.hekate-hero-section::before {
+  position: absolute;
+  inset: 0 calc(50% - 50vw);
+  z-index: -1;
+  content: "";
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.84) 0, rgba(0, 0, 0, 0.54) 38%, rgba(0, 0, 0, 0.16) 64%, rgba(0, 0, 0, 0.78) 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.26) 0, rgba(0, 0, 0, 0.08) 38%, rgba(0, 0, 0, 0.82) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.78) 0, rgba(0, 0, 0, 0.44) 38%, rgba(0, 0, 0, 0.1) 66%, rgba(0, 0, 0, 0.66) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.26) 0, rgba(0, 0, 0, 0.08) 46%, rgba(0, 0, 0, 0.84) 100%),
     url("assets/hekates-torch.png") center center / cover,
     #030001;
 }
 
-.hekate-section {
-  min-height: 100vh;
-  align-items: center;
-  padding: clamp(120px, 17vh, 170px) 0 clamp(82px, 10vw, 130px);
-}
-
-.hekate-section .scroll-gallery-heading {
-  top: clamp(112px, 16vh, 160px);
-  width: min(520px, 100%);
-}
-
-.hekate-section .scroll-gallery-heading h2 {
-  font-size: clamp(4rem, 8.6vw, 8.4rem);
+.hekate-hero-copy {
+  width: min(760px, 100%);
+  margin-left: clamp(52px, 7vw, 96px);
+  text-align: left;
   text-shadow: 0 5px 32px rgba(0, 0, 0, 0.88);
 }
 
-.hekate-section .work-grid {
-  align-self: end;
+.hekate-hero-copy h2 {
+  display: grid;
+  gap: clamp(0.03em, 0.5vw, 0.16em);
+  margin: 0;
+  color: #f3e6cf;
+  font-family: "Kuinca", "Didot", "Bodoni 72", "Bodoni 72 Display", Georgia, serif;
+  font-size: clamp(4rem, 9vw, 8.4rem);
+  font-weight: 700;
+  line-height: 0.84;
+  white-space: normal;
+}
+
+.hekate-hero-copy h2 span {
+  white-space: nowrap;
+}
+
+.hekate-hero-copy .gold-text {
+  color: #c7a04d;
+  transform: translateX(clamp(22px, 4vw, 72px));
+}
+
+.hekate-gallery-section::before {
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.86), rgba(5, 0, 2, 0.94) 24%, rgba(0, 0, 0, 0.9) 100%),
+    radial-gradient(circle at 22% 34%, rgba(198, 0, 52, 0.24), transparent 34%),
+    radial-gradient(circle at 78% 22%, rgba(199, 160, 77, 0.18), transparent 30%),
+    #030001;
 }
 
 .hekate-grid .work-card img {
@@ -935,13 +966,12 @@ h1 > span {
 
 .about-professional-section::before {
   background:
-    radial-gradient(circle at 24% 48%, rgba(65, 62, 52, 0.84) 0, rgba(42, 40, 34, 0.76) 36%, rgba(17, 16, 14, 0.94) 68%, #000000 100%);
+    linear-gradient(90deg, #1b1c17 0, #1d1d18 34%, #11110f 58%, #000000 100%);
 }
 
 .about-professional-section::after {
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.02) 0, rgba(0, 0, 0, 0.06) 34%, rgba(0, 0, 0, 0.44) 52%, rgba(0, 0, 0, 0.92) 80%, #000000 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.34), transparent 18%, transparent 84%, rgba(0, 0, 0, 0.5));
+    linear-gradient(90deg, rgba(27, 28, 23, 0.18) 0, rgba(27, 28, 23, 0.08) 38%, rgba(0, 0, 0, 0.44) 58%, rgba(0, 0, 0, 0.94) 84%, #000000 100%);
 }
 
 .about-professional-section .about-scroll-photo {
@@ -950,14 +980,16 @@ h1 > span {
 }
 
 .about-professional-section .about-scroll-photo img {
-  width: min(62vw, 820px);
+  width: auto;
+  max-width: min(56vw, 760px);
   height: 100vh;
+  margin-left: clamp(56px, 8vw, 128px);
   object-fit: contain;
   object-position: left top;
   -webkit-mask-image:
-    linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.18) 8%, rgba(0, 0, 0, 0.86) 20%, #000 34%, #000 72%, rgba(0, 0, 0, 0.56) 88%, transparent 100%);
+    linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.35) 7%, #000 18%, #000 74%, rgba(0, 0, 0, 0.76) 86%, transparent 100%);
   mask-image:
-    linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.18) 8%, rgba(0, 0, 0, 0.86) 20%, #000 34%, #000 72%, rgba(0, 0, 0, 0.56) 88%, transparent 100%);
+    linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.35) 7%, #000 18%, #000 74%, rgba(0, 0, 0, 0.76) 86%, transparent 100%);
 }
 
 .about-professional-section .about-scroll-copy {
@@ -972,32 +1004,50 @@ h1 > span {
 }
 
 .about-facts-section {
-  grid-template-columns: 1fr;
-  justify-items: center;
-  text-align: center;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.86fr);
+  justify-items: end;
+  text-align: left;
 }
 
 .about-facts-section::before {
   background:
-    radial-gradient(circle at 50% 28%, rgba(65, 62, 52, 0.26), transparent 34%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.9), #050505 28%, #000000 100%);
+    linear-gradient(90deg, #1b1c17 0, #1d1d18 34%, #11110f 58%, #000000 100%);
 }
 
 .about-facts-section::after {
   background:
-    radial-gradient(circle at 24% 50%, rgba(199, 160, 77, 0.12), transparent 34%),
-    radial-gradient(circle at 76% 48%, rgba(65, 62, 52, 0.18), transparent 38%);
+    linear-gradient(90deg, rgba(27, 28, 23, 0.18) 0, rgba(27, 28, 23, 0.08) 38%, rgba(0, 0, 0, 0.5) 62%, #000000 100%);
+}
+
+.about-facts-section .about-scroll-photo {
+  align-items: start;
+  justify-items: start;
+}
+
+.about-facts-section .about-scroll-photo img {
+  width: auto;
+  max-width: min(56vw, 760px);
+  height: 100vh;
+  margin-left: clamp(56px, 8vw, 128px);
+  object-fit: contain;
+  object-position: left top;
+  -webkit-mask-image:
+    linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.35) 7%, #000 18%, #000 74%, rgba(0, 0, 0, 0.76) 86%, transparent 100%);
+  mask-image:
+    linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.35) 7%, #000 18%, #000 74%, rgba(0, 0, 0, 0.76) 86%, transparent 100%);
 }
 
 .about-facts-section .about-scroll-copy {
-  width: min(720px, 100%);
-  justify-self: center;
-  text-align: center;
+  grid-column: 2;
+  width: min(480px, 100%);
+  justify-self: end;
+  margin-right: clamp(20px, 4vw, 58px);
+  text-align: left;
 }
 
 .about-facts-section .about-scroll-copy p {
-  margin-right: auto;
-  margin-left: auto;
+  margin-right: 0;
+  margin-left: 0;
 }
 
 .about-unhinged-section {
@@ -1006,15 +1056,11 @@ h1 > span {
 }
 
 .about-unhinged-section::before {
-  background:
-    radial-gradient(circle at 75% 46%, rgba(88, 84, 65, 0.78) 0, rgba(50, 55, 43, 0.76) 34%, rgba(24, 30, 23, 0.9) 62%, rgba(8, 10, 8, 0.98) 100%),
-    linear-gradient(90deg, #080907 0, #11150f 34%, #252a20 58%, #303525 76%, #151912 100%);
+  background: #000000;
 }
 
 .about-unhinged-section::after {
-  background:
-    linear-gradient(90deg, rgba(8, 9, 7, 0.96) 0, rgba(13, 16, 12, 0.72) 24%, rgba(21, 27, 20, 0.18) 48%, rgba(24, 29, 22, 0.08) 74%, rgba(8, 10, 8, 0.36) 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.2), transparent 20%, transparent 82%, rgba(0, 0, 0, 0.42));
+  background: none;
 }
 
 .about-unhinged-section .about-scroll-photo {
@@ -1302,14 +1348,6 @@ h1 > span {
     #050505;
 }
 
-.hekate-section::before {
-  background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.84) 0, rgba(0, 0, 0, 0.54) 38%, rgba(0, 0, 0, 0.16) 64%, rgba(0, 0, 0, 0.78) 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.26) 0, rgba(0, 0, 0, 0.08) 38%, rgba(0, 0, 0, 0.82) 100%),
-    url("assets/hekates-torch.png") center center / cover,
-    #030001;
-}
-
 .scroll-gallery-heading {
   position: sticky;
   top: clamp(92px, 14vh, 140px);
@@ -1564,11 +1602,12 @@ h1 > span {
     grid-auto-rows: clamp(150px, 34vw, 230px);
   }
 
-  .hekate-section {
+  .hekate-hero-section,
+  .hekate-gallery-section {
     align-items: start;
   }
 
-  .hekate-section .scroll-gallery-heading {
+  .hekate-gallery-section .scroll-gallery-heading {
     position: relative;
     top: auto;
   }
@@ -1623,6 +1662,7 @@ h1 > span {
   }
 
   .about-scroll-section,
+  .about-facts-section,
   .about-unhinged-section,
   .about-nebula-section {
     min-height: 100vh;
@@ -1637,10 +1677,12 @@ h1 > span {
   }
 
   .about-professional-section .about-scroll-photo img,
+  .about-facts-section .about-scroll-photo img,
   .about-unhinged-section .about-scroll-photo img,
   .about-nebula-section .about-scroll-photo img {
     width: 100vw;
     height: 100vh;
+    margin-left: 0;
     max-width: none;
     object-position: center bottom;
     -webkit-mask-image: none;
@@ -1650,6 +1692,7 @@ h1 > span {
 
   .about-scroll-copy,
   .about-professional-section .about-scroll-copy,
+  .about-facts-section .about-scroll-copy,
   .about-unhinged-section .about-scroll-copy,
   .about-nebula-section .about-scroll-copy {
     grid-column: auto;
@@ -1774,7 +1817,7 @@ h1 > span {
     aspect-ratio: 4 / 5;
   }
 
-  .hekate-section::before {
+  .hekate-hero-section::before {
     background:
       linear-gradient(180deg, rgba(0, 0, 0, 0.52) 0, rgba(0, 0, 0, 0.26) 42%, rgba(0, 0, 0, 0.88) 100%),
       url("assets/hekates-torch.png") center center / cover,
