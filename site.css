@@ -887,6 +887,7 @@ h1 > span {
   display: grid;
   align-items: center;
   overflow: hidden;
+  background-repeat: no-repeat;
   pointer-events: none;
 }
 
@@ -978,8 +979,13 @@ h1 > span {
 }
 
 .about-professional-section .about-scroll-photo {
+  inset: 0 auto 0 calc(50% - 50vw);
+  width: min(62vw, 860px);
   align-items: start;
   justify-items: start;
+  background-image: url("assets/about-portrait-primary.png");
+  background-position: left top;
+  background-size: cover;
 }
 
 .about-professional-section .about-scroll-photo img {
@@ -1023,8 +1029,13 @@ h1 > span {
 }
 
 .about-facts-section .about-scroll-photo {
+  inset: 0 calc(50% - 50vw) 0 auto;
+  width: min(62vw, 860px);
   align-items: start;
   justify-items: end;
+  background-image: url("assets/about-portrait-primary.png");
+  background-position: right top;
+  background-size: cover;
 }
 
 .about-facts-section .about-scroll-photo img {
@@ -1067,7 +1078,10 @@ h1 > span {
 }
 
 .about-unhinged-section .about-scroll-photo {
+  inset: 0 auto 0 calc(50% - 50vw);
+  width: min(58vw, 740px);
   justify-items: start;
+  background: #000000;
 }
 
 .about-unhinged-section .about-scroll-photo img {
@@ -1120,7 +1134,12 @@ h1 > span {
 }
 
 .about-nebula-section .about-scroll-photo {
+  inset: 0 calc(50% - 50vw) 0 auto;
+  width: min(64vw, 820px);
   justify-items: end;
+  background:
+    radial-gradient(circle at 52% 44%, rgba(82, 78, 64, 0.4), transparent 42%),
+    #050605;
 }
 
 .about-nebula-section .about-scroll-photo img {
@@ -1675,8 +1694,12 @@ h1 > span {
   }
 
   .about-scroll-photo {
+    inset: 0 calc(50% - 50vw);
+    width: auto;
     align-items: end;
     justify-items: center;
+    background-position: center bottom;
+    background-size: cover;
   }
 
   .about-professional-section .about-scroll-photo img,
