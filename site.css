@@ -99,8 +99,8 @@ a {
   inset: 0;
   content: "";
   background:
-    radial-gradient(circle at 50% 42%, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5) 52%, rgba(0, 0, 0, 0.78) 100%),
-    rgba(0, 0, 0, 0.28);
+    radial-gradient(circle at 50% 42%, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2) 58%, rgba(0, 0, 0, 0.42) 100%),
+    rgba(0, 0, 0, 0.08);
 }
 
 .mother-video-background video {
@@ -111,6 +111,7 @@ a {
   height: 100vh;
   min-width: 100vw;
   min-height: 100vh;
+  filter: brightness(1.35) saturate(1.08);
   object-fit: cover;
   transform: translate(-50%, -50%);
 }
@@ -1337,6 +1338,101 @@ h1 > span {
 
 .actor-bio-scroll-text {
   margin-left: 0;
+}
+
+.about-page {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 64% 40%, #33302a 0, #1d1d18 48%, #070706 100%);
+}
+
+.about-portrait-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  display: grid;
+  align-items: center;
+  justify-items: end;
+  pointer-events: none;
+}
+
+.about-portrait-bg::before,
+.about-portrait-bg::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+}
+
+.about-portrait-bg::before {
+  background:
+    radial-gradient(circle at 64% 42%, rgba(58, 55, 47, 0.54) 0, rgba(30, 30, 25, 0.32) 48%, rgba(7, 7, 6, 0.92) 100%);
+}
+
+.about-portrait-bg::after {
+  background:
+    linear-gradient(90deg, #070706 0, rgba(7, 7, 6, 0.94) 26%, rgba(7, 7, 6, 0.68) 42%, rgba(7, 7, 6, 0.14) 62%, rgba(7, 7, 6, 0.08) 76%, rgba(7, 7, 6, 0.72)),
+    linear-gradient(180deg, rgba(7, 7, 6, 0.36), transparent 18%, transparent 86%, rgba(7, 7, 6, 0.34));
+}
+
+.about-portrait-bg img {
+  width: min(60vw, 720px);
+  height: 100vh;
+  margin-right: clamp(8px, 4vw, 72px);
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0.98;
+  -webkit-mask-image:
+    linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.18) 8%, rgba(0, 0, 0, 0.84) 22%, #000 36%, #000 90%, rgba(0, 0, 0, 0.74) 96%, transparent 100%);
+  mask-image:
+    linear-gradient(90deg, transparent 0, rgba(0, 0, 0, 0.18) 8%, rgba(0, 0, 0, 0.84) 22%, #000 36%, #000 90%, rgba(0, 0, 0, 0.74) 96%, transparent 100%);
+}
+
+.about-page .about-landing-main {
+  width: min(1180px, calc(100% - 32px));
+}
+
+.about-landing-hero {
+  min-height: 100vh;
+  display: grid;
+  align-items: start;
+  justify-items: start;
+  padding: clamp(132px, 22vh, 220px) 0 clamp(36px, 6vw, 72px);
+}
+
+.about-heading {
+  position: relative;
+  z-index: 1;
+  width: min(760px, 100%);
+  margin-left: clamp(52px, 7vw, 96px);
+  color: #f3e6cf;
+  text-align: left;
+  text-shadow: 0 4px 26px rgba(0, 0, 0, 0.74);
+}
+
+.about-heading h1 {
+  display: grid;
+  gap: clamp(0.03em, 0.5vw, 0.16em);
+  margin: 0;
+  color: #f3e6cf;
+  font-family: "Kuinca", "Didot", "Bodoni 72", "Bodoni 72 Display", Georgia, serif;
+  font-size: clamp(3.4rem, 7.2vw, 7rem);
+  font-weight: 700;
+  line-height: 0.86;
+  white-space: normal;
+}
+
+.about-heading h1 span {
+  white-space: nowrap;
+}
+
+.about-heading .gold-text {
+  color: #c7a04d;
+  transform: translateX(clamp(18px, 3vw, 54px));
+}
+
+.about-flash-text {
+  margin-bottom: 0;
 }
 
 .actor-gallery-section {

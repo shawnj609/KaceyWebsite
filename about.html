@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="About page for Kacey Samiee."/>
   <title>About | Kacey Samiee</title>
-  <link rel="stylesheet" href="site.css?v=media-about-panels-20260709"/>
+  <link rel="stylesheet" href="site.css?v=about-reset-20260709"/>
 </head>
 <body class="solid-page about-page">
   <nav class="home-menu" aria-label="Site navigation">
@@ -16,59 +16,17 @@
       <a href="about.html">About</a>
     </div>
   </nav>
-  <main class="about-main">
-    <section class="about-scroll-section about-professional-section" id="professional-bio" aria-labelledby="about-title">
-      <div class="about-scroll-photo" aria-hidden="true">
-        <img src="assets/about-portrait-primary.png" alt=""/>
-      </div>
-      <div class="about-scroll-copy">
-        <h1 class="subpage-title" id="about-title">
+  <div class="about-portrait-bg" aria-hidden="true">
+    <img src="assets/about-portrait-primary.png" alt=""/>
+  </div>
+  <main class="about-landing-main">
+    <section class="about-landing-hero" aria-labelledby="about-title">
+      <div class="about-heading">
+        <h1 id="about-title">
           <span>Who Is</span>
           <span class="gold-text">She?</span>
         </h1>
-        <a class="actor-scroll-text about-scroll-text" href="#facts">facts below</a>
-      </div>
-    </section>
-    <section class="about-scroll-section about-facts-section" id="facts" aria-labelledby="facts-title">
-      <div class="about-scroll-photo" aria-hidden="true">
-        <img src="assets/about-portrait-primary.png" alt=""/>
-      </div>
-      <div class="about-scroll-copy">
-        <h2 id="facts-title">
-          <span>Bio</span>
-        </h2>
-        <p>
-          Professional bio goes here. This can be the polished version: credits, skills, voice, projects, and the clean public-facing story.
-        </p>
-        <a class="actor-scroll-text about-scroll-text" href="#unhinged-truth">the unhinged truth below</a>
-      </div>
-    </section>
-    <section class="about-scroll-section about-unhinged-section" id="unhinged-truth" aria-labelledby="unhinged-title">
-      <div class="about-scroll-photo" aria-hidden="true">
-        <img src="assets/about-sonic-portrait.jpg" alt=""/>
-      </div>
-      <div class="about-scroll-copy">
-        <h2 id="unhinged-title">
-          <span>The Unhinged</span>
-          <span class="gold-text">Truth</span>
-        </h2>
-        <p>
-          The realistic and unhinged bio goes here. This can be the funny, honest, no-pants version of what is actually happening.
-        </p>
-        <a class="actor-scroll-text about-scroll-text" href="#nebula">nebula below</a>
-      </div>
-    </section>
-    <section class="about-scroll-section about-nebula-section" id="nebula" aria-labelledby="nebula-title">
-      <div class="about-scroll-photo" aria-hidden="true">
-        <img src="assets/fern-gulley-portrait.jpg" alt=""/>
-      </div>
-      <div class="about-scroll-copy">
-        <h2 id="nebula-title">
-          <span>Nebula</span>
-        </h2>
-        <p>
-          Nebula section goes here. This can hold the myth, the project, the alter ego, or whatever little galaxy needs its own room.
-        </p>
+        <p class="actor-scroll-text about-flash-text">scroll</p>
       </div>
     </section>
   </main>
@@ -81,7 +39,6 @@
         menu.classList.remove("is-open");
       });
     });
-
   </script>
 </body>
 </html>
