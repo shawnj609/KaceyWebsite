@@ -1248,6 +1248,15 @@ h1 > span {
   color: #c7a04d;
 }
 
+.actor-intro-bio {
+  width: min(640px, 100%);
+  margin: clamp(24px, 3vw, 34px) 0 0;
+  color: rgba(243, 230, 207, 0.86);
+  font-size: clamp(0.95rem, 1.08vw, 1.08rem);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
 .actor-main {
   width: min(1180px, calc(100% - 32px));
 }
@@ -1695,6 +1704,10 @@ h1 > span {
     transform: none;
   }
 
+  .actor-intro-bio {
+    width: min(560px, 100%);
+  }
+
   .actor-bio-copy {
     width: min(620px, calc(100vw - 56px));
     margin-left: clamp(28px, 6vw, 52px);
@@ -1875,6 +1888,11 @@ h1 > span {
 
   .actor-heading .stage-line {
     font-size: clamp(1.8rem, 8.8vw, 2.18rem);
+  }
+
+  .actor-intro-bio {
+    font-size: 0.88rem;
+    line-height: 1.42;
   }
 
   .actor-scroll-text {
