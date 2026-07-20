@@ -1477,8 +1477,8 @@ h1 > span {
 
 #photo-reel-gallery {
   width: 100vw;
-  grid-template-columns: minmax(360px, 56vw) minmax(300px, 1fr);
-  gap: clamp(24px, 4vw, 72px);
+  grid-template-columns: clamp(340px, 30vw, 420px) minmax(420px, 1fr);
+  gap: clamp(14px, 1.6vw, 28px);
   margin-left: calc(50% - 50vw);
   padding-right: clamp(18px, 4vw, 64px);
   padding-left: clamp(18px, 3vw, 44px);
@@ -1521,7 +1521,8 @@ h1 > span {
 }
 
 .gallery-hover-preview {
-  width: min(100%, 760px);
+  width: fit-content;
+  max-width: 100%;
   height: auto;
   margin-top: clamp(30px, 5vw, 54px);
   overflow: visible;
@@ -1547,8 +1548,10 @@ h1 > span {
 
 .scroll-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(118px, 150px));
   gap: clamp(12px, 1.6vw, 18px);
+  justify-content: start;
+  align-content: start;
 }
 
 .scroll-gallery-tile {
