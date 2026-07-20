@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Actor and filmmaker page for Kacey Samiee."/>
   <title>Actor and Filmmaker | Kacey Samiee</title>
-  <link rel="stylesheet" href="site.css?v=transparent-moon-20260712"/>
+  <link rel="stylesheet" href="site.css?v=reel-gallery-youtube-20260720"/>
 </head>
 <body class="solid-page actor-page">
   <nav class="home-menu" aria-label="Site navigation">
@@ -98,23 +98,52 @@
           <span class="gold-text">Gallery</span>
         </h2>
       </div>
-      <div class="work-grid" aria-label="Reel gallery">
-        <a class="work-card work-card-wide reveal-on-scroll" href="assets/actor-portrait.jpg">
-          <img src="assets/actor-portrait.jpg" alt="Kacey Samiee portrait"/>
-          <span>film</span>
-        </a>
-        <a class="work-card reveal-on-scroll" href="assets/media/headshots/kacey-waveform-edit-1.png">
-          <img src="assets/media/headshots/kacey-waveform-edit-1.png" alt="Kacey Samiee headshot"/>
-          <span>television</span>
-        </a>
-        <a class="work-card reveal-on-scroll" href="assets/kacey.webp">
-          <img src="assets/kacey.webp" alt="Kacey Samiee outdoors"/>
-          <span>stage</span>
-        </a>
-        <div class="work-card video-tile reveal-on-scroll" aria-label="Selected reels">
+      <div class="work-grid reel-grid" aria-label="Reel gallery">
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtu.be/tfEpUExAU3w" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/tfEpUExAU3w/hqdefault.jpg" alt="Kacey Samiee reel video preview"/>
           <span class="play-mark" aria-hidden="true"></span>
-          <span>selected reels</span>
-        </div>
+          <span>reel 01</span>
+        </a>
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtu.be/PCdNapCFjbc" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/PCdNapCFjbc/hqdefault.jpg" alt="Kacey Samiee reel video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>reel 02</span>
+        </a>
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtu.be/wD5IjAJgzrs" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/wD5IjAJgzrs/hqdefault.jpg" alt="Kacey Samiee reel video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>reel 03</span>
+        </a>
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtu.be/4lVvTg29w3U" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/4lVvTg29w3U/hqdefault.jpg" alt="Kacey Samiee reel video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>reel 04</span>
+        </a>
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtu.be/GNntJ3MHVKo" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/GNntJ3MHVKo/hqdefault.jpg" alt="Kacey Samiee reel video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>reel 05</span>
+        </a>
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtu.be/UM1hGwDo1gk" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/UM1hGwDo1gk/hqdefault.jpg" alt="Kacey Samiee reel video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>reel 06</span>
+        </a>
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtu.be/iubvJKyNLTQ" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/iubvJKyNLTQ/hqdefault.jpg" alt="Kacey Samiee reel video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>reel 07</span>
+        </a>
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtu.be/X5gJFi9Q2M4" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/X5gJFi9Q2M4/hqdefault.jpg" alt="Kacey Samiee reel video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>reel 08</span>
+        </a>
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtu.be/Ib8Ktt7GGVE" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/Ib8Ktt7GGVE/hqdefault.jpg" alt="Kacey Samiee reel video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>reel 09</span>
+        </a>
       </div>
     </section>
   </main>
@@ -158,6 +187,10 @@
 
       tile.addEventListener("mouseenter", showPreview);
       tile.addEventListener("focus", showPreview);
+      tile.addEventListener("click", function (event) {
+        event.preventDefault();
+        showPreview();
+      });
     });
   </script>
 </body>
