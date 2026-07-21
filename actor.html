@@ -4,8 +4,9 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Actor and filmmaker page for Kacey Samiee."/>
+  <meta name="referrer" content="strict-origin-when-cross-origin"/>
   <title>Actor and Filmmaker | Kacey Samiee</title>
-  <link rel="stylesheet" href="site.css?v=photo-grid-small-pushed-20260720"/>
+  <link rel="stylesheet" href="site.css?v=gallery-header-align-20260721"/>
 </head>
 <body class="solid-page actor-page">
   <nav class="home-menu" aria-label="Site navigation">
@@ -156,7 +157,74 @@
         </a>
       </div>
     </section>
+    <section class="actor-gallery-section work-section filmmaker-section" id="filmmaker-gallery" aria-labelledby="filmmaker-gallery-title">
+      <div class="scroll-gallery-heading work-heading reveal-on-scroll">
+        <h2 id="filmmaker-gallery-title">
+          <span>Filmmaker</span>
+          <span class="gold-text">Gallery</span>
+        </h2>
+      </div>
+      <div class="work-grid reel-grid" aria-label="Filmmaker gallery">
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtu.be/PZ25BoOjEcA" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/PZ25BoOjEcA/hqdefault.jpg" alt="Kacey Samiee filmmaker video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>film 01</span>
+        </a>
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtu.be/xChwymiiiWs" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/xChwymiiiWs/hqdefault.jpg" alt="Kacey Samiee filmmaker video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>film 02</span>
+        </a>
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtube.com/shorts/FlboW9VFl68" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/FlboW9VFl68/hqdefault.jpg" alt="Kacey Samiee filmmaker video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>film 03</span>
+        </a>
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtu.be/D58Tg_dDrx4" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/D58Tg_dDrx4/hqdefault.jpg" alt="Kacey Samiee filmmaker video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>film 04</span>
+        </a>
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtu.be/dO1Eci7mvXg" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/dO1Eci7mvXg/hqdefault.jpg" alt="Kacey Samiee filmmaker video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>film 05</span>
+        </a>
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtu.be/3ktjzTzKbmQ" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/3ktjzTzKbmQ/hqdefault.jpg" alt="Kacey Samiee filmmaker video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>film 06</span>
+        </a>
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtube.com/shorts/oNz1QWoCUxw" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/oNz1QWoCUxw/hqdefault.jpg" alt="Kacey Samiee filmmaker video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>film 07</span>
+        </a>
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtube.com/shorts/CiE_qc-KE2E" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/CiE_qc-KE2E/hqdefault.jpg" alt="Kacey Samiee filmmaker video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>film 08</span>
+        </a>
+        <a class="work-card reel-card reveal-on-scroll" href="https://youtube.com/shorts/9c-eQp05zmY?feature=share" target="_blank" rel="noopener">
+          <img src="https://img.youtube.com/vi/9c-eQp05zmY/hqdefault.jpg" alt="Kacey Samiee filmmaker video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>film 09</span>
+        </a>
+      </div>
+    </section>
   </main>
+  <div class="video-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Video player">
+    <div class="video-modal-window">
+      <button class="video-modal-close" type="button" aria-label="Close video">X</button>
+      <iframe
+        class="video-modal-frame"
+        title="Video player"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
   <script>
     document.querySelectorAll(".home-menu").forEach(function (menu) {
       menu.addEventListener("mouseenter", function () {
@@ -201,6 +269,89 @@
         event.preventDefault();
         showPreview();
       });
+    });
+
+    var videoModal = document.querySelector(".video-modal");
+    var videoFrame = document.querySelector(".video-modal-frame");
+    var videoClose = document.querySelector(".video-modal-close");
+
+    function getYouTubeId(url) {
+      try {
+        var parsedUrl = new URL(url);
+        var pathParts = parsedUrl.pathname.split("/").filter(Boolean);
+
+        if (parsedUrl.hostname.indexOf("youtu.be") !== -1) {
+          return pathParts[0];
+        }
+
+        if (pathParts[0] === "shorts" || pathParts[0] === "embed") {
+          return pathParts[1];
+        }
+
+        return parsedUrl.searchParams.get("v");
+      } catch (error) {
+        return "";
+      }
+    }
+
+    function closeVideoModal() {
+      if (!videoModal || !videoFrame) {
+        return;
+      }
+
+      videoModal.classList.remove("is-open");
+      videoModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("video-modal-open");
+      videoFrame.setAttribute("src", "");
+    }
+
+    function getVideoOrigin() {
+      if (window.location.protocol === "file:") {
+        return "https://kaceysamiee.com";
+      }
+
+      return window.location.origin;
+    }
+
+    document.querySelectorAll(".reel-card").forEach(function (card) {
+      card.addEventListener("click", function (event) {
+        var videoId = getYouTubeId(card.getAttribute("href"));
+
+        if (!videoModal || !videoFrame || !videoId) {
+          return;
+        }
+
+        event.preventDefault();
+        var videoOrigin = getVideoOrigin();
+        var embedUrl = "https://www.youtube-nocookie.com/embed/" + videoId
+          + "?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+          + "&origin=" + encodeURIComponent(videoOrigin)
+          + "&widget_referrer=" + encodeURIComponent(window.location.href);
+
+        videoFrame.setAttribute("src", embedUrl);
+        videoModal.classList.add("is-open");
+        videoModal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("video-modal-open");
+        videoClose.focus();
+      });
+    });
+
+    if (videoClose) {
+      videoClose.addEventListener("click", closeVideoModal);
+    }
+
+    if (videoModal) {
+      videoModal.addEventListener("click", function (event) {
+        if (event.target === videoModal) {
+          closeVideoModal();
+        }
+      });
+    }
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && videoModal && videoModal.classList.contains("is-open")) {
+        closeVideoModal();
+      }
     });
   </script>
 </body>

@@ -1484,6 +1484,16 @@ h1 > span {
   padding-left: clamp(18px, 3vw, 44px);
 }
 
+#reel-gallery,
+#filmmaker-gallery {
+  width: 100vw;
+  grid-template-columns: clamp(420px, 38vw, 560px) minmax(420px, 1fr);
+  gap: clamp(18px, 2.2vw, 34px);
+  margin-left: calc(50% - 50vw);
+  padding-right: clamp(18px, 4vw, 64px);
+  padding-left: clamp(18px, 3vw, 44px);
+}
+
 .work-section::before {
   background:
     linear-gradient(180deg, rgba(0, 0, 0, 0.76), rgba(13, 6, 4, 0.92) 24%, rgba(0, 0, 0, 0.88) 100%),
@@ -1543,7 +1553,11 @@ h1 > span {
 }
 
 .work-heading h2 {
-  font-size: clamp(4rem, 9vw, 8.4rem);
+  font-size: clamp(3.2rem, 7.2vw, 7rem);
+}
+
+.filmmaker-section .work-heading h2 {
+  font-size: clamp(3rem, 6.4vw, 6.2rem);
 }
 
 .scroll-gallery-grid {
@@ -1733,6 +1747,67 @@ h1 > span {
   transform: translate(-36%, -50%);
 }
 
+.video-modal-open {
+  overflow: hidden;
+}
+
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  padding: clamp(18px, 4vw, 56px);
+  background: rgba(0, 0, 0, 0.82);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 180ms ease;
+}
+
+.video-modal.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.video-modal-window {
+  position: relative;
+  width: min(1040px, 100%);
+  aspect-ratio: 16 / 9;
+  background: #000;
+  box-shadow: 0 34px 92px rgba(0, 0, 0, 0.72);
+}
+
+.video-modal-frame {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border: 0;
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -42px;
+  right: 0;
+  z-index: 2;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(243, 230, 207, 0.72);
+  border-radius: 50%;
+  color: #f3e6cf;
+  font-size: 0.9rem;
+  font-weight: 800;
+  line-height: 1;
+  background: rgba(0, 0, 0, 0.34);
+  cursor: pointer;
+}
+
+.video-modal-close:hover,
+.video-modal-close:focus {
+  color: #050505;
+  background: #f3e6cf;
+}
+
 @media (max-width: 860px) {
   .nav {
     margin-top: 22px;
@@ -1777,7 +1852,9 @@ h1 > span {
     gap: 34px;
   }
 
-  #photo-reel-gallery {
+  #photo-reel-gallery,
+  #reel-gallery,
+  #filmmaker-gallery {
     width: auto;
     grid-template-columns: 1fr;
     margin-left: 0;
