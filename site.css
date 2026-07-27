@@ -1721,19 +1721,18 @@ h1 > span {
 }
 
 .filmmaker-project-section {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: clamp(420px, 38vw, 560px) minmax(420px, 1fr);
-  gap: clamp(18px, 2.2vw, 34px);
-  align-items: start;
-  padding-top: clamp(96px, 14vh, 150px);
-  padding-bottom: clamp(72px, 10vw, 120px);
+  min-height: auto;
+  display: block;
+  padding: 0;
   scroll-margin-top: 40px;
 }
 
 .filmmaker-project-heading {
-  position: sticky;
+  position: absolute;
   top: clamp(92px, 14vh, 140px);
+  left: clamp(18px, 4vw, 64px);
+  z-index: 2;
+  width: min(560px, calc(100vw - 36px));
 }
 
 .filmmaker-project-heading h2 {
@@ -1746,15 +1745,17 @@ h1 > span {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   grid-auto-rows: clamp(170px, 19vw, 260px);
   gap: clamp(12px, 1.6vw, 18px);
+  padding: clamp(72px, 9vw, 112px) clamp(18px, 4vw, 64px) clamp(84px, 10vw, 132px);
 }
 
 .filmmaker-project-stack {
   display: grid;
-  gap: clamp(18px, 2.2vw, 34px);
+  gap: 0;
 }
 
 .single-project-grid {
-  grid-template-columns: minmax(320px, 620px);
+  grid-template-columns: minmax(320px, 720px);
+  justify-content: start;
 }
 
 .single-project-grid .work-card {
@@ -1763,21 +1764,39 @@ h1 > span {
 
 .anita-grid,
 .lone-star-swing-grid {
+  grid-template-columns: minmax(320px, 720px);
   grid-auto-rows: auto;
+  padding: 0;
+}
+
+.anita-grid > .work-card,
+.lone-star-swing-grid > .work-card {
+  width: min(720px, calc(100vw - clamp(36px, 8vw, 128px)));
+  margin: clamp(72px, 9vw, 112px) clamp(18px, 4vw, 64px) clamp(84px, 10vw, 132px);
 }
 
 .filmmaker-project-hero {
+  width: 100vw;
+  height: 100vh;
   margin: 0;
   overflow: hidden;
-  border: 1px solid rgba(243, 230, 207, 0.22);
-  border-radius: 8px;
+  border: 0;
+  border-radius: 0;
   background: #050505;
-  box-shadow: 0 26px 72px rgba(0, 0, 0, 0.44);
+  box-shadow: none;
 }
 
 .filmmaker-project-hero img {
   width: 100%;
+  height: 100%;
   display: block;
+  object-fit: cover;
+}
+
+.blood-sisters-section .filmmaker-project-hero img {
+  object-fit: contain;
+  padding: clamp(36px, 7vw, 96px);
+  background: #000;
 }
 
 .scroll-gallery-grid {
@@ -2073,8 +2092,7 @@ h1 > span {
   }
 
   #photo-reel-gallery,
-  #reel-gallery,
-  .filmmaker-project-section {
+  #reel-gallery {
     width: auto;
     grid-template-columns: 1fr;
     margin-left: 0;
@@ -2089,11 +2107,24 @@ h1 > span {
     padding-left: 0;
   }
 
+  .filmmaker-project-section {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    padding: 0;
+  }
+
   .scroll-gallery-heading,
   .filmmaker-project-heading {
     position: relative;
     top: auto;
     width: min(420px, 100%);
+  }
+
+  .filmmaker-project-heading {
+    position: absolute;
+    top: clamp(84px, 12vh, 118px);
+    left: clamp(18px, 6vw, 52px);
+    width: min(420px, calc(100vw - 36px));
   }
 
   .filmmaker-project-grid {
