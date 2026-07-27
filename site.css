@@ -1748,12 +1748,36 @@ h1 > span {
   gap: clamp(12px, 1.6vw, 18px);
 }
 
+.filmmaker-project-stack {
+  display: grid;
+  gap: clamp(18px, 2.2vw, 34px);
+}
+
 .single-project-grid {
   grid-template-columns: minmax(320px, 620px);
 }
 
 .single-project-grid .work-card {
   aspect-ratio: 16 / 9;
+}
+
+.anita-grid,
+.lone-star-swing-grid {
+  grid-auto-rows: auto;
+}
+
+.filmmaker-project-hero {
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(243, 230, 207, 0.22);
+  border-radius: 8px;
+  background: #050505;
+  box-shadow: 0 26px 72px rgba(0, 0, 0, 0.44);
+}
+
+.filmmaker-project-hero img {
+  width: 100%;
+  display: block;
 }
 
 .scroll-gallery-grid {
