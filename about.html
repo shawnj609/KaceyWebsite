@@ -4,8 +4,9 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="About page for Kacey Samiee."/>
+  <meta name="referrer" content="strict-origin-when-cross-origin"/>
   <title>About | Kacey Samiee</title>
-  <link rel="stylesheet" href="site.css?v=transparent-moon-20260712"/>
+  <link rel="stylesheet" href="site.css?v=drone-design-nebula-videos-20260726"/>
 </head>
 <body class="solid-page about-page">
   <nav class="home-menu" aria-label="Site navigation">
@@ -32,7 +33,81 @@
         <p class="actor-scroll-text about-flash-text">scroll</p>
       </div>
     </section>
+    <section class="about-media-section" id="nebula" aria-labelledby="nebula-title">
+      <div class="about-media-heading reveal-on-scroll">
+        <h2 id="nebula-title">Nebula</h2>
+      </div>
+      <div class="about-media-grid" aria-label="Nebula media placeholders">
+        <a class="work-card about-media-card reveal-on-scroll" href="assets/about-sonic-portrait.jpg">
+          <img src="assets/about-sonic-portrait.jpg" alt="Nebula placeholder"/>
+          <span>photo</span>
+        </a>
+        <a class="work-card about-media-card reveal-on-scroll" href="assets/fern-gulley-portrait.jpg">
+          <img src="assets/fern-gulley-portrait.jpg" alt="Nebula placeholder"/>
+          <span>photo</span>
+        </a>
+        <a class="work-card about-media-card about-video-placeholder reel-card reveal-on-scroll" href="https://youtu.be/t-AxDWIOE6o" target="_blank" rel="noopener" aria-label="Nebula video">
+          <img src="https://img.youtube.com/vi/t-AxDWIOE6o/hqdefault.jpg" alt="Nebula video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>video</span>
+        </a>
+      </div>
+    </section>
+    <section class="about-media-section fire-section" id="fire" aria-labelledby="fire-title">
+      <div class="about-media-heading reveal-on-scroll">
+        <h2 id="fire-title">Fire</h2>
+      </div>
+      <div class="about-media-grid" aria-label="Fire media placeholders">
+        <div class="work-card about-media-card about-video-placeholder reveal-on-scroll">
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>video</span>
+        </div>
+        <div class="work-card about-media-card about-video-placeholder reveal-on-scroll">
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>video</span>
+        </div>
+        <div class="work-card about-media-card about-video-placeholder reveal-on-scroll">
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>video</span>
+        </div>
+      </div>
+    </section>
+    <section class="about-media-section flow-section" id="flow" aria-labelledby="flow-title">
+      <div class="about-media-heading reveal-on-scroll">
+        <h2 id="flow-title">Flow</h2>
+      </div>
+      <div class="about-media-grid" aria-label="Flow media placeholders">
+        <a class="work-card about-media-card reveal-on-scroll" href="assets/kacey-instagram.jpg">
+          <img src="assets/kacey-instagram.jpg" alt="Flow placeholder"/>
+          <span>photo</span>
+        </a>
+        <a class="work-card about-media-card reveal-on-scroll" href="assets/media/headshots/Kacey-Waveform-EDIT-141.png">
+          <img src="assets/media/headshots/Kacey-Waveform-EDIT-141.png" alt="Flow placeholder"/>
+          <span>photo</span>
+        </a>
+        <div class="work-card about-media-card about-video-placeholder reveal-on-scroll">
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>video</span>
+        </div>
+        <a class="work-card about-media-card reveal-on-scroll" href="assets/media/headshots/621A5291.jpg">
+          <img src="assets/media/headshots/621A5291.jpg" alt="Flow placeholder"/>
+          <span>photo</span>
+        </a>
+      </div>
+    </section>
   </main>
+  <div class="video-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Video player">
+    <div class="video-modal-window">
+      <button class="video-modal-close" type="button" aria-label="Close video">X</button>
+      <iframe
+        class="video-modal-frame"
+        title="Video player"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
   <script>
     document.querySelectorAll(".home-menu").forEach(function (menu) {
       menu.addEventListener("mouseenter", function () {
@@ -41,6 +116,109 @@
       menu.addEventListener("mouseleave", function () {
         menu.classList.remove("is-open");
       });
+    });
+
+    var revealItems = document.querySelectorAll(".reveal-on-scroll");
+    if ("IntersectionObserver" in window) {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.18 });
+
+      revealItems.forEach(function (item) {
+        revealObserver.observe(item);
+      });
+    } else {
+      revealItems.forEach(function (item) {
+        item.classList.add("is-visible");
+      });
+    }
+
+    var videoModal = document.querySelector(".video-modal");
+    var videoFrame = document.querySelector(".video-modal-frame");
+    var videoClose = document.querySelector(".video-modal-close");
+
+    function getYouTubeId(url) {
+      try {
+        var parsedUrl = new URL(url);
+        var pathParts = parsedUrl.pathname.split("/").filter(Boolean);
+
+        if (parsedUrl.hostname.indexOf("youtu.be") !== -1) {
+          return pathParts[0];
+        }
+
+        if (pathParts[0] === "shorts" || pathParts[0] === "embed") {
+          return pathParts[1];
+        }
+
+        return parsedUrl.searchParams.get("v");
+      } catch (error) {
+        return "";
+      }
+    }
+
+    function getVideoOrigin() {
+      if (window.location.protocol === "file:") {
+        return "https://kaceysamiee.com";
+      }
+
+      return window.location.origin;
+    }
+
+    function closeVideoModal() {
+      if (!videoModal || !videoFrame) {
+        return;
+      }
+
+      videoModal.classList.remove("is-open");
+      videoModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("video-modal-open");
+      videoFrame.setAttribute("src", "");
+    }
+
+    document.querySelectorAll(".reel-card").forEach(function (card) {
+      card.addEventListener("click", function (event) {
+        var videoId = getYouTubeId(card.getAttribute("href"));
+
+        if (!videoModal || !videoFrame || !videoId) {
+          return;
+        }
+
+        event.preventDefault();
+        var videoOrigin = getVideoOrigin();
+        var embedUrl = "https://www.youtube-nocookie.com/embed/" + videoId
+          + "?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+          + "&origin=" + encodeURIComponent(videoOrigin)
+          + "&widget_referrer=" + encodeURIComponent(window.location.href);
+
+        videoFrame.setAttribute("src", embedUrl);
+        videoModal.classList.add("is-open");
+        videoModal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("video-modal-open");
+        videoClose.focus();
+      });
+    });
+
+    if (videoClose) {
+      videoClose.addEventListener("click", closeVideoModal);
+    }
+
+    if (videoModal) {
+      videoModal.addEventListener("click", function (event) {
+        if (event.target === videoModal) {
+          closeVideoModal();
+        }
+      });
+    }
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && videoModal && videoModal.classList.contains("is-open")) {
+        closeVideoModal();
+      }
     });
   </script>
 </body>
