@@ -54,7 +54,7 @@
       "kind": "button",
       "refersTo": "button-ghost",
       "description": "The quieter action: no box, just a Candlelight underline that resolves on hover.",
-      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Bookings &amp; Press Inquiries</a>",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Observe</a>",
       "css": ".ds-btn-ghost { display: inline-flex; align-items: center; padding: 0.85em 0; border-bottom: 1px solid rgba(243, 230, 207, 0.4); color: var(--gold, #f3e6cf); font-family: var(--font-mono, 'Fragment Mono', monospace); font-size: 0.8125rem; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; line-height: 1; background: none; cursor: pointer; transition: border-color 400ms cubic-bezier(0.22, 1, 0.36, 1), color 400ms cubic-bezier(0.22, 1, 0.36, 1); } .ds-btn-ghost:hover, .ds-btn-ghost:focus-visible { border-bottom-color: var(--gold, #f3e6cf); color: #fff8ea; } .ds-btn-ghost:focus-visible { outline: 2px solid var(--gold, #f3e6cf); outline-offset: 3px; }"
     },
     {
