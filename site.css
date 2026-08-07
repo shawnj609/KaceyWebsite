@@ -1,3 +1,41 @@
+/* ---------------------------------------------------------------------------
+   Typefaces. Self-hosted from assets/fonts/ so they render identically on
+   Windows and Android. Previously the display stack asked for Kuinca / Didot /
+   Bodoni 72, which are macOS-only, so every heading fell back to Georgia
+   everywhere else.
+
+   Bodoni Moda and Archivo are variable. Bodoni Moda carries an optical-size
+   axis (6-96): the browser drives it from font-size automatically, keeping
+   hairline serifs in headings and thickening them in captions. Do not set
+   font-optical-sizing: none, or that stops.
+
+   All three are SIL Open Font License, free for commercial use.
+--------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: "Bodoni Moda";
+  src: url("assets/fonts/bodoni-moda-var.woff2") format("woff2");
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Archivo";
+  src: url("assets/fonts/archivo-var.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fragment Mono";
+  src: url("assets/fonts/fragment-mono.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --page: #000000;
   --surface: #080808;
@@ -5,7 +43,18 @@
   --muted: #d7d7d7;
   --line: #232323;
   --accent: #ffffff;
+  --gold: #f3e6cf;
   --shadow: 0 24px 70px rgba(0, 0, 0, 0.72);
+
+  /* Three faces, three jobs. Nothing on the site uses a fourth.
+     display - name, page titles, section headings
+     body    - bios and any running prose
+     mono    - nav, buttons, captions, credits, metadata */
+  --font-display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --font-body: "Archivo", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "Fragment Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 * {
@@ -20,7 +69,7 @@ body {
   margin: 0;
   background: var(--page);
   color: var(--ink);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-body);
 }
 
 .solid-page {
@@ -205,7 +254,7 @@ a {
   display: grid;
   gap: 0.02em;
   margin: 0;
-  font-family: "Kuinca", "Didot", "Bodoni 72", "Bodoni 72 Display", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(3.2rem, 7vw, 6.4rem);
   font-weight: 700;
   line-height: 0.84;
@@ -221,8 +270,8 @@ a {
   margin: clamp(24px, 4vw, 38px) 0 0;
   color: rgba(243, 230, 207, 0.82);
   font-size: clamp(0.95rem, 1.18vw, 1.08rem);
-  font-weight: 600;
-  line-height: 1.5;
+  font-weight: 450;
+  line-height: 1.62;
 }
 
 .mother-design-section::before {
@@ -278,7 +327,7 @@ a {
   gap: clamp(0.03em, 0.5vw, 0.16em);
   margin: 0;
   color: #f3e6cf;
-  font-family: "Kuinca", "Didot", "Bodoni 72", "Bodoni 72 Display", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(4rem, 9vw, 8.4rem);
   font-weight: 700;
   line-height: 0.84;
@@ -397,8 +446,10 @@ main {
 
 .home-menu-links a {
   color: var(--ink);
-  font-size: 1rem;
-  font-weight: 650;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.78);
   white-space: nowrap;
 }
@@ -435,11 +486,11 @@ main {
   display: inline-flex;
   align-items: center;
   color: var(--ink);
-  font-size: clamp(0.86rem, 1.25vw, 1rem);
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  font-family: var(--font-mono);
+  font-size: clamp(0.8rem, 1.1vw, 0.9375rem);
+  letter-spacing: 0.16em;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.78);
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 
 .swap-link .hover-label {
@@ -511,7 +562,7 @@ h1 {
 
 h1 {
   margin-bottom: 0;
-  font-family: "Kuinca", "Didot", "Bodoni 72", "Bodoni 72 Display", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(2.8rem, 8vw, 7rem);
   font-feature-settings: "liga" 1, "dlig" 1;
   font-kerning: normal;
@@ -626,7 +677,7 @@ h1 > span {
   width: auto;
   margin: 0;
   color: var(--ink);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: var(--font-body);
   font-size: clamp(1.05rem, 1.9vw, 1.35rem);
   font-weight: 650;
   line-height: 1.2;
@@ -912,7 +963,7 @@ h1 > span {
   display: grid;
   gap: 0.02em;
   margin: 0;
-  font-family: "Kuinca", "Didot", "Bodoni 72", "Bodoni 72 Display", Georgia, serif;
+  font-family: var(--font-display);
   color: #f3e6cf;
   font-size: clamp(3.5rem, 7.8vw, 7.2rem);
   font-weight: 700;
@@ -932,7 +983,7 @@ h1 > span {
   width: min(58vw, 760px);
   margin: 0;
   color: #f3e6cf;
-  font-family: "Kuinca", "Didot", "Bodoni 72", "Bodoni 72 Display", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(3.5rem, 7.8vw, 7.2rem);
   font-weight: 700;
   line-height: 0.84;
@@ -955,8 +1006,8 @@ h1 > span {
   margin: clamp(24px, 4vw, 38px) 0 0;
   color: rgba(243, 230, 207, 0.84);
   font-size: clamp(1rem, 1.45vw, 1.18rem);
-  font-weight: 650;
-  line-height: 1.55;
+  font-weight: 450;
+  line-height: 1.62;
 }
 
 .about-scroll-text {
@@ -1252,8 +1303,8 @@ h1 > span {
   margin: clamp(24px, 3vw, 34px) 0 0;
   color: rgba(243, 230, 207, 0.86);
   font-size: clamp(0.95rem, 1.08vw, 1.08rem);
-  font-weight: 600;
-  line-height: 1.5;
+  font-weight: 450;
+  line-height: 1.62;
 }
 
 .actor-main {
@@ -1265,9 +1316,9 @@ h1 > span {
   margin-top: clamp(30px, 5vw, 58px);
   margin-left: clamp(20px, 3vw, 48px);
   color: rgba(243, 230, 207, 0.78);
-  font-size: clamp(0.84rem, 1.1vw, 1rem);
-  font-weight: 700;
-  letter-spacing: 0.18em;
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 0.95vw, 0.875rem);
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   text-shadow: 0 3px 18px rgba(0, 0, 0, 0.76);
   animation: text-cue-breathe 2.8s ease-in-out infinite;
@@ -1323,7 +1374,7 @@ h1 > span {
   display: grid;
   gap: 0.02em;
   margin: 0;
-  font-family: "Kuinca", "Didot", "Bodoni 72", "Bodoni 72 Display", Georgia, serif;
+  font-family: var(--font-display);
   color: #f3e6cf;
   font-size: clamp(3.4rem, 7.2vw, 7rem);
   font-weight: 700;
@@ -1340,8 +1391,8 @@ h1 > span {
   margin: clamp(24px, 4vw, 38px) 0 0;
   color: rgba(243, 230, 207, 0.84);
   font-size: clamp(0.98rem, 1.25vw, 1.12rem);
-  font-weight: 600;
-  line-height: 1.55;
+  font-weight: 450;
+  line-height: 1.62;
 }
 
 .actor-bio-scroll-text {
@@ -1423,7 +1474,7 @@ h1 > span {
   gap: clamp(0.03em, 0.5vw, 0.16em);
   margin: 0;
   color: #f3e6cf;
-  font-family: "Kuinca", "Didot", "Bodoni 72", "Bodoni 72 Display", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(3.4rem, 7.2vw, 7rem);
   font-weight: 700;
   line-height: 0.86;
@@ -1444,8 +1495,8 @@ h1 > span {
   margin: clamp(24px, 3vw, 34px) 0 0;
   color: rgba(243, 230, 207, 0.86);
   font-size: clamp(1rem, 1.18vw, 1.16rem);
-  font-weight: 600;
-  line-height: 1.5;
+  font-weight: 450;
+  line-height: 1.62;
 }
 
 .about-flash-text {
@@ -1501,7 +1552,7 @@ h1 > span {
 .about-media-heading h2 {
   margin: 0;
   color: #f3e6cf;
-  font-family: "Kuinca", "Didot", "Bodoni 72", "Bodoni 72 Display", Georgia, serif;
+  font-family: var(--font-display);
   font-size: clamp(4rem, 9vw, 8.4rem);
   font-weight: 700;
   line-height: 0.84;
@@ -1604,7 +1655,7 @@ h1 > span {
   display: grid;
   gap: 0.02em;
   margin: 0;
-  font-family: "Kuinca", "Didot", "Bodoni 72", "Bodoni 72 Display", Georgia, serif;
+  font-family: var(--font-display);
   color: #f3e6cf;
   font-size: clamp(3.2rem, 7.2vw, 7rem);
   line-height: 0.83;
@@ -1689,7 +1740,7 @@ h1 > span {
 .filmmaker-title-copy h2,
 .filmmaker-project-heading h2 {
   margin: 0;
-  font-family: "Kuinca", "Didot", "Bodoni 72", "Bodoni 72 Display", Georgia, serif;
+  font-family: var(--font-display);
   color: #f3e6cf;
   font-weight: 700;
   text-shadow: 0 4px 28px rgba(0, 0, 0, 0.82);
@@ -1877,9 +1928,10 @@ h1 > span {
   bottom: clamp(14px, 1.8vw, 22px);
   z-index: 1;
   color: #f3e6cf;
-  font-size: clamp(1.2rem, 2vw, 1.7rem);
-  font-weight: 800;
-  text-transform: lowercase;
+  font-family: var(--font-mono);
+  font-size: clamp(0.6875rem, 1vw, 0.8125rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
   text-shadow: 0 3px 18px rgba(0, 0, 0, 0.8);
 }
 
@@ -1909,10 +1961,14 @@ h1 > span {
   text-transform: uppercase;
 }
 
-.reveal-on-scroll {
+/* Revealed content is visible by default and only hidden once JS has confirmed
+   it can un-hide it (the .js class is set in each page's <head>). Without this
+   gate, a JS error or a scraper that doesn't run scripts sees every gallery,
+   heading, and bio at opacity: 0 — the pages ship blank. */
+.js .reveal-on-scroll {
   opacity: 0;
   transform: translateY(34px);
-  transition: opacity 700ms ease, transform 700ms ease;
+  transition: opacity 700ms var(--ease-out), transform 700ms var(--ease-out);
 }
 
 .reveal-on-scroll.is-visible {
@@ -2034,8 +2090,8 @@ h1 > span {
   border: 1px solid rgba(243, 230, 207, 0.72);
   border-radius: 50%;
   color: #f3e6cf;
-  font-size: 0.9rem;
-  font-weight: 800;
+  font-family: var(--font-mono);
+  font-size: 0.8125rem;
   line-height: 1;
   background: rgba(0, 0, 0, 0.34);
   cursor: pointer;
@@ -2453,4 +2509,127 @@ h1 > span {
     font-size: 0.98rem;
   }
 
+}
+
+/* ---------------------------------------------------------------------------
+   Buttons
+
+   One primary treatment: a hairline outline with a play triangle, matching the
+   .play-mark overlay already sitting on every reel card, so a text button and
+   a video tile speak the same language. Mono type, because that is the utility
+   voice everywhere else on the site.
+
+     <a class="btn btn--play" href="...">Watch the reel</a>
+     <a class="btn btn--ghost" href="...">Get in touch</a>
+--------------------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65em;
+  padding: 0.85em 1.35em;
+  border: 1px solid rgba(243, 230, 207, 0.45);
+  color: var(--gold);
+  font-family: var(--font-mono);
+  font-size: clamp(0.75rem, 0.95vw, 0.8125rem);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  line-height: 1;
+  background: rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transition:
+    border-color 400ms var(--ease-out),
+    background-color 400ms var(--ease-out),
+    color 400ms var(--ease-out);
+}
+
+.btn:hover,
+.btn:focus-visible {
+  border-color: var(--gold);
+  background: rgba(243, 230, 207, 0.1);
+  color: #fff8ea;
+}
+
+/* The play triangle. Same CSS-border technique as .play-mark::after so the two
+   stay visually identical; it inherits currentColor with the button. */
+.btn--play::before {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 8px solid currentColor;
+}
+
+.btn--ghost {
+  padding-inline: 0;
+  border: 0;
+  border-bottom: 1px solid rgba(243, 230, 207, 0.4);
+  background: none;
+}
+
+.btn--ghost:hover,
+.btn--ghost:focus-visible {
+  border-bottom-color: var(--gold);
+  background: none;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: clamp(12px, 1.6vw, 20px);
+  align-items: center;
+}
+
+/* ---------------------------------------------------------------------------
+   Focus. Keyboard users need to see where they are; the site previously had no
+   visible focus state on links or tiles.
+--------------------------------------------------------------------------- */
+
+a:focus-visible,
+button:focus-visible,
+.work-card:focus-visible,
+.scroll-gallery-tile:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* ---------------------------------------------------------------------------
+   Reduced motion. Everything still arrives, it just stops moving: reveals land
+   as a plain crossfade, the scroll cue holds a steady opacity instead of
+   pulsing, and hover scales are dropped.
+--------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js .reveal-on-scroll {
+    transform: none;
+    transition: opacity 200ms linear;
+  }
+
+  .reveal-on-scroll:nth-child(2),
+  .reveal-on-scroll:nth-child(3),
+  .reveal-on-scroll:nth-child(4) {
+    transition-delay: 0ms;
+  }
+
+  .actor-scroll-text,
+  .mother-scroll-text {
+    animation: none;
+    opacity: 0.85;
+  }
+
+  .work-card:hover img,
+  .work-card:focus img,
+  .scroll-gallery-tile:hover img,
+  .scroll-gallery-tile:focus img {
+    transform: none;
+  }
+
+  .btn {
+    transition: none;
+  }
 }

@@ -1,0 +1,200 @@
+---
+name: Kacey Samiee
+description: Cold-open cinematic portfolio — candlelight type etched into true black
+colors:
+  page-black: "#000000"
+  surface-black: "#080808"
+  ink: "#ffffff"
+  muted-silver: "#d7d7d7"
+  hairline: "#232323"
+  candlelight: "#f3e6cf"
+  old-gold: "#c7a04d"
+  ember: "#4b2415"
+  bloodline: "#bb0030"
+  shadow-olive: "#33302a"
+typography:
+  display:
+    fontFamily: "Bodoni Moda, Didot, Bodoni 72, Georgia, serif"
+    fontSize: "clamp(4.4rem, 10vw, 10rem)"
+    fontWeight: 700
+    lineHeight: 0.84
+    letterSpacing: "0"
+  headline:
+    fontFamily: "Bodoni Moda, Didot, Bodoni 72, Georgia, serif"
+    fontSize: "clamp(3.2rem, 7.2vw, 7rem)"
+    fontWeight: 700
+    lineHeight: 0.84
+  body:
+    fontFamily: "Archivo, ui-sans-serif, system-ui, sans-serif"
+    fontSize: "clamp(0.98rem, 1.25vw, 1.12rem)"
+    fontWeight: 450
+    lineHeight: 1.62
+  label:
+    fontFamily: "Fragment Mono, ui-monospace, Menlo, Consolas, monospace"
+    fontSize: "clamp(0.75rem, 0.95vw, 0.875rem)"
+    fontWeight: 400
+    lineHeight: 1
+    letterSpacing: "0.16em"
+rounded:
+  none: "0"
+  card: "8px"
+  full: "50%"
+spacing:
+  page-gutter: "16px"
+  card-gap: "clamp(12px, 1.6vw, 18px)"
+  copy-gap: "clamp(24px, 4vw, 38px)"
+  section-pad: "clamp(96px, 14vh, 150px)"
+components:
+  button-play:
+    backgroundColor: "#00000038"
+    textColor: "{colors.candlelight}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "0.85em 1.35em"
+  button-play-hover:
+    backgroundColor: "#f3e6cf1a"
+    textColor: "#fff8ea"
+  button-ghost:
+    textColor: "{colors.candlelight}"
+    typography: "{typography.label}"
+    rounded: "{rounded.none}"
+    padding: "0.85em 0"
+  work-card:
+    backgroundColor: "#f3e6cf0f"
+    rounded: "{rounded.card}"
+  nav-link:
+    textColor: "{colors.ink}"
+    typography: "{typography.label}"
+    height: "30px"
+  play-mark:
+    rounded: "{rounded.full}"
+    size: "54px"
+---
+
+# Design System: Kacey Samiee
+
+## 1. Overview
+
+**Creative North Star: "The Cold Open"**
+
+The system works like the first three minutes of a film before the title card: true black, a face lit by warm light, type that arrives like credits. Every page shows less than it could — fullscreen video and masked portraits carry the art direction, and the design layer is the connective tissue set on top of them: stacked serif titles, hairline components, call-sheet monospace. The visitor arrived referred; the system's job is to make them lean in, not to explain.
+
+Color behaves like production design. The global layer knows only black, white, and candlelight; then each page commits to a single world tint painted over black — Ember on the actor page, Bloodline crimson on Mother of Drones, Shadow Olive on about. Depth is atmospheric rather than architectural: gradient scrims, photos feathered into black with mask-image, soft plumes of shadow. Nothing sits "on top of" the page; everything emerges from the dark.
+
+This system explicitly rejects the Squarespace actor template, influencer energy, the event-vendor site, and edgelord goth (see PRODUCT.md's anti-references, restated in section 6). The menace stays elegant: it lives in what is withheld, never in costume.
+
+**Key Characteristics:**
+- True-black canvas with per-page world tints; candlelight is the only global warmth
+- Film-title typography: stacked Bodoni Moda lines at line-height 0.84 with lateral offsets, one Old Gold line per stack
+- Monospace as the call sheet: nav, buttons, captions, metadata — never prose
+- Components etched, not built: hairline borders and light, no solid fills
+- Motion is patient: one easing curve, long reveals, a breathing scroll cue
+
+## 2. Colors: The Candlelit Dark
+
+Warm light against true black; everything chromatic belongs either to the candle or to one page's world.
+
+### Primary
+- **Candlelight** (#f3e6cf): The light the site is lit by. Buttons, captions, play marks, subpage headings, hairline component borders (at 22–45% alpha), and body copy over imagery (at 72–88% alpha). If a component glows, it glows this color.
+- **Old Gold** (#c7a04d): Tarnished metal catching the light. Reserved for exactly one emphasized line inside a heading stack (`.gold-text`) and for the hover state of scroll cues. Its scarcity is its power.
+
+### Secondary
+- **Ember** (#4b2415): The actor page's world — a burnt-sienna radial glow behind masked portraits, deepening to #160905 at the edges.
+- **Bloodline** (#bb0030): Mother of Drones' world — a crimson band (running #bb0030 to #680017) for the bio section, with rgba(198,0,52) glows over the gallery blacks.
+- **Shadow Olive** (#33302a): The about page's world — an unvarnished backstage olive-umber, falling to #070706.
+
+### Neutral
+- **Page Black** (#000000): The body background everywhere. Not near-black — black.
+- **Surface Black** (#080808): The barely-there surface step; gallery sections use #050505 as their base coat.
+- **Ink** (#ffffff): Nav links, home-menu links, and functional text that must read over video.
+- **Muted Silver** (#d7d7d7): The hover state of white — links dim toward silver rather than brightening.
+- **Hairline** (#232323): Neutral rules and dividers on solid black.
+
+### Named Rules
+**The One World Rule.** Each page commits to exactly one world tint over black. Ember, Bloodline, and Shadow Olive never appear on the same surface; a new page means choosing (or creating) its world, not mixing existing ones.
+
+**The Candle Rule.** Candlelight is the only warmth the global layer knows, and Old Gold appears on at most one line per heading stack. When everything is gold, nothing is lit.
+
+## 3. Typography
+
+**Display Font:** Bodoni Moda (variable 400–900, optical-size axis live; falls back to Didot / Bodoni 72 / Georgia)
+**Body Font:** Archivo (variable 100–900)
+**Label/Mono Font:** Fragment Mono (400 only)
+
+**Character:** A hairline didone shouting quietly over footage, a neutral grotesque staying out of the way, and a typewriter voice doing the paperwork. The pairing is film-title card plus call sheet — glamour and production logistics in the same frame.
+
+### Hierarchy
+- **Display** (700, clamp(4.4rem, 10vw, 10rem), line-height 0.82–0.88): Page-defining title stacks — the home name, "filmmaker", section-opening cards. Built as a CSS grid of lines with per-line `translateX` offsets so the stack reads like a staggered title sequence. Never letter-spaced; Bodoni's optical axis does the refinement.
+- **Headline** (700, clamp(3.2rem, 7.2vw, 7rem), line-height 0.84): Section headings and sticky gallery headings, usually in Candlelight with one Old Gold line.
+- **Body** (450, clamp(0.98rem, 1.25vw, 1.12rem), line-height 1.62): Bios and running prose in Archivo, colored as Candlelight at 72–88% alpha over world tints, capped at ~430–680px measure.
+- **Label** (400, clamp(0.75rem, 0.95vw, 0.875rem), letter-spacing 0.12–0.18em, UPPERCASE): Fragment Mono for nav links, buttons, card captions, scroll cues, and the modal close — the call-sheet voice.
+
+### Named Rules
+**The Call-Sheet Rule.** Monospace is justified by screenplay and call-sheet convention, not "technical" signaling. It appears on nav, buttons, captions, credits, and metadata — never in body copy, and never as an eyebrow above headings.
+
+**The Stacked Title Rule.** Big headings are grids of whole lines, each line a `nowrap` span, offset laterally like title cards — not paragraphs that happen to be large. Line-height stays in the 0.82–0.88 band; one line may carry Old Gold.
+
+## 4. Elevation
+
+This system has no elevation in the UI sense — nothing lifts, nothing floats on hover. Depth is *atmosphere*: gradient scrims layered over footage, portraits feathered into black with `mask-image` gradients, radial world-tint glows behind content, and soft black plumes under cards and modals. Surfaces emerge from the dark rather than stacking above it.
+
+### Shadow Vocabulary
+- **Text halo** (`text-shadow: 0 3px 24px rgba(0, 0, 0, 0.82)`): On every heading and copy block that sits over imagery or video; the guarantee of legibility. Ranges to 0 4px 26–28px on subpages.
+- **Card plume** (`box-shadow: 0 22px 64px rgba(0, 0, 0, 0.36)`): Under work cards and gallery tiles — ambient, not directional.
+- **Modal plume** (`box-shadow: 0 34px 92px rgba(0, 0, 0, 0.72)`): Under the video modal window only.
+- **Portrait drop** (`filter: drop-shadow(0 24px 56px rgba(0, 0, 0, 0.58))`): On the about page's reveal portraits.
+
+### Named Rules
+**The Scrim Rule.** Type never touches raw pixels. Between letterforms and footage there is always at least one of: a gradient scrim, a mask feathering the image away, or the text halo. Usually two.
+
+## 5. Components
+
+**Etched, not built.** Every component is hairlines and light scratched into the dark — 1px Candlelight borders, transparent or near-transparent fills, monospace labels. Nothing is a solid slab.
+
+### Buttons
+- **Shape:** Sharp corners (border-radius 0); mono uppercase label at 0.14em tracking.
+- **Play** (`.btn--play`): 1px Candlelight border at 45% alpha, Candlelight text, near-transparent black fill (rgba(0,0,0,0.22)), padding 0.85em 1.35em, and a CSS-border play triangle before the label — the same triangle as the play mark, so button and video tile speak one language.
+- **Hover / Focus:** Border resolves to full Candlelight, fill warms to rgba(243,230,207,0.1), text brightens to #fff8ea; 400ms on the house curve.
+- **Ghost** (`.btn--ghost`): No box at all — an underline in Candlelight at 40% alpha that resolves to full Candlelight on hover. For the quieter action.
+
+### Cards / Containers
+- **Corner Style:** Gently rounded (8px) — the only radius between 0 and a circle in the system.
+- **Background:** Candlelight-tinted glass (rgba(243,230,207,0.06)) behind cover images; video tiles use a gradient wash of Old Gold and world tint over a poster frame.
+- **Border:** 1px Candlelight at 22% alpha.
+- **Shadow Strategy:** Card plume (section 4); a built-in bottom scrim (`::after`, transparent → rgba(0,0,0,0.72)) keeps captions legible.
+- **Caption:** Bottom-right, mono uppercase at 0.14em tracking, Candlelight with text halo.
+- **Hover:** Image scales to 1.03 and dims to 0.9 opacity over 220ms — a breath, not a bounce.
+
+### Navigation
+- **Style:** Fragment Mono uppercase at 0.16em tracking, Ink over video with text halo; hover dims to Muted Silver (never brightens).
+- **Swap links:** Nav items carry a hidden hover label that replaces the default on hover/focus — the nav whispers a second name.
+- **Home menu:** A fixed drawn-circles mark (two 24px hairline circles) that reveals a mono link list on hover/focus; links slide 6px into place.
+
+### The Play Mark (signature)
+A 54px hairline circle (1px Candlelight at 82% alpha) with a CSS-border triangle, centered over every reel card and echoed inside `.btn--play`. It is the site's one icon.
+
+### The Video Modal
+Fixed overlay at rgba(0,0,0,0.82), a 16:9 window at min(1040px, 100%) with the modal plume, and a circled mono "✕" that inverts to Candlelight fill on hover. Opens in 180ms.
+
+### Motion (behavioral, folded here)
+One easing curve — `cubic-bezier(0.22, 1, 0.36, 1)` (`--ease-out`) — and a small duration scale: 180ms (overlays), 220ms (image hovers), 400ms (buttons), 700ms (scroll reveals with 80/150/220ms sibling stagger). Reveals translate up 34px and are gated behind a `.js` class so content is visible by default without JavaScript. The scroll cue breathes (opacity 0.54→1, 2.8s loop). All of it collapses to crossfades under `prefers-reduced-motion`.
+
+## 6. Do's and Don'ts
+
+### Do:
+- **Do** design on top of the shipped video and portrait work — the footage is the art direction; add type, structure, and components over it (pull real frames with ffmpeg when mocking).
+- **Do** keep type legible over footage with the Scrim Rule: scrim + mask + text halo, never raw type on raw pixels.
+- **Do** commit each page to one world tint (Ember #4b2415, Bloodline #bb0030, Shadow Olive #33302a) over Page Black #000000.
+- **Do** hold the radius scale to exactly three values: 0 (buttons, heroes), 8px (cards, tiles), 50% (play mark, circles).
+- **Do** use the house curve `cubic-bezier(0.22, 1, 0.36, 1)` for all motion, keep reveals `.js`-gated, and ship the `prefers-reduced-motion` crossfade for anything that moves.
+- **Do** dim on hover (white → Muted Silver #d7d7d7, images → 0.9 opacity); this site gets quieter when touched, not louder.
+
+### Don't:
+- **Don't** build the "Squarespace actor template": headshot hero, résumé grid, credits table, "represented by" footer.
+- **Don't** let in "influencer energy": Linktree patterns, follower counts, collab-bait copy, platform logo rows.
+- **Don't** drift toward the "event-vendor site": packages, quote forms, "trusted by" logo rows, FAQ accordions.
+- **Don't** overcook the danger into "edgelord goth": no skulls, blood-red drenches, or distressed grunge type. Bloodline crimson belongs to the drones' world, not to horror.
+- **Don't** set body copy or section eyebrows in Fragment Mono — the Call-Sheet Rule. No tiny uppercase tracked labels above headings, ever.
+- **Don't** fill components solid or raise their elevation on hover. If a surface reads as a built slab instead of an etched outline, cut the fill.
+- **Don't** replace or cover the background videos with stills, and don't gate content visibility on scroll animation without the `.js` class guard.
+- **Don't** introduce a fourth typeface, a fourth radius, a second easing curve, or a world tint mix. The system is small on purpose.

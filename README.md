@@ -8,6 +8,7 @@ This repo intentionally follows the simple production pattern from `shawnj609/Ne
 
 - `index.html` - the public starter page.
 - `site.css` - all styling for the starter page.
+- `assets/fonts/` - the three self-hosted typefaces. Bodoni Moda for display, Archivo for body copy, Fragment Mono for navigation, buttons, and captions. All three are SIL Open Font License and total about 96 KB.
 - `assets/kacey.webp` - starter portrait asset sourced from the Nebula website assets.
 - `CNAME` - custom domain for GitHub Pages: `kaceysamiee.com`.
 - `.github/workflows/deploy-pages.yml` - deploys to GitHub Pages on every push to `main`.

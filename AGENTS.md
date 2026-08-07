@@ -22,6 +22,7 @@ This repo is patterned after `shawnj609/NebulaWebsiteV2`, which deploys a static
 - Edit `site.css` for styling.
 - Put final production assets in `assets/`.
 - Use `.webp` for photos and other raster production images.
+- Fonts are self-hosted in `assets/fonts/` and declared with `@font-face` at the top of `site.css`. Do not add a Google Fonts `<link>`; the site loads no third-party resources.
 - Use `photo_inbox/` only for raw or temporary photo staging; it is ignored by git and must not be referenced by production HTML.
 - Keep the workflow bundle list in sync when adding production files or folders.
 - Preserve `CNAME` unless the canonical domain changes.
@@ -38,6 +39,8 @@ python -m http.server 8080
 ```
 
 2. Open `http://localhost:8080/` or `http://localhost:8080/index.html`. Do not use `http://localhost:8080/index`; Python's static server does not map that path to `index.html`.
+
+   Known limitation: `python -m http.server` answers `Range:` requests with `200` instead of `206`, so Chrome will not stream the background videos on the home and Mother of Drones pages. Those pages preview correctly except the video stays black. GitHub Pages supports Range, so this only affects local preview.
 3. If port `8080` is already in use, either stop the stale local server or use the next clear port, such as `python -m http.server 8081`, and tell Kacey the exact localhost URL.
 4. Ask Kacey to review the localhost version. Do not push to `main` until she approves the local preview.
 5. After Kacey approves, ask whether she wants the change pushed to `main` so GitHub Pages can publish it to the real website.
