@@ -15,10 +15,11 @@ colors:
 typography:
   display:
     fontFamily: "Bodoni Moda, Didot, Bodoni 72, Georgia, serif"
-    fontSize: "clamp(4.4rem, 10vw, 10rem)"
+    fontSize: "clamp(2.2rem, 6.1vw, 5.4rem)"
     fontWeight: 700
-    lineHeight: 0.84
-    letterSpacing: "0"
+    lineHeight: 1.18
+    letterSpacing: "0.22em–0.26em"
+    textTransform: uppercase
   headline:
     fontFamily: "Bodoni Moda, Didot, Bodoni 72, Georgia, serif"
     fontSize: "clamp(3.2rem, 7.2vw, 7rem)"
@@ -65,7 +66,13 @@ components:
   nav-link:
     textColor: "{colors.ink}"
     typography: "{typography.label}"
-    height: "30px"
+  corner-meta:
+    textColor: "#f3e6cfbd"
+    typography: "{typography.label}"
+  title-rule:
+    width: "clamp(64px, 7vw, 104px)"
+    height: "1px"
+    color: "#f3e6cf99"
   play-mark:
     rounded: "{rounded.full}"
     size: "54px"
@@ -77,7 +84,7 @@ components:
 
 **Creative North Star: "The Cold Open"**
 
-The system works like the first three minutes of a film before the title card: true black, a face lit by warm light, type that arrives like credits. Every page shows less than it could — fullscreen video and masked portraits carry the art direction, and the design layer is the connective tissue set on top of them: stacked serif titles, hairline components, call-sheet monospace. The visitor arrived referred; the system's job is to make them lean in, not to explain.
+The system works like the first three minutes of a film before the title card: true black, a face lit by warm light, type that arrives like credits. Every page shows less than it could — fullscreen video and masked portraits carry the art direction, and the design layer is the connective tissue set on top of them: one spread serif title line, hairline components, call-sheet monospace pinned to the corners of the frame. The visitor arrived referred; the system's job is to make them lean in, not to explain.
 
 Color behaves like production design. The global layer knows only black, white, and candlelight; then each page commits to a single world tint painted over black — Ember on the actor page, Bloodline crimson on Mother of Drones, Shadow Olive on about. Depth is atmospheric rather than architectural: gradient scrims, photos feathered into black with mask-image, soft plumes of shadow. Nothing sits "on top of" the page; everything emerges from the dark.
 
@@ -85,8 +92,8 @@ This system explicitly rejects the Squarespace actor template, influencer energy
 
 **Key Characteristics:**
 - True-black canvas with per-page world tints; candlelight is the only global warmth
-- Film-title typography: stacked Bodoni Moda lines at line-height 0.84 with lateral offsets, one Old Gold line per stack
-- Monospace as the call sheet: nav, buttons, captions, metadata — never prose
+- Film-title typography: the Marquee — one spread line of Bodoni Moda caps, tracked 0.22–0.26em, with a short hairline rule and a mono credit line beneath; stacked lines remain the section-heading voice, one Old Gold line or word per heading
+- Monospace as the call sheet: nav, buttons, captions, corner metadata — never prose
 - Components etched, not built: hairline borders and light, no solid fills
 - Motion is patient: one easing curve, long reveals, a breathing scroll cue
 
@@ -96,7 +103,7 @@ Warm light against true black; everything chromatic belongs either to the candle
 
 ### Primary
 - **Candlelight** (#f3e6cf): The light the site is lit by. Buttons, captions, play marks, subpage headings, hairline component borders (at 22–45% alpha), and body copy over imagery (at 72–88% alpha). If a component glows, it glows this color.
-- **Old Gold** (#c7a04d): Tarnished metal catching the light. Reserved for exactly one emphasized line inside a heading stack (`.gold-text`) and for the hover state of scroll cues. Its scarcity is its power.
+- **Old Gold** (#c7a04d): Tarnished metal catching the light. Reserved for exactly one emphasized line or word per heading (`.gold-text`) and for the hover state of scroll cues. Its scarcity is its power.
 
 ### Secondary
 - **Ember** (#4b2415): The actor page's world — a burnt-sienna radial glow behind masked portraits, deepening to #160905 at the edges.
@@ -124,7 +131,7 @@ Warm light against true black; everything chromatic belongs either to the candle
 **Character:** A hairline didone shouting quietly over footage, a neutral grotesque staying out of the way, and a typewriter voice doing the paperwork. The pairing is film-title card plus call sheet — glamour and production logistics in the same frame.
 
 ### Hierarchy
-- **Display** (700, clamp(4.4rem, 10vw, 10rem), line-height 0.82–0.88): Page-defining title stacks — the home name, "filmmaker", section-opening cards. Built as a CSS grid of lines with per-line `translateX` offsets so the stack reads like a staggered title sequence. Never letter-spaced; Bodoni's optical axis does the refinement.
+- **Display / Marquee** (700, clamp(2.2rem, 6.1vw, 5.4rem) on home and ~0.7–0.85× of that on subpages, line-height 1.18, UPPERCASE, tracked 0.26em on home / 0.22em on subpages): Page titles set as one spread line — `KACEY SAMIEE`, `ACTOR & FILMMAKER`, `MOTHER OF DRONES`, `WHO IS SHE?`. Centered marquees carry a `padding-left` equal to the tracking so the line sits truly centered; lines wrap into balanced `nowrap` word-spans on small screens. The only letter-spaced serif in the system.
 - **Headline** (700, clamp(3.2rem, 7.2vw, 7rem), line-height 0.84): Section headings and sticky gallery headings, usually in Candlelight with one Old Gold line.
 - **Body** (450, clamp(0.98rem, 1.25vw, 1.12rem), line-height 1.62): Bios and running prose in Archivo, colored as Candlelight at 72–88% alpha over world tints, capped at ~430–680px measure.
 - **Label** (400, clamp(0.75rem, 0.95vw, 0.875rem), letter-spacing 0.12–0.18em, UPPERCASE): Fragment Mono for nav links, buttons, card captions, scroll cues, and the modal close — the call-sheet voice.
@@ -132,7 +139,9 @@ Warm light against true black; everything chromatic belongs either to the candle
 ### Named Rules
 **The Call-Sheet Rule.** Monospace is justified by screenplay and call-sheet convention, not "technical" signaling. It appears on nav, buttons, captions, credits, and metadata — never in body copy, and never as an eyebrow above headings.
 
-**The Stacked Title Rule.** Big headings are grids of whole lines, each line a `nowrap` span, offset laterally like title cards — not paragraphs that happen to be large. Line-height stays in the 0.82–0.88 band; one line may carry Old Gold.
+**The Marquee Rule.** Page titles (h1) are one spread line of tracked caps, followed by a short hairline rule and a mono credit line — never a stack. One word may carry Old Gold. Section headings (h2) keep the stacked voice: grids of whole `nowrap` lines at line-height 0.82–0.88, one line in Old Gold. The two treatments never trade places.
+
+**The Credit Line Rule.** Under every page title, a Fragment Mono line of dot-separated facts (`ACTOR · FILMMAKER · DRONE ARTIST`, `NEBULA · FIRE · FLOW`) at 0.22em tracking, Candlelight at 78% alpha, dots dimmed to 55%. Facts only — roles, worlds, section names — never slogans.
 
 ## 4. Elevation
 
@@ -166,9 +175,17 @@ This system has no elevation in the UI sense — nothing lifts, nothing floats o
 - **Hover:** Image scales to 1.03 and dims to 0.9 opacity over 220ms — a breath, not a bounce.
 
 ### Navigation
-- **Style:** Fragment Mono uppercase at 0.16em tracking, Ink over video with text halo; hover dims to Muted Silver (never brightens).
-- **Swap links:** Nav items carry a hidden hover label that replaces the default on hover/focus — the nav whispers a second name.
-- **Home menu:** A fixed drawn-circles mark (two 24px hairline circles) that reveals a mono link list on hover/focus; links slide 6px into place.
+- **Corner nav:** Every page carries the same three links (`ACTOR · DRONE ARTIST · ABOUT`) pinned to the top-right of the first frame — Fragment Mono uppercase at 0.16em tracking, Ink with text halo; hover dims to Muted Silver (never brightens). The current page's link sits at 56% alpha with `aria-current="page"`. Absolute, not fixed: it scrolls away like a title card.
+- **Swap links:** Nav items carry a hidden hover label that replaces the default on hover/focus — the nav whispers a second name (`ACTOR` → `FILMMAKER`). Both labels share one grid cell so nothing reflows on swap.
+- **Home mark:** On subpages, the fixed drawn-circles mark (two 24px hairline circles) top-left links home. It carries no menu — the corner nav is the menu.
+
+### The Title Frame (signature layout)
+The locked home comp, reused on every hero: call-sheet metadata pinned to the corners of the first viewport around the marquee title.
+- **Top-right:** the corner nav.
+- **Bottom-left:** the location line (`AUSTIN, TX`) — a static mono `<p>`, Candlelight at 74% alpha.
+- **Bottom-right:** the scroll cue — a mono anchor (`SCROLL`, `PHOTOS + REELS`, `BIO + DESIGN WORK`) that breathes on the 2.8s loop and turns Old Gold on hover. Only anchors breathe; the location holds still.
+- **Center (or left on actor/about):** marquee title, then the title rule — a 1px Candlelight hairline at 60% alpha, clamp(64px, 7vw, 104px) wide — then the credit line. Left-set frames (`.title-frame--left`) align rule and credit to the text edge.
+- The rule motif closes each page too: the same hairline sits above the end-credits booking button.
 
 ### The Play Mark (signature)
 A 54px hairline circle (1px Candlelight at 82% alpha) with a CSS-border triangle, centered over every reel card and echoed inside `.btn--play`. It is the site's one icon.

@@ -179,10 +179,6 @@ a {
   z-index: 1;
 }
 
-.mother-scroll-text {
-  margin-top: clamp(28px, 5vw, 54px);
-}
-
 .mother-bio-section {
   position: relative;
   z-index: 1;
@@ -424,86 +420,61 @@ main {
     radial-gradient(circle at 50% 50%, transparent 0 10px, var(--muted) 10px 12px, transparent 12px);
 }
 
-.home-menu-links {
+/* ---------------------------------------------------------------------------
+   The Title Frame. The locked home comp: call-sheet metadata pinned to the
+   corners of the first frame -- nav top-right, location bottom-left, scroll
+   cue bottom-right -- around one spread didone line with a short rule and a
+   mono credit line beneath it. Subpage heroes reuse every piece; pages whose
+   composition already reads left (actor, about) take the --left variant.
+--------------------------------------------------------------------------- */
+
+.corner-nav {
   position: absolute;
-  top: 100%;
-  left: 0;
-  min-width: 220px;
-  display: grid;
-  gap: 12px;
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-6px);
-}
-
-.home-menu:hover .home-menu-links,
-.home-menu:focus-within .home-menu-links,
-.home-menu.is-open .home-menu-links {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(0);
-}
-
-.home-menu-links a {
-  color: var(--ink);
-  font-family: var(--font-mono);
-  font-size: 0.8125rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.78);
-  white-space: nowrap;
-}
-
-.home-menu-links a:hover,
-.home-menu-links a:focus {
-  color: var(--muted);
-}
-
-.nav {
-  min-height: auto;
+  top: clamp(22px, 3.4vh, 40px);
+  right: clamp(18px, 3.2vw, 48px);
+  z-index: 3;
   display: flex;
   align-items: center;
-  justify-content: center;
-  margin-top: clamp(18px, 2.8vw, 30px);
-  width: min(720px, 100%);
-  margin-right: auto;
-  margin-left: auto;
+  gap: clamp(20px, 3vw, 48px);
 }
 
-.nav-links {
-  width: 100%;
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: clamp(26px, 6vw, 92px);
-}
-
-.nav-links a {
-  position: relative;
-  justify-content: center;
-  width: clamp(118px, 20vw, 204px);
-  height: 30px;
-  display: inline-flex;
-  align-items: center;
+.corner-nav a {
   color: var(--ink);
   font-family: var(--font-mono);
-  font-size: clamp(0.8rem, 1.1vw, 0.9375rem);
+  font-size: clamp(0.72rem, 0.85vw, 0.8125rem);
   letter-spacing: 0.16em;
   text-shadow: 0 2px 16px rgba(0, 0, 0, 0.78);
   text-transform: uppercase;
 }
 
-.swap-link .hover-label {
-  position: absolute;
-  z-index: 2;
-  opacity: 0;
-  pointer-events: none;
+.corner-nav a:hover {
+  color: var(--muted);
+}
+
+.corner-nav a[aria-current="page"] {
+  color: rgba(255, 255, 255, 0.56);
+}
+
+/* The whisper swap: both labels share one grid cell, so the link is sized by
+   its longer name and nothing reflows when they trade places. */
+.swap-link {
+  display: inline-grid;
+  justify-items: center;
+}
+
+.swap-link > span {
+  grid-area: 1 / 1;
   white-space: nowrap;
 }
 
-.swap-link:not(.reveal-link):hover .default-label,
-.swap-link:not(.reveal-link):focus .default-label,
-.swap-link:not(.reveal-link).is-hovered .default-label {
+.swap-link .hover-label {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.swap-link:hover .default-label,
+.swap-link:focus .default-label,
+.swap-link.is-hovered .default-label {
   opacity: 0;
 }
 
@@ -513,47 +484,124 @@ main {
   opacity: 1;
 }
 
-.nav-links a:hover {
-  color: var(--muted);
-}
-
 .hero {
+  position: relative;
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 1fr;
-  align-items: start;
+  align-items: center;
   justify-items: center;
-  padding: clamp(94px, 16vh, 158px) 0 clamp(36px, 6vw, 72px);
+  padding: clamp(84px, 12vh, 132px) 16px clamp(96px, 16vh, 168px);
   text-align: center;
 }
 
 .hero-copy {
   width: 100%;
-  max-width: 920px;
+  max-width: 1080px;
   text-shadow: 0 3px 24px rgba(0, 0, 0, 0.82);
 }
 
-.home-title {
-  display: grid;
-  justify-items: center;
-  width: fit-content;
-  margin-right: auto;
-  margin-left: auto;
-  gap: clamp(5px, 0.8vw, 11px);
+/* The marquee: one spread line, tracked wide like a title card. The
+   padding-left mirrors the tracking that hangs off the last letter, so the
+   centered line sits truly centered. */
+.marquee-title {
+  --track: 0.26em;
+  margin: 0;
+  padding-left: var(--track);
+  font-size: clamp(2.2rem, 6.1vw, 5.4rem);
+  letter-spacing: var(--track);
+  line-height: 1.18;
+  text-transform: uppercase;
+  text-wrap: balance;
   white-space: normal;
 }
 
-.home-title-first {
-  font-size: clamp(4.5rem, 10.5vw, 10rem);
-  line-height: 0.88;
-  transform: none;
+.marquee-title > span {
+  white-space: nowrap;
 }
 
-.home-title-last {
-  justify-self: end;
-  font-size: clamp(2rem, 4.2vw, 4.2rem);
-  line-height: 1;
-  transform: translateX(clamp(-84px, -6vw, -34px));
+.hero .marquee-title {
+  color: var(--gold);
+}
+
+.title-rule {
+  width: clamp(64px, 7vw, 104px);
+  height: 1px;
+  margin: clamp(22px, 3.6vh, 34px) auto;
+  background: rgba(243, 230, 207, 0.6);
+}
+
+.credit-line {
+  margin: 0;
+  color: rgba(243, 230, 207, 0.78);
+  font-family: var(--font-mono);
+  font-size: clamp(0.72rem, 0.95vw, 0.875rem);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.credit-line .dot {
+  margin: 0 0.5em;
+  opacity: 0.55;
+}
+
+.corner-meta {
+  position: absolute;
+  bottom: clamp(20px, 3.6vh, 40px);
+  z-index: 2;
+  margin: 0;
+  color: rgba(243, 230, 207, 0.74);
+  font-family: var(--font-mono);
+  font-size: clamp(0.68rem, 0.85vw, 0.8125rem);
+  letter-spacing: 0.18em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.78);
+  text-transform: uppercase;
+}
+
+.corner-meta--left {
+  left: clamp(18px, 3.2vw, 48px);
+}
+
+.corner-meta--right {
+  right: clamp(18px, 3.2vw, 48px);
+}
+
+/* Only anchors breathe: the location line holds still, the cue invites. */
+a.corner-meta {
+  animation: text-cue-breathe 2.8s ease-in-out infinite;
+}
+
+a.corner-meta:hover,
+a.corner-meta:focus {
+  color: #c7a04d;
+}
+
+/* Mid-page cues stay in flow but speak with the corner cue's voice. */
+.flow-cue {
+  display: inline-block;
+  margin-top: clamp(24px, 4vw, 44px);
+  color: rgba(243, 230, 207, 0.74);
+  font-family: var(--font-mono);
+  font-size: clamp(0.68rem, 0.85vw, 0.8125rem);
+  letter-spacing: 0.18em;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.78);
+  text-transform: uppercase;
+  animation: text-cue-breathe 2.8s ease-in-out infinite;
+}
+
+.flow-cue:hover,
+.flow-cue:focus {
+  color: #c7a04d;
+}
+
+/* Left-set frames: rule and credit line align to the text edge. */
+.title-frame--left .marquee-title {
+  padding-left: 0;
+  text-align: left;
+}
+
+.title-frame--left .title-rule {
+  margin-right: 0;
+  margin-left: 0;
 }
 
 h1 {
@@ -594,26 +642,10 @@ h1 > span {
   margin: 0;
 }
 
-.subpage-menu {
-  width: min(620px, 100%);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: clamp(24px, 6vw, 90px);
-  margin: clamp(24px, 4vw, 38px) auto 0;
-}
-
-.subpage-menu a {
-  color: var(--ink);
-  font-size: clamp(1.05rem, 1.9vw, 1.35rem);
-  font-weight: 650;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.78);
-  text-transform: lowercase;
-  white-space: nowrap;
-}
-
-.subpage-menu a:hover {
-  color: var(--muted);
+.subpage-title.marquee-title {
+  --track: 0.22em;
+  color: #f3e6cf;
+  font-size: clamp(1.7rem, 4.8vw, 3.9rem);
 }
 
 .about-page {
@@ -1248,11 +1280,12 @@ h1 > span {
 }
 
 .actor-hero {
+  position: relative;
   min-height: 100vh;
   display: grid;
   align-items: start;
   justify-items: start;
-  padding: clamp(132px, 22vh, 220px) 0 clamp(36px, 6vw, 72px);
+  padding: clamp(104px, 15vh, 160px) 0 clamp(64px, 10vh, 96px);
 }
 
 .actor-heading {
@@ -1264,34 +1297,10 @@ h1 > span {
   text-shadow: 0 4px 26px rgba(0, 0, 0, 0.74);
 }
 
-.actor-heading h1 {
-  display: grid;
-  gap: clamp(0.03em, 0.5vw, 0.16em);
-  margin: 0;
+.actor-heading .marquee-title {
+  --track: 0.22em;
   color: #f3e6cf;
-  line-height: 0.86;
-  white-space: normal;
-}
-
-.actor-heading h1 span {
-  white-space: nowrap;
-}
-
-.actor-heading .filmmaker-line {
-  color: #c7a04d;
-  font-size: clamp(2.4rem, 5.2vw, 6rem);
-  transform: translateX(clamp(32px, 5vw, 84px));
-}
-
-.actor-heading .screen-line {
-  color: #f3e6cf;
-  font-size: clamp(2rem, 4.3vw, 5rem);
-}
-
-.actor-heading .stage-line {
-  color: #f3e6cf;
-  font-size: clamp(2.25rem, 4.9vw, 5.7rem);
-  transform: translateX(clamp(14px, 2.8vw, 48px));
+  font-size: clamp(2rem, 4.6vw, 4rem);
 }
 
 .actor-heading .gold-text {
@@ -1309,24 +1318,6 @@ h1 > span {
 
 .actor-main {
   width: min(1180px, calc(100% - 32px));
-}
-
-.actor-scroll-text {
-  display: inline-block;
-  margin-top: clamp(30px, 5vw, 58px);
-  margin-left: clamp(20px, 3vw, 48px);
-  color: rgba(243, 230, 207, 0.78);
-  font-family: var(--font-mono);
-  font-size: clamp(0.75rem, 0.95vw, 0.875rem);
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  text-shadow: 0 3px 18px rgba(0, 0, 0, 0.76);
-  animation: text-cue-breathe 2.8s ease-in-out infinite;
-}
-
-.actor-scroll-text:hover,
-.actor-scroll-text:focus {
-  color: #c7a04d;
 }
 
 @keyframes text-cue-breathe {
@@ -1452,6 +1443,7 @@ h1 > span {
 }
 
 .about-landing-hero {
+  position: relative;
   min-height: 100vh;
   display: grid;
   align-items: start;
@@ -1469,25 +1461,16 @@ h1 > span {
   text-shadow: 0 4px 26px rgba(0, 0, 0, 0.74);
 }
 
-.about-heading h1 {
-  display: grid;
-  gap: clamp(0.03em, 0.5vw, 0.16em);
-  margin: 0;
+.about-heading .marquee-title {
+  --track: 0.22em;
   color: #f3e6cf;
   font-family: var(--font-display);
-  font-size: clamp(3.4rem, 7.2vw, 7rem);
   font-weight: 700;
-  line-height: 0.86;
-  white-space: normal;
-}
-
-.about-heading h1 span {
-  white-space: nowrap;
+  font-size: clamp(2rem, 5.4vw, 4.6rem);
 }
 
 .about-heading .gold-text {
   color: #c7a04d;
-  transform: translateX(clamp(18px, 3vw, 54px));
 }
 
 .about-placeholder-bio {
@@ -1497,10 +1480,6 @@ h1 > span {
   font-size: clamp(1rem, 1.18vw, 1.16rem);
   font-weight: 450;
   line-height: 1.62;
-}
-
-.about-flash-text {
-  margin-bottom: 0;
 }
 
 .about-media-section {
@@ -2104,16 +2083,6 @@ h1 > span {
 }
 
 @media (max-width: 860px) {
-  .nav {
-    margin-top: 22px;
-  }
-
-  .nav-links {
-    width: 100%;
-    overflow-x: auto;
-    padding-bottom: 2px;
-  }
-
   .hero {
     min-height: 100vh;
   }
@@ -2125,11 +2094,6 @@ h1 > span {
   .actor-heading {
     width: min(620px, calc(100vw - 56px));
     margin-left: clamp(28px, 6vw, 52px);
-  }
-
-  .actor-heading .filmmaker-line,
-  .actor-heading .stage-line {
-    transform: none;
   }
 
   .actor-intro-bio {
@@ -2342,44 +2306,52 @@ h1 > span {
   }
 }
 
+@media (max-width: 560px) {
+  /* Tighter call-sheet corners: clear the home mark and keep the credit
+     line inside the gutters. */
+  .corner-nav {
+    gap: 14px;
+  }
+
+  .corner-nav a {
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+  }
+
+  .credit-line {
+    font-size: 0.66rem;
+    letter-spacing: 0.16em;
+  }
+}
+
 @media (max-width: 520px) {
   main {
     width: min(100% - 22px, 1120px);
   }
 
-  h1 {
-    font-size: clamp(2.45rem, 12vw, 3.1rem);
+  .hero .marquee-title {
+    font-size: clamp(2.6rem, 13vw, 3.2rem);
   }
 
   .actor-heading {
     width: min(310px, calc(100vw - 78px));
   }
 
-  .actor-heading .filmmaker-line {
-    font-size: clamp(2.05rem, 10vw, 2.45rem);
+  .actor-heading .marquee-title {
+    font-size: clamp(1.9rem, 9.4vw, 2.3rem);
   }
 
-  .actor-heading .screen-line {
-    font-size: clamp(1.65rem, 8.1vw, 2rem);
+  .subpage-title.marquee-title {
+    font-size: clamp(1.5rem, 7.6vw, 1.9rem);
   }
 
-  .actor-heading .stage-line {
-    font-size: clamp(1.8rem, 8.8vw, 2.18rem);
+  .about-heading .marquee-title {
+    font-size: clamp(1.8rem, 9vw, 2.2rem);
   }
 
   .actor-intro-bio {
     font-size: 0.88rem;
     line-height: 1.42;
-  }
-
-  .actor-scroll-text {
-    width: 150px;
-    margin-top: 40px;
-    margin-left: 0;
-    font-size: 0.68rem;
-    line-height: 1.55;
-    letter-spacing: 0.13em;
-    white-space: normal;
   }
 
   .actor-bio-copy {
@@ -2469,12 +2441,6 @@ h1 > span {
   .about-bio-copy,
   .about-bio-unhinged .about-bio-copy {
     font-size: 0.98rem;
-  }
-
-  .mother-page .subpage-title {
-    max-width: 340px;
-    font-size: clamp(2.8rem, 15vw, 4rem);
-    line-height: 0.92;
   }
 
   .mother-main {
@@ -2640,9 +2606,9 @@ h1 > span {
   font-size: clamp(0.8125rem, 1.1vw, 0.9375rem);
 }
 
-.home-scroll-text {
-  margin-left: 0;
-  margin-top: clamp(34px, 6vh, 64px);
+/* The rule motif closes the film the same way it opened it. */
+.end-credits .title-rule {
+  margin: 0 auto clamp(26px, 4vh, 40px);
 }
 
 /* ---------------------------------------------------------------------------
@@ -2680,8 +2646,8 @@ button:focus-visible,
     transition-delay: 0ms;
   }
 
-  .actor-scroll-text,
-  .mother-scroll-text {
+  a.corner-meta,
+  .flow-cue {
     animation: none;
     opacity: 0.85;
   }

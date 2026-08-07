@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="The official starter website for Kacey Samiee."/>
   <title>Kacey Samiee</title>
-  <link rel="stylesheet" href="site.css?v=end-credits-20260806"/>
+  <link rel="stylesheet" href="site.css?v=title-frame-20260806"/>
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -14,34 +14,33 @@
       <source src="assets/media/home/anita-720.m4v" type="video/mp4"/>
     </video>
   </div>
+  <nav class="corner-nav" aria-label="Primary navigation">
+    <a class="swap-link" href="actor.html">
+      <span class="default-label">Actor</span>
+      <span class="hover-label">Filmmaker</span>
+    </a>
+    <a class="swap-link" href="mother-of-drones.html">
+      <span class="default-label">Drone Artist</span>
+      <span class="hover-label">Mother Of Drones</span>
+    </a>
+    <a class="swap-link" href="about.html">
+      <span class="default-label">About</span>
+      <span class="hover-label">Artist</span>
+    </a>
+  </nav>
   <main id="top">
     <section class="hero">
       <div class="hero-copy">
-        <h1 class="home-title">
-          <span class="home-title-first">Kacey</span>
-          <span class="home-title-last">Samiee</span>
-        </h1>
-        <nav class="nav" aria-label="Primary navigation">
-          <div class="nav-links">
-            <a class="swap-link" href="actor.html">
-              <span class="default-label">Actor</span>
-              <span class="hover-label">Filmmaker</span>
-            </a>
-            <a class="swap-link" href="mother-of-drones.html">
-              <span class="default-label">Drone Artist</span>
-              <span class="hover-label">Mother Of Drones</span>
-            </a>
-            <a class="swap-link" id="about-link" href="about.html">
-              <span class="default-label">About</span>
-              <span class="hover-label">Artist</span>
-            </a>
-          </div>
-        </nav>
-        <a class="actor-scroll-text home-scroll-text" href="#end-credits">bookings + press below</a>
+        <h1 class="marquee-title"><span>Kacey</span> <span>Samiee</span></h1>
+        <div class="title-rule" aria-hidden="true"></div>
+        <p class="credit-line">Actor<span class="dot">&middot;</span>Filmmaker<span class="dot">&middot;</span>Drone Artist</p>
       </div>
+      <p class="corner-meta corner-meta--left">Austin, TX</p>
+      <a class="corner-meta corner-meta--right" href="#end-credits">Scroll</a>
     </section>
     <section class="end-credits" id="end-credits">
       <div class="reveal-on-scroll">
+        <div class="title-rule" aria-hidden="true"></div>
         <a class="btn" href="mailto:kaceysamiee@gmail.com?subject=Bookings%20%26%20Press">Bookings &amp; Press Inquiries</a>
       </div>
     </section>

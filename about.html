@@ -6,33 +6,42 @@
   <meta name="description" content="About page for Kacey Samiee."/>
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
   <title>About | Kacey Samiee</title>
-  <link rel="stylesheet" href="site.css?v=end-credits-20260806"/>
+  <link rel="stylesheet" href="site.css?v=title-frame-20260806"/>
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="solid-page about-page">
-  <nav class="home-menu" aria-label="Site navigation">
+  <nav class="home-menu" aria-label="Home">
     <a class="home-icon" href="index.html" aria-label="Home"></a>
-    <div class="home-menu-links">
-      <a href="actor.html">Actor and Filmmaker</a>
-      <a href="mother-of-drones.html">Mother of Drones</a>
-      <a href="about.html">About</a>
-    </div>
+  </nav>
+  <nav class="corner-nav" aria-label="Site navigation">
+    <a class="swap-link" href="actor.html">
+      <span class="default-label">Actor</span>
+      <span class="hover-label">Filmmaker</span>
+    </a>
+    <a class="swap-link" href="mother-of-drones.html">
+      <span class="default-label">Drone Artist</span>
+      <span class="hover-label">Mother Of Drones</span>
+    </a>
+    <a class="swap-link" href="about.html" aria-current="page">
+      <span class="default-label">About</span>
+      <span class="hover-label">Artist</span>
+    </a>
   </nav>
   <div class="about-portrait-bg" aria-hidden="true">
     <img src="assets/about-portrait-primary.png" alt=""/>
   </div>
   <main class="about-landing-main">
     <section class="about-landing-hero" aria-labelledby="about-title">
-      <div class="about-heading">
-        <h1 id="about-title">
-          <span>Who Is</span>
-          <span class="gold-text">She?</span>
-        </h1>
+      <div class="about-heading title-frame--left">
+        <h1 id="about-title" class="marquee-title">Who Is <span class="gold-text">She?</span></h1>
+        <div class="title-rule" aria-hidden="true"></div>
+        <p class="credit-line">Nebula<span class="dot">&middot;</span>Fire<span class="dot">&middot;</span>Flow</p>
         <p class="about-placeholder-bio">
           Bio placeholder goes here. This will become the official story: the short version, the strange version, or whatever version feels most true.
         </p>
-        <p class="actor-scroll-text about-flash-text">scroll</p>
       </div>
+      <p class="corner-meta corner-meta--left">Austin, TX</p>
+      <a class="corner-meta corner-meta--right" href="#nebula">Scroll</a>
     </section>
     <section class="about-media-section" id="nebula" aria-labelledby="nebula-title">
       <div class="about-media-heading reveal-on-scroll">
@@ -78,6 +87,7 @@
     </section>
     <section class="end-credits" id="end-credits">
       <div class="reveal-on-scroll">
+        <div class="title-rule" aria-hidden="true"></div>
         <a class="btn" href="mailto:kaceysamiee@gmail.com?subject=Bookings%20%26%20Press">Bookings &amp; Press Inquiries</a>
       </div>
     </section>
@@ -95,15 +105,6 @@
     </div>
   </div>
   <script>
-    document.querySelectorAll(".home-menu").forEach(function (menu) {
-      menu.addEventListener("mouseenter", function () {
-        menu.classList.add("is-open");
-      });
-      menu.addEventListener("mouseleave", function () {
-        menu.classList.remove("is-open");
-      });
-    });
-
     var revealItems = document.querySelectorAll(".reveal-on-scroll");
     if ("IntersectionObserver" in window) {
       var revealObserver = new IntersectionObserver(function (entries) {

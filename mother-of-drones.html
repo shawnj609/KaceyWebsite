@@ -6,17 +6,26 @@
   <meta name="description" content="Mother of Drones page for Kacey Samiee."/>
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
   <title>Mother of Drones | Kacey Samiee</title>
-  <link rel="stylesheet" href="site.css?v=end-credits-20260806"/>
+  <link rel="stylesheet" href="site.css?v=title-frame-20260806"/>
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="solid-page mother-page">
-  <nav class="home-menu" aria-label="Site navigation">
+  <nav class="home-menu" aria-label="Home">
     <a class="home-icon" href="index.html" aria-label="Home"></a>
-    <div class="home-menu-links">
-      <a href="actor.html">Actor and Filmmaker</a>
-      <a href="mother-of-drones.html">Mother of Drones</a>
-      <a href="about.html">About</a>
-    </div>
+  </nav>
+  <nav class="corner-nav" aria-label="Site navigation">
+    <a class="swap-link" href="actor.html">
+      <span class="default-label">Actor</span>
+      <span class="hover-label">Filmmaker</span>
+    </a>
+    <a class="swap-link" href="mother-of-drones.html" aria-current="page">
+      <span class="default-label">Drone Artist</span>
+      <span class="hover-label">Mother Of Drones</span>
+    </a>
+    <a class="swap-link" href="about.html">
+      <span class="default-label">About</span>
+      <span class="hover-label">Artist</span>
+    </a>
   </nav>
   <div class="mother-video-background" aria-hidden="true">
     <video autoplay muted loop playsinline preload="auto">
@@ -26,9 +35,12 @@
   <main class="mother-main">
     <section class="subpage mother-hero">
       <div class="subpage-copy">
-        <h1 class="subpage-title">Mother of Drones</h1>
-        <a class="actor-scroll-text mother-scroll-text" href="#drone-bio">bio + design work below</a>
+        <h1 class="subpage-title marquee-title">Mother of Drones</h1>
+        <div class="title-rule" aria-hidden="true"></div>
+        <p class="credit-line">Drone Artist<span class="dot">&middot;</span>Creative Technologist</p>
       </div>
+      <p class="corner-meta corner-meta--left">Austin, TX</p>
+      <a class="corner-meta corner-meta--right" href="#drone-bio">Bio + Design Work</a>
     </section>
     <section class="mother-bio-section" id="drone-bio" aria-labelledby="drone-bio-title">
       <div class="mother-bio-photo" aria-hidden="true">
@@ -95,7 +107,7 @@
           <span>Hekate's</span>
           <span class="gold-text">Torch</span>
         </h2>
-        <a class="actor-scroll-text mother-scroll-text" href="#hekates-gallery">gallery below</a>
+        <a class="flow-cue" href="#hekates-gallery">Gallery Below</a>
       </div>
     </section>
     <section class="actor-gallery-section hekate-gallery-section" id="hekates-gallery" aria-labelledby="hekates-gallery-title">
@@ -124,6 +136,7 @@
     </section>
     <section class="end-credits" id="end-credits">
       <div class="reveal-on-scroll">
+        <div class="title-rule" aria-hidden="true"></div>
         <a class="btn" href="mailto:kaceysamiee@gmail.com?subject=Bookings%20%26%20Press">Bookings &amp; Press Inquiries</a>
       </div>
     </section>
@@ -141,15 +154,6 @@
     </div>
   </div>
   <script>
-    document.querySelectorAll(".home-menu").forEach(function (menu) {
-      menu.addEventListener("mouseenter", function () {
-        menu.classList.add("is-open");
-      });
-      menu.addEventListener("mouseleave", function () {
-        menu.classList.remove("is-open");
-      });
-    });
-
     var revealItems = document.querySelectorAll(".reveal-on-scroll");
     if ("IntersectionObserver" in window) {
       var revealObserver = new IntersectionObserver(function (entries) {

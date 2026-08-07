@@ -6,34 +6,42 @@
   <meta name="description" content="Actor and filmmaker page for Kacey Samiee."/>
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
   <title>Actor and Filmmaker | Kacey Samiee</title>
-  <link rel="stylesheet" href="site.css?v=end-credits-20260806"/>
+  <link rel="stylesheet" href="site.css?v=title-frame-20260806"/>
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="solid-page actor-page">
-  <nav class="home-menu" aria-label="Site navigation">
+  <nav class="home-menu" aria-label="Home">
     <a class="home-icon" href="index.html" aria-label="Home"></a>
-    <div class="home-menu-links">
-      <a href="actor.html">Actor and Filmmaker</a>
-      <a href="mother-of-drones.html">Mother of Drones</a>
-      <a href="about.html">About</a>
-    </div>
+  </nav>
+  <nav class="corner-nav" aria-label="Site navigation">
+    <a class="swap-link" href="actor.html" aria-current="page">
+      <span class="default-label">Actor</span>
+      <span class="hover-label">Filmmaker</span>
+    </a>
+    <a class="swap-link" href="mother-of-drones.html">
+      <span class="default-label">Drone Artist</span>
+      <span class="hover-label">Mother Of Drones</span>
+    </a>
+    <a class="swap-link" href="about.html">
+      <span class="default-label">About</span>
+      <span class="hover-label">Artist</span>
+    </a>
   </nav>
   <div class="actor-portrait-bg" aria-hidden="true">
     <img src="assets/actor-portrait.jpg" alt=""/>
   </div>
   <main class="actor-main">
     <section class="actor-hero">
-      <div class="actor-heading">
-        <h1>
-          <span class="filmmaker-line">Filmmaker</span>
-          <span class="screen-line">TV, Film, and</span>
-          <span class="stage-line">Stage <span class="gold-text">Actress</span></span>
-        </h1>
+      <div class="actor-heading title-frame--left">
+        <h1 class="marquee-title">Actor &amp; <span class="gold-text">Filmmaker</span></h1>
+        <div class="title-rule" aria-hidden="true"></div>
+        <p class="credit-line">TV<span class="dot">&middot;</span>Film<span class="dot">&middot;</span>Stage</p>
         <p class="actor-intro-bio">
           I'm a filmmaker and actor focused on creating work across the screen. Over the past fifteen years, I've developed film projects nationally, working across web series, short films, and features in various capacities as actor, writer, and producer. My foundation comes from two decades in narrative and improvisational comedy--performing thousands of hours in front of live audiences and directing and producing shows that taught me spontaneity, collaboration, and creative problem-solving. I designed and developed the musical improv curriculum at the Hideout Theater. Now my primary focus is filmmaking. I develop screenplays, produce and direct my own work, and actively pursue traditional auditions and collaborative film projects. I work fluidly across both comedy and drama, with a sharp comedic sensibility grounded in years of improvisation. Whether in front of the camera or behind it, I'm committed to creating meaningful work.
         </p>
-        <a class="actor-scroll-text" href="#photo-reel-gallery">photos + reels below</a>
       </div>
+      <p class="corner-meta corner-meta--left">Austin, TX</p>
+      <a class="corner-meta corner-meta--right" href="#photo-reel-gallery">Photos + Reels</a>
     </section>
     <section class="actor-gallery-section" id="photo-reel-gallery" aria-labelledby="gallery-title">
       <div class="scroll-gallery-heading reveal-on-scroll">
@@ -281,6 +289,7 @@
     </section>
     <section class="end-credits" id="end-credits">
       <div class="reveal-on-scroll">
+        <div class="title-rule" aria-hidden="true"></div>
         <a class="btn" href="mailto:kaceysamiee@gmail.com?subject=Bookings%20%26%20Press">Bookings &amp; Press Inquiries</a>
       </div>
     </section>
@@ -298,15 +307,6 @@
     </div>
   </div>
   <script>
-    document.querySelectorAll(".home-menu").forEach(function (menu) {
-      menu.addEventListener("mouseenter", function () {
-        menu.classList.add("is-open");
-      });
-      menu.addEventListener("mouseleave", function () {
-        menu.classList.remove("is-open");
-      });
-    });
-
     var revealItems = document.querySelectorAll(".reveal-on-scroll");
     if ("IntersectionObserver" in window) {
       var revealObserver = new IntersectionObserver(function (entries) {
