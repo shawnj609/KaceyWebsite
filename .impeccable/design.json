@@ -1,43 +1,256 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-08-06",
+  "generatedAt": "2026-08-18",
   "title": "Design System: Kacey Samiee",
   "extensions": {
     "colorMeta": {
-      "page-black": { "role": "neutral", "displayName": "Page Black", "canonical": "#000000", "tonalRamp": ["oklch(0% 0 0)", "oklch(11% 0 0)", "oklch(22% 0 0)", "oklch(34% 0 0)", "oklch(46% 0 0)", "oklch(60% 0 0)", "oklch(78% 0 0)", "oklch(95% 0 0)"] },
-      "surface-black": { "role": "neutral", "displayName": "Surface Black", "canonical": "#080808", "tonalRamp": ["oklch(8% 0 0)", "oklch(15% 0 0)", "oklch(26% 0 0)", "oklch(38% 0 0)", "oklch(50% 0 0)", "oklch(64% 0 0)", "oklch(80% 0 0)", "oklch(95% 0 0)"] },
-      "ink": { "role": "neutral", "displayName": "Ink", "canonical": "#ffffff", "tonalRamp": ["oklch(15% 0 0)", "oklch(28% 0 0)", "oklch(42% 0 0)", "oklch(55% 0 0)", "oklch(68% 0 0)", "oklch(80% 0 0)", "oklch(90% 0 0)", "oklch(100% 0 0)"] },
-      "muted-silver": { "role": "neutral", "displayName": "Muted Silver", "canonical": "#d7d7d7", "tonalRamp": ["oklch(15% 0 0)", "oklch(27% 0 0)", "oklch(39% 0 0)", "oklch(51% 0 0)", "oklch(63% 0 0)", "oklch(75% 0 0)", "oklch(87% 0 0)", "oklch(95% 0 0)"] },
-      "hairline": { "role": "neutral", "displayName": "Hairline", "canonical": "#232323", "tonalRamp": ["oklch(12% 0 0)", "oklch(21% 0 0)", "oklch(32% 0 0)", "oklch(44% 0 0)", "oklch(56% 0 0)", "oklch(69% 0 0)", "oklch(82% 0 0)", "oklch(95% 0 0)"] },
-      "candlelight": { "role": "primary", "displayName": "Candlelight", "canonical": "#f3e6cf", "tonalRamp": ["oklch(15% 0.03 91)", "oklch(27% 0.03 91)", "oklch(39% 0.03 91)", "oklch(51% 0.03 91)", "oklch(63% 0.03 91)", "oklch(75% 0.03 91)", "oklch(87% 0.03 91)", "oklch(95% 0.03 91)"] },
-      "old-gold": { "role": "primary", "displayName": "Old Gold", "canonical": "#c7a04d", "tonalRamp": ["oklch(15% 0.11 85)", "oklch(25% 0.11 85)", "oklch(36% 0.11 85)", "oklch(47% 0.11 85)", "oklch(58% 0.11 85)", "oklch(70% 0.11 85)", "oklch(83% 0.09 85)", "oklch(95% 0.05 85)"] },
-      "ember": { "role": "secondary", "displayName": "Ember", "canonical": "#4b2415", "tonalRamp": ["oklch(15% 0.06 45)", "oklch(24% 0.07 45)", "oklch(33% 0.08 45)", "oklch(43% 0.09 45)", "oklch(53% 0.1 45)", "oklch(65% 0.09 45)", "oklch(79% 0.07 45)", "oklch(95% 0.03 45)"] },
-      "bloodline": { "role": "secondary", "displayName": "Bloodline", "canonical": "#bb0030", "tonalRamp": ["oklch(15% 0.09 18)", "oklch(24% 0.13 18)", "oklch(33% 0.17 18)", "oklch(42% 0.2 18)", "oklch(50% 0.21 18)", "oklch(62% 0.17 18)", "oklch(78% 0.1 18)", "oklch(95% 0.03 18)"] },
-      "shadow-olive": { "role": "secondary", "displayName": "Shadow Olive", "canonical": "#33302a", "tonalRamp": ["oklch(14% 0.012 100)", "oklch(23% 0.014 100)", "oklch(33% 0.015 100)", "oklch(44% 0.015 100)", "oklch(56% 0.015 100)", "oklch(69% 0.015 100)", "oklch(82% 0.012 100)", "oklch(95% 0.008 100)"] }
+      "page-black": {
+        "role": "neutral",
+        "displayName": "Page Black",
+        "canonical": "#000000",
+        "tonalRamp": [
+          "oklch(0% 0 0)",
+          "oklch(11% 0 0)",
+          "oklch(22% 0 0)",
+          "oklch(34% 0 0)",
+          "oklch(46% 0 0)",
+          "oklch(60% 0 0)",
+          "oklch(78% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "surface-black": {
+        "role": "neutral",
+        "displayName": "Surface Black",
+        "canonical": "#080808",
+        "tonalRamp": [
+          "oklch(8% 0 0)",
+          "oklch(15% 0 0)",
+          "oklch(26% 0 0)",
+          "oklch(38% 0 0)",
+          "oklch(50% 0 0)",
+          "oklch(64% 0 0)",
+          "oklch(80% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(28% 0 0)",
+          "oklch(42% 0 0)",
+          "oklch(55% 0 0)",
+          "oklch(68% 0 0)",
+          "oklch(80% 0 0)",
+          "oklch(90% 0 0)",
+          "oklch(100% 0 0)"
+        ]
+      },
+      "muted-silver": {
+        "role": "neutral",
+        "displayName": "Muted Silver",
+        "canonical": "#d7d7d7",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(27% 0 0)",
+          "oklch(39% 0 0)",
+          "oklch(51% 0 0)",
+          "oklch(63% 0 0)",
+          "oklch(75% 0 0)",
+          "oklch(87% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "hairline": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#232323",
+        "tonalRamp": [
+          "oklch(12% 0 0)",
+          "oklch(21% 0 0)",
+          "oklch(32% 0 0)",
+          "oklch(44% 0 0)",
+          "oklch(56% 0 0)",
+          "oklch(69% 0 0)",
+          "oklch(82% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "candlelight": {
+        "role": "primary",
+        "displayName": "Candlelight",
+        "canonical": "#f3e6cf",
+        "tonalRamp": [
+          "oklch(15% 0.03 91)",
+          "oklch(27% 0.03 91)",
+          "oklch(39% 0.03 91)",
+          "oklch(51% 0.03 91)",
+          "oklch(63% 0.03 91)",
+          "oklch(75% 0.03 91)",
+          "oklch(87% 0.03 91)",
+          "oklch(95% 0.03 91)"
+        ]
+      },
+      "old-gold": {
+        "role": "primary",
+        "displayName": "Old Gold",
+        "canonical": "#c7a04d",
+        "tonalRamp": [
+          "oklch(15% 0.11 85)",
+          "oklch(25% 0.11 85)",
+          "oklch(36% 0.11 85)",
+          "oklch(47% 0.11 85)",
+          "oklch(58% 0.11 85)",
+          "oklch(70% 0.11 85)",
+          "oklch(83% 0.09 85)",
+          "oklch(95% 0.05 85)"
+        ]
+      },
+      "ember": {
+        "role": "secondary",
+        "displayName": "Ember",
+        "canonical": "#4b2415",
+        "tonalRamp": [
+          "oklch(15% 0.06 45)",
+          "oklch(24% 0.07 45)",
+          "oklch(33% 0.08 45)",
+          "oklch(43% 0.09 45)",
+          "oklch(53% 0.1 45)",
+          "oklch(65% 0.09 45)",
+          "oklch(79% 0.07 45)",
+          "oklch(95% 0.03 45)"
+        ]
+      },
+      "airspace": {
+        "role": "secondary",
+        "displayName": "Airspace",
+        "canonical": "#5b7ea9",
+        "tonalRamp": [
+          "oklch(15% 0.04 253)",
+          "oklch(24% 0.05 253)",
+          "oklch(33% 0.06 253)",
+          "oklch(43% 0.07 253)",
+          "oklch(53% 0.08 253)",
+          "oklch(65% 0.07 253)",
+          "oklch(79% 0.05 253)",
+          "oklch(95% 0.02 253)"
+        ]
+      },
+      "shadow-olive": {
+        "role": "secondary",
+        "displayName": "Shadow Olive",
+        "canonical": "#33302a",
+        "tonalRamp": [
+          "oklch(14% 0.012 100)",
+          "oklch(23% 0.014 100)",
+          "oklch(33% 0.015 100)",
+          "oklch(44% 0.015 100)",
+          "oklch(56% 0.015 100)",
+          "oklch(69% 0.015 100)",
+          "oklch(82% 0.012 100)",
+          "oklch(95% 0.008 100)"
+        ]
+      },
+      "torchlight": {
+        "role": "secondary",
+        "displayName": "Torchlight",
+        "canonical": "#7a340e",
+        "tonalRamp": [
+          "oklch(15% 0.05 45)",
+          "oklch(24% 0.08 45)",
+          "oklch(34% 0.1 45)",
+          "oklch(44% 0.12 45)",
+          "oklch(54% 0.13 45)",
+          "oklch(66% 0.12 45)",
+          "oklch(80% 0.09 45)",
+          "oklch(95% 0.04 45)"
+        ]
+      }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Page-defining Bodoni Moda title stacks — grids of nowrap lines with lateral offsets, one Old Gold line allowed per stack." },
-      "headline": { "displayName": "Headline", "purpose": "Section and sticky gallery headings in Candlelight, line-height 0.84." },
-      "body": { "displayName": "Body", "purpose": "Bios and prose in Archivo 450; Candlelight at 72–88% alpha over world tints, measure capped at 430–680px." },
-      "label": { "displayName": "Label (Call Sheet)", "purpose": "Fragment Mono uppercase for nav, buttons, captions, metadata. Never body copy, never eyebrows." }
+      "display": {
+        "displayName": "Display",
+        "purpose": "Page-defining Bodoni Moda title stacks \u2014 grids of nowrap lines with lateral offsets, one Old Gold line allowed per stack."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section and sticky gallery headings in Candlelight, line-height 0.84."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Bios and prose in Archivo 450; Candlelight at 72\u201388% alpha over world tints, measure capped at 430\u2013680px."
+      },
+      "label": {
+        "displayName": "Label (Call Sheet)",
+        "purpose": "Fragment Mono uppercase for nav, buttons, captions, metadata. Never body copy, never eyebrows."
+      }
     },
     "shadows": [
-      { "name": "text-halo", "value": "0 3px 24px rgba(0, 0, 0, 0.82)", "purpose": "Under all type that sits over imagery or video; part of the Scrim Rule." },
-      { "name": "card-plume", "value": "0 22px 64px rgba(0, 0, 0, 0.36)", "purpose": "Ambient plume under work cards and gallery tiles. Never changes on hover." },
-      { "name": "modal-plume", "value": "0 34px 92px rgba(0, 0, 0, 0.72)", "purpose": "Under the video modal window only." },
-      { "name": "portrait-drop", "value": "drop-shadow(0 24px 56px rgba(0, 0, 0, 0.58))", "purpose": "Filter drop-shadow on the about page's reveal portraits." }
+      {
+        "name": "text-halo",
+        "value": "0 3px 24px rgba(0, 0, 0, 0.82)",
+        "purpose": "Under all type that sits over imagery or video; part of the Scrim Rule."
+      },
+      {
+        "name": "card-plume",
+        "value": "0 22px 64px rgba(0, 0, 0, 0.36)",
+        "purpose": "Ambient plume under work cards and gallery tiles. Never changes on hover."
+      },
+      {
+        "name": "modal-plume",
+        "value": "0 34px 92px rgba(0, 0, 0, 0.72)",
+        "purpose": "Under the video modal window only."
+      },
+      {
+        "name": "portrait-drop",
+        "value": "drop-shadow(0 24px 56px rgba(0, 0, 0, 0.58))",
+        "purpose": "Filter drop-shadow on the about page's reveal portraits."
+      }
     ],
     "motion": [
-      { "name": "ease-out", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "The house curve. The only easing in the system." },
-      { "name": "duration-overlay", "value": "180ms", "purpose": "Modal and small opacity fades." },
-      { "name": "duration-hover", "value": "220ms", "purpose": "Card image scale (1.03) and dim (0.9 opacity)." },
-      { "name": "duration-button", "value": "400ms", "purpose": "Button border, fill, and text-color resolution." },
-      { "name": "duration-reveal", "value": "700ms", "purpose": "Scroll reveals: translateY(34px) to 0, sibling stagger 80/150/220ms, gated behind the .js class." },
-      { "name": "breathe", "value": "2.8s ease-in-out infinite (opacity 0.54 to 1)", "purpose": "The scroll cue's pulse. Replaced by steady 0.85 opacity under reduced motion." }
+      {
+        "name": "ease-out",
+        "value": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "The house curve. The only easing in the system."
+      },
+      {
+        "name": "duration-overlay",
+        "value": "180ms",
+        "purpose": "Modal and small opacity fades."
+      },
+      {
+        "name": "duration-hover",
+        "value": "220ms",
+        "purpose": "Card image scale (1.03) and dim (0.9 opacity)."
+      },
+      {
+        "name": "duration-button",
+        "value": "400ms",
+        "purpose": "Button border, fill, and text-color resolution."
+      },
+      {
+        "name": "duration-reveal",
+        "value": "700ms",
+        "purpose": "Scroll reveals: translateY(34px) to 0, sibling stagger 80/150/220ms, gated behind the .js class."
+      },
+      {
+        "name": "breathe",
+        "value": "2.8s ease-in-out infinite (opacity 0.54 to 1)",
+        "purpose": "The scroll cue's pulse. Replaced by steady 0.85 opacity under reduced motion."
+      }
     ],
     "breakpoints": [
-      { "name": "tablet", "value": "860px" },
-      { "name": "phone", "value": "520px" }
+      {
+        "name": "tablet",
+        "value": "860px"
+      },
+      {
+        "name": "phone",
+        "value": "520px"
+      }
     ]
   },
   "components": [
@@ -86,41 +299,61 @@
       "kind": "button",
       "refersTo": "play-mark",
       "description": "The circled mono close for the video modal; inverts to Candlelight fill on hover.",
-      "html": "<button class=\"ds-modal-close\" aria-label=\"Close video\">✕</button>",
+      "html": "<button class=\"ds-modal-close\" aria-label=\"Close video\">\u2715</button>",
       "css": ".ds-modal-close { width: 34px; height: 34px; border: 1px solid rgba(243, 230, 207, 0.72); border-radius: 50%; color: var(--gold, #f3e6cf); font-family: var(--font-mono, 'Fragment Mono', monospace); font-size: 0.8125rem; line-height: 1; background: rgba(0, 0, 0, 0.34); cursor: pointer; } .ds-modal-close:hover, .ds-modal-close:focus-visible { color: #050505; background: var(--gold, #f3e6cf); } .ds-modal-close:focus-visible { outline: 2px solid var(--gold, #f3e6cf); outline-offset: 3px; }"
     }
   ],
   "narrative": {
     "northStar": "The Cold Open",
-    "overview": "The system works like the first three minutes of a film before the title card: true black, a face lit by warm light, type that arrives like credits. Every page shows less than it could — fullscreen video and masked portraits carry the art direction, and the design layer is the connective tissue set on top of them: stacked serif titles, hairline components, call-sheet monospace. Color behaves like production design: the global layer knows only black, white, and candlelight; each page commits to a single world tint painted over black — Ember on the actor page, Bloodline crimson on Mother of Drones, Shadow Olive on about. Depth is atmospheric rather than architectural: gradient scrims, photos feathered into black with mask-image, soft plumes of shadow. Nothing sits on top of the page; everything emerges from the dark.",
+    "overview": "The system works like the first three minutes of a film before the title card: true black, a face lit by warm light, type that arrives like credits. Every page shows less than it could \u2014 fullscreen video and masked portraits carry the art direction, and the design layer is the connective tissue set on top of them: stacked serif titles, hairline components, call-sheet monospace. Color behaves like production design: the global layer knows only black, white, and candlelight; each page commits to a single world tint painted over black \u2014 Ember on the actor page, Airspace blue on Mother of Drones, Shadow Olive on about. Depth is atmospheric rather than architectural: gradient scrims, photos feathered into black with mask-image, soft plumes of shadow. Nothing sits on top of the page; everything emerges from the dark.",
     "keyCharacteristics": [
       "True-black canvas with per-page world tints; candlelight is the only global warmth",
       "Film-title typography: stacked Bodoni Moda lines at line-height 0.84 with lateral offsets, one Old Gold line per stack",
-      "Monospace as the call sheet: nav, buttons, captions, metadata — never prose",
+      "Monospace as the call sheet: nav, buttons, captions, metadata \u2014 never prose",
       "Components etched, not built: hairline borders and light, no solid fills",
       "Motion is patient: one easing curve, long reveals, a breathing scroll cue"
     ],
     "rules": [
-      { "name": "The One World Rule", "body": "Each page commits to exactly one world tint over black. Ember, Bloodline, and Shadow Olive never appear on the same surface; a new page means choosing (or creating) its world, not mixing existing ones.", "section": "colors" },
-      { "name": "The Candle Rule", "body": "Candlelight is the only warmth the global layer knows, and Old Gold appears on at most one line per heading stack. When everything is gold, nothing is lit.", "section": "colors" },
-      { "name": "The Call-Sheet Rule", "body": "Monospace is justified by screenplay and call-sheet convention, not 'technical' signaling. It appears on nav, buttons, captions, credits, and metadata — never in body copy, and never as an eyebrow above headings.", "section": "typography" },
-      { "name": "The Stacked Title Rule", "body": "Big headings are grids of whole lines, each line a nowrap span, offset laterally like title cards — not paragraphs that happen to be large. Line-height stays in the 0.82–0.88 band; one line may carry Old Gold.", "section": "typography" },
-      { "name": "The Scrim Rule", "body": "Type never touches raw pixels. Between letterforms and footage there is always at least one of: a gradient scrim, a mask feathering the image away, or the text halo. Usually two.", "section": "elevation" }
+      {
+        "name": "The One World Rule",
+        "body": "Each page commits to exactly one world tint over black. Ember, Airspace, and Shadow Olive never appear on the same surface; a new page means choosing (or creating) its world, not mixing existing ones.",
+        "section": "colors"
+      },
+      {
+        "name": "The Candle Rule",
+        "body": "Candlelight is the only warmth the global layer knows, and Old Gold appears on at most one line per heading stack. When everything is gold, nothing is lit.",
+        "section": "colors"
+      },
+      {
+        "name": "The Call-Sheet Rule",
+        "body": "Monospace is justified by screenplay and call-sheet convention, not 'technical' signaling. It appears on nav, buttons, captions, credits, and metadata \u2014 never in body copy, and never as an eyebrow above headings.",
+        "section": "typography"
+      },
+      {
+        "name": "The Stacked Title Rule",
+        "body": "Big headings are grids of whole lines, each line a nowrap span, offset laterally like title cards \u2014 not paragraphs that happen to be large. Line-height stays in the 0.82\u20130.88 band; one line may carry Old Gold.",
+        "section": "typography"
+      },
+      {
+        "name": "The Scrim Rule",
+        "body": "Type never touches raw pixels. Between letterforms and footage there is always at least one of: a gradient scrim, a mask feathering the image away, or the text halo. Usually two.",
+        "section": "elevation"
+      }
     ],
     "dos": [
-      "Do design on top of the shipped video and portrait work — the footage is the art direction; add type, structure, and components over it (pull real frames with ffmpeg when mocking).",
+      "Do design on top of the shipped video and portrait work \u2014 the footage is the art direction; add type, structure, and components over it (pull real frames with ffmpeg when mocking).",
       "Do keep type legible over footage with the Scrim Rule: scrim + mask + text halo, never raw type on raw pixels.",
-      "Do commit each page to one world tint (Ember #4b2415, Bloodline #bb0030, Shadow Olive #33302a) over Page Black #000000.",
+      "Do commit each page to one world tint (Ember #4b2415, Airspace #5b7ea9, Shadow Olive #33302a) over Page Black #000000.",
       "Do hold the radius scale to exactly three values: 0 (buttons, heroes), 8px (cards, tiles), 50% (play mark, circles).",
       "Do use the house curve cubic-bezier(0.22, 1, 0.36, 1) for all motion, keep reveals .js-gated, and ship the prefers-reduced-motion crossfade for anything that moves.",
-      "Do dim on hover (white → Muted Silver #d7d7d7, images → 0.9 opacity); this site gets quieter when touched, not louder."
+      "Do dim on hover (white \u2192 Muted Silver #d7d7d7, images \u2192 0.9 opacity); this site gets quieter when touched, not louder."
     ],
     "donts": [
-      "Don't build the 'Squarespace actor template': headshot hero, résumé grid, credits table, 'represented by' footer.",
+      "Don't build the 'Squarespace actor template': headshot hero, r\u00e9sum\u00e9 grid, credits table, 'represented by' footer.",
       "Don't let in 'influencer energy': Linktree patterns, follower counts, collab-bait copy, platform logo rows.",
       "Don't drift toward the 'event-vendor site': packages, quote forms, 'trusted by' logo rows, FAQ accordions.",
-      "Don't overcook the danger into 'edgelord goth': no skulls, blood-red drenches, or distressed grunge type. Bloodline crimson belongs to the drones' world, not to horror.",
-      "Don't set body copy or section eyebrows in Fragment Mono — the Call-Sheet Rule. No tiny uppercase tracked labels above headings, ever.",
+      "Don't overcook the danger into 'edgelord goth': no skulls, blood-red drenches, or distressed grunge type. The menace lives in what is withheld, never in costume.",
+      "Don't set body copy or section eyebrows in Fragment Mono \u2014 the Call-Sheet Rule. No tiny uppercase tracked labels above headings, ever.",
       "Don't fill components solid or raise their elevation on hover. If a surface reads as a built slab instead of an etched outline, cut the fill.",
       "Don't replace or cover the background videos with stills, and don't gate content visibility on scroll animation without the .js class guard.",
       "Don't introduce a fourth typeface, a fourth radius, a second easing curve, or a world tint mix. The system is small on purpose."

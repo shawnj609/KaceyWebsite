@@ -10,8 +10,9 @@ colors:
   candlelight: "#f3e6cf"
   old-gold: "#c7a04d"
   ember: "#4b2415"
-  bloodline: "#bb0030"
+  airspace: "#5b7ea9"
   shadow-olive: "#33302a"
+  torchlight: "#7a340e"
 typography:
   display:
     fontFamily: "Bodoni Moda, Didot, Bodoni 72, Georgia, serif"
@@ -86,7 +87,7 @@ components:
 
 The system works like the first three minutes of a film before the title card: true black, a face lit by warm light, type that arrives like credits. Every page shows less than it could — fullscreen video and masked portraits carry the art direction, and the design layer is the connective tissue set on top of them: one spread serif title line, hairline components, call-sheet monospace pinned to the corners of the frame. The visitor arrived referred; the system's job is to make them lean in, not to explain.
 
-Color behaves like production design. The global layer knows only black, white, and candlelight; then each page commits to a single world tint painted over black — Ember on the actor page, Bloodline crimson on Mother of Drones, Shadow Olive on about. Depth is atmospheric rather than architectural: gradient scrims, photos feathered into black with mask-image, soft plumes of shadow. Nothing sits "on top of" the page; everything emerges from the dark.
+Color behaves like production design. The global layer knows only black, white, and candlelight; then each page commits to a single world tint painted over black — Ember on the actor page, Airspace blue on Mother of Drones, Torchlight on the fire page, Shadow Olive on about. Depth is atmospheric rather than architectural: gradient scrims, photos feathered into black with mask-image, soft plumes of shadow. Nothing sits "on top of" the page; everything emerges from the dark.
 
 This system explicitly rejects the Squarespace actor template, influencer energy, the event-vendor site, and edgelord goth (see PRODUCT.md's anti-references, restated in section 6). The menace stays elegant: it lives in what is withheld, never in costume.
 
@@ -107,8 +108,9 @@ Warm light against true black; everything chromatic belongs either to the candle
 
 ### Secondary
 - **Ember** (#4b2415): The actor page's world — a burnt-sienna radial glow behind masked portraits, deepening to #160905 at the edges.
-- **Bloodline** (#bb0030): Mother of Drones' world — a crimson band (running #bb0030 to #680017) for the bio section, with rgba(198,0,52) glows over the gallery blacks.
+- **Airspace** (#5b7ea9): Mother of Drones' world — a steel-blue band lifted from the assets/oh-my.png studio backdrop (running #5b7ea9 to #1d3d5f) for the bio section, with rgba(116,149,190) glows over the gallery blacks.
 - **Shadow Olive** (#33302a): The about page's world — an unvarnished backstage olive-umber, falling to #070706.
+- **Torchlight** (#7a340e): The fire page's world — the flame orange lifted from the Hekate's Torch footage, glowing as rgba(122,52,14) and rgba(196,92,26) over gallery blacks, falling to #030100.
 
 ### Neutral
 - **Page Black** (#000000): The body background everywhere. Not near-black — black.
@@ -118,7 +120,7 @@ Warm light against true black; everything chromatic belongs either to the candle
 - **Hairline** (#232323): Neutral rules and dividers on solid black.
 
 ### Named Rules
-**The One World Rule.** Each page commits to exactly one world tint over black. Ember, Bloodline, and Shadow Olive never appear on the same surface; a new page means choosing (or creating) its world, not mixing existing ones.
+**The One World Rule.** Each page commits to exactly one world tint over black. Ember, Airspace, Torchlight, and Shadow Olive never appear on the same surface; a new page means choosing (or creating) its world, not mixing existing ones.
 
 **The Candle Rule.** Candlelight is the only warmth the global layer knows, and Old Gold appears on at most one line per heading stack. When everything is gold, nothing is lit.
 
@@ -131,7 +133,7 @@ Warm light against true black; everything chromatic belongs either to the candle
 **Character:** A hairline didone shouting quietly over footage, a neutral grotesque staying out of the way, and a typewriter voice doing the paperwork. The pairing is film-title card plus call sheet — glamour and production logistics in the same frame.
 
 ### Hierarchy
-- **Display / Marquee** (700, clamp(2.2rem, 6.1vw, 5.4rem) on home and ~0.7–0.85× of that on subpages, line-height 1.18, UPPERCASE, tracked 0.26em on home / 0.22em on subpages): Page titles set as one spread line — `KACEY SAMIEE`, `ACTOR & FILMMAKER`, `MOTHER OF DRONES`, `WHO IS SHE?`. Centered marquees carry a `padding-left` equal to the tracking so the line sits truly centered; lines wrap into balanced `nowrap` word-spans on small screens. The only letter-spaced serif in the system.
+- **Display / Marquee** (700, clamp(2.2rem, 6.1vw, 5.4rem) on home and ~0.7–0.85× of that on subpages, line-height 1.18, UPPERCASE, tracked 0.26em on home / 0.22em on subpages): Page titles set as one spread line — `KACEY SAMIEE`, `ACTRESS & FILMMAKER`, `MOTHER OF DRONES`, `HEKATE'S TORCH`, `WHO IS SHE?`. Centered marquees carry a `padding-left` equal to the tracking so the line sits truly centered; lines wrap into balanced `nowrap` word-spans on small screens. The only letter-spaced serif in the system.
 - **Headline** (700, clamp(3.2rem, 7.2vw, 7rem), line-height 0.84): Section headings and sticky gallery headings, usually in Candlelight with one Old Gold line.
 - **Body** (450, clamp(0.98rem, 1.25vw, 1.12rem), line-height 1.62): Bios and running prose in Archivo, colored as Candlelight at 72–88% alpha over world tints, capped at ~430–680px measure.
 - **Label** (400, clamp(0.75rem, 0.95vw, 0.875rem), letter-spacing 0.12–0.18em, UPPERCASE): Fragment Mono for nav links, buttons, card captions, scroll cues, and the modal close — the call-sheet voice.
@@ -141,7 +143,7 @@ Warm light against true black; everything chromatic belongs either to the candle
 
 **The Marquee Rule.** Page titles (h1) are one spread line of tracked caps, followed by a short hairline rule and a mono credit line — never a stack. One word may carry Old Gold. Section headings (h2) keep the stacked voice: grids of whole `nowrap` lines at line-height 0.82–0.88, one line in Old Gold. The two treatments never trade places.
 
-**The Credit Line Rule.** Under every page title, a Fragment Mono line of dot-separated facts (`ACTOR · FILMMAKER · DRONE ARTIST`, `NEBULA · FIRE · FLOW`) at 0.22em tracking, Candlelight at 78% alpha, dots dimmed to 55%. Facts only — roles, worlds, section names — never slogans.
+**The Credit Line Rule.** Under every page title, a Fragment Mono line of dot-separated facts (`ACTRESS · FILMMAKER · DRONE ARTIST`, `NEBULA · FIRE · FLOW`) at 0.22em tracking, Candlelight at 78% alpha, dots dimmed to 55%. Facts only — roles, worlds, section names — never slogans.
 
 ## 4. Elevation
 
@@ -175,8 +177,8 @@ This system has no elevation in the UI sense — nothing lifts, nothing floats o
 - **Hover:** Image scales to 1.03 and dims to 0.9 opacity over 220ms — a breath, not a bounce.
 
 ### Navigation
-- **Corner nav:** Every page carries the same three links (`ACTOR · DRONE ARTIST · ABOUT`) pinned to the top-right of the first frame — Fragment Mono uppercase at 0.16em tracking, Ink with text halo; hover dims to Muted Silver (never brightens). The current page's link sits at 56% alpha with `aria-current="page"`. Absolute, not fixed: it scrolls away like a title card.
-- **Swap links:** Nav items carry a hidden hover label that replaces the default on hover/focus — the nav whispers a second name (`ACTOR` → `FILMMAKER`). Both labels share one grid cell so nothing reflows on swap.
+- **Corner nav:** Every page carries the same four links (`EARTH · AIR · FIRE · SEE`) pinned to the top-right of the first frame — Fragment Mono uppercase at 0.16em tracking, Ink with text halo; hover dims to Muted Silver (never brightens). The current page's link sits at 56% alpha with `aria-current="page"`. Absolute, not fixed: it scrolls away like a title card.
+- **Swap links:** Nav items carry a hidden hover label that replaces the default on hover/focus — each link whispers a second name (`EARTH` → `ACTRESS`, `AIR` → `DRONES`, `FIRE` → `DANCER`, `SEE` → `ARTIST`). The fourth link is the verb, not the sea — the invitation to look. Both labels share one grid cell so nothing reflows on swap.
 - **Home mark:** On subpages, the fixed drawn-circles mark (two 24px hairline circles) top-left links home. It carries no menu — the corner nav is the menu.
 
 ### The Title Frame (signature layout)
@@ -201,7 +203,7 @@ One easing curve — `cubic-bezier(0.22, 1, 0.36, 1)` (`--ease-out`) — and a s
 ### Do:
 - **Do** design on top of the shipped video and portrait work — the footage is the art direction; add type, structure, and components over it (pull real frames with ffmpeg when mocking).
 - **Do** keep type legible over footage with the Scrim Rule: scrim + mask + text halo, never raw type on raw pixels.
-- **Do** commit each page to one world tint (Ember #4b2415, Bloodline #bb0030, Shadow Olive #33302a) over Page Black #000000.
+- **Do** commit each page to one world tint (Ember #4b2415, Airspace #5b7ea9, Torchlight #7a340e, Shadow Olive #33302a) over Page Black #000000.
 - **Do** hold the radius scale to exactly three values: 0 (buttons, heroes), 8px (cards, tiles), 50% (play mark, circles).
 - **Do** use the house curve `cubic-bezier(0.22, 1, 0.36, 1)` for all motion, keep reveals `.js`-gated, and ship the `prefers-reduced-motion` crossfade for anything that moves.
 - **Do** dim on hover (white → Muted Silver #d7d7d7, images → 0.9 opacity); this site gets quieter when touched, not louder.
@@ -210,7 +212,7 @@ One easing curve — `cubic-bezier(0.22, 1, 0.36, 1)` (`--ease-out`) — and a s
 - **Don't** build the "Squarespace actor template": headshot hero, résumé grid, credits table, "represented by" footer.
 - **Don't** let in "influencer energy": Linktree patterns, follower counts, collab-bait copy, platform logo rows.
 - **Don't** drift toward the "event-vendor site": packages, quote forms, "trusted by" logo rows, FAQ accordions.
-- **Don't** overcook the danger into "edgelord goth": no skulls, blood-red drenches, or distressed grunge type. Bloodline crimson belongs to the drones' world, not to horror.
+- **Don't** overcook the danger into "edgelord goth": no skulls, blood-red drenches, or distressed grunge type. The menace lives in what is withheld, never in costume.
 - **Don't** set body copy or section eyebrows in Fragment Mono — the Call-Sheet Rule. No tiny uppercase tracked labels above headings, ever.
 - **Don't** fill components solid or raise their elevation on hover. If a surface reads as a built slab instead of an etched outline, cut the fill.
 - **Don't** replace or cover the background videos with stills, and don't gate content visibility on scroll animation without the `.js` class guard.

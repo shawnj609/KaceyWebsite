@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="About page for Kacey Samiee."/>
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
-  <title>About | Kacey Samiee</title>
-  <link rel="stylesheet" href="site.css?v=title-frame-20260806"/>
+  <title>See What's Next | Kacey Samiee</title>
+  <link rel="stylesheet" href="site.css?v=nebula-20260818"/>
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="solid-page about-page">
@@ -15,15 +15,19 @@
   </nav>
   <nav class="corner-nav" aria-label="Site navigation">
     <a class="swap-link" href="actor.html">
-      <span class="default-label">Actor</span>
-      <span class="hover-label">Filmmaker</span>
+      <span class="default-label">Earth</span>
+      <span class="hover-label">Actress</span>
     </a>
     <a class="swap-link" href="mother-of-drones.html">
-      <span class="default-label">Drone Artist</span>
-      <span class="hover-label">Mother Of Drones</span>
+      <span class="default-label">Air</span>
+      <span class="hover-label">Drones</span>
+    </a>
+    <a class="swap-link" href="fire.html">
+      <span class="default-label">Fire</span>
+      <span class="hover-label">Dancer</span>
     </a>
     <a class="swap-link" href="about.html" aria-current="page">
-      <span class="default-label">About</span>
+      <span class="default-label">See</span>
       <span class="hover-label">Artist</span>
     </a>
   </nav>
@@ -33,57 +37,12 @@
   <main class="about-landing-main">
     <section class="about-landing-hero" aria-labelledby="about-title">
       <div class="about-heading title-frame--left">
-        <h1 id="about-title" class="marquee-title">Who Is <span class="gold-text">She?</span></h1>
+        <h1 id="about-title" class="marquee-title">See What's <span class="gold-text">Next</span></h1>
         <div class="title-rule" aria-hidden="true"></div>
-        <p class="credit-line">Nebula<span class="dot">&middot;</span>Fire<span class="dot">&middot;</span>Flow</p>
-        <p class="about-placeholder-bio">
-          Bio placeholder goes here. This will become the official story: the short version, the strange version, or whatever version feels most true.
-        </p>
+        <a class="btn about-follow-btn" href="https://www.instagram.com/kaceysamiee/" target="_blank" rel="noopener">@kaceysamiee</a>
       </div>
       <p class="corner-meta corner-meta--left">Austin, TX</p>
-      <a class="corner-meta corner-meta--right" href="#nebula">Scroll</a>
-    </section>
-    <section class="about-media-section" id="nebula" aria-labelledby="nebula-title">
-      <div class="about-media-heading reveal-on-scroll">
-        <h2 id="nebula-title">Nebula</h2>
-      </div>
-      <div class="about-media-grid" aria-label="Nebula media placeholders">
-        <a class="work-card about-media-card about-video-placeholder reel-card reveal-on-scroll" href="https://youtu.be/t-AxDWIOE6o" target="_blank" rel="noopener" aria-label="Nebula video">
-          <img src="https://img.youtube.com/vi/t-AxDWIOE6o/hqdefault.jpg" alt="Nebula video preview"/>
-          <span class="play-mark" aria-hidden="true"></span>
-          <span>video</span>
-        </a>
-      </div>
-    </section>
-    <section class="about-media-section fire-section" id="fire" aria-labelledby="fire-title">
-      <div class="about-media-heading reveal-on-scroll">
-        <h2 id="fire-title">Fire</h2>
-      </div>
-      <div class="about-media-grid" aria-label="Fire media placeholders">
-        <div class="work-card about-media-card about-video-placeholder reveal-on-scroll">
-          <span class="play-mark" aria-hidden="true"></span>
-          <span>video</span>
-        </div>
-        <div class="work-card about-media-card about-video-placeholder reveal-on-scroll">
-          <span class="play-mark" aria-hidden="true"></span>
-          <span>video</span>
-        </div>
-        <div class="work-card about-media-card about-video-placeholder reveal-on-scroll">
-          <span class="play-mark" aria-hidden="true"></span>
-          <span>video</span>
-        </div>
-      </div>
-    </section>
-    <section class="about-media-section flow-section" id="flow" aria-labelledby="flow-title">
-      <div class="about-media-heading reveal-on-scroll">
-        <h2 id="flow-title">Flow</h2>
-      </div>
-      <div class="about-media-grid" aria-label="Flow media placeholders">
-        <div class="work-card about-media-card about-video-placeholder reveal-on-scroll">
-          <span class="play-mark" aria-hidden="true"></span>
-          <span>video</span>
-        </div>
-      </div>
+      <a class="corner-meta corner-meta--right" href="#end-credits">Scroll</a>
     </section>
     <section class="end-credits" id="end-credits">
       <div class="reveal-on-scroll">
@@ -92,18 +51,6 @@
       </div>
     </section>
   </main>
-  <div class="video-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Video player">
-    <div class="video-modal-window">
-      <button class="video-modal-close" type="button" aria-label="Close video">X</button>
-      <iframe
-        class="video-modal-frame"
-        title="Video player"
-        referrerpolicy="strict-origin-when-cross-origin"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-      ></iframe>
-    </div>
-  </div>
   <script>
     var revealItems = document.querySelectorAll(".reveal-on-scroll");
     if ("IntersectionObserver" in window) {
@@ -124,89 +71,6 @@
         item.classList.add("is-visible");
       });
     }
-
-    var videoModal = document.querySelector(".video-modal");
-    var videoFrame = document.querySelector(".video-modal-frame");
-    var videoClose = document.querySelector(".video-modal-close");
-
-    function getYouTubeId(url) {
-      try {
-        var parsedUrl = new URL(url);
-        var pathParts = parsedUrl.pathname.split("/").filter(Boolean);
-
-        if (parsedUrl.hostname.indexOf("youtu.be") !== -1) {
-          return pathParts[0];
-        }
-
-        if (pathParts[0] === "shorts" || pathParts[0] === "embed") {
-          return pathParts[1];
-        }
-
-        return parsedUrl.searchParams.get("v");
-      } catch (error) {
-        return "";
-      }
-    }
-
-    function getVideoOrigin() {
-      if (window.location.protocol === "file:") {
-        return "https://kaceysamiee.com";
-      }
-
-      return window.location.origin;
-    }
-
-    function closeVideoModal() {
-      if (!videoModal || !videoFrame) {
-        return;
-      }
-
-      videoModal.classList.remove("is-open");
-      videoModal.setAttribute("aria-hidden", "true");
-      document.body.classList.remove("video-modal-open");
-      videoFrame.setAttribute("src", "");
-    }
-
-    document.querySelectorAll(".reel-card").forEach(function (card) {
-      card.addEventListener("click", function (event) {
-        var videoId = getYouTubeId(card.getAttribute("href"));
-
-        if (!videoModal || !videoFrame || !videoId) {
-          return;
-        }
-
-        event.preventDefault();
-        var videoOrigin = getVideoOrigin();
-        var embedUrl = "https://www.youtube-nocookie.com/embed/" + videoId
-          + "?autoplay=1&rel=0&modestbranding=1&playsinline=1"
-          + "&origin=" + encodeURIComponent(videoOrigin)
-          + "&widget_referrer=" + encodeURIComponent(window.location.href);
-
-        videoFrame.setAttribute("src", embedUrl);
-        videoModal.classList.add("is-open");
-        videoModal.setAttribute("aria-hidden", "false");
-        document.body.classList.add("video-modal-open");
-        videoClose.focus();
-      });
-    });
-
-    if (videoClose) {
-      videoClose.addEventListener("click", closeVideoModal);
-    }
-
-    if (videoModal) {
-      videoModal.addEventListener("click", function (event) {
-        if (event.target === videoModal) {
-          closeVideoModal();
-        }
-      });
-    }
-
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "Escape" && videoModal && videoModal.classList.contains("is-open")) {
-        closeVideoModal();
-      }
-    });
   </script>
 </body>
 </html>

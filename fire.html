@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Hekate's Torch fire dance page for Kacey Samiee."/>
+  <meta name="referrer" content="strict-origin-when-cross-origin"/>
+  <title>Hekate's Torch | Kacey Samiee</title>
+  <link rel="stylesheet" href="site.css?v=nebula-20260818"/>
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body class="solid-page fire-page">
+  <nav class="home-menu" aria-label="Home">
+    <a class="home-icon" href="index.html" aria-label="Home"></a>
+  </nav>
+  <nav class="corner-nav" aria-label="Site navigation">
+    <a class="swap-link" href="actor.html">
+      <span class="default-label">Earth</span>
+      <span class="hover-label">Actress</span>
+    </a>
+    <a class="swap-link" href="mother-of-drones.html">
+      <span class="default-label">Air</span>
+      <span class="hover-label">Drones</span>
+    </a>
+    <a class="swap-link" href="fire.html" aria-current="page">
+      <span class="default-label">Fire</span>
+      <span class="hover-label">Dancer</span>
+    </a>
+    <a class="swap-link" href="about.html">
+      <span class="default-label">See</span>
+      <span class="hover-label">Artist</span>
+    </a>
+  </nav>
+  <main>
+    <section class="subpage fire-hero">
+      <div class="subpage-copy">
+        <h1 class="subpage-title marquee-title"><span>Hekate&rsquo;s</span> <span>Torch</span></h1>
+        <div class="title-rule" aria-hidden="true"></div>
+        <p class="credit-line">Fire Dancer<span class="dot">&middot;</span>Flow Artist</p>
+      </div>
+      <p class="corner-meta corner-meta--left">Austin, TX</p>
+      <a class="corner-meta corner-meta--right" href="#hekates-gallery">Fire + Flow</a>
+    </section>
+    <section class="actor-gallery-section hekate-gallery-section" id="hekates-gallery" aria-labelledby="hekates-gallery-title">
+      <div class="scroll-gallery-heading reveal-on-scroll">
+        <h2 id="hekates-gallery-title">
+          <span>Hekate's</span>
+          <span class="gold-text">gallery</span>
+        </h2>
+      </div>
+      <div class="work-grid hekate-grid" aria-label="Hekate's Torch gallery">
+        <a class="work-card video-tile hekate-video-tile reel-card reveal-on-scroll" href="https://youtu.be/PGFGOC93hog" target="_blank" rel="noopener" aria-label="Hekate's Torch video">
+          <img src="https://img.youtube.com/vi/PGFGOC93hog/hqdefault.jpg" alt="Hekate's Torch video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>video</span>
+        </a>
+        <a class="work-card video-tile hekate-video-tile reel-card reveal-on-scroll" href="https://youtu.be/bO8iNFqhOqs" target="_blank" rel="noopener" aria-label="Hekate's Torch video">
+          <img src="https://img.youtube.com/vi/bO8iNFqhOqs/hqdefault.jpg" alt="Hekate's Torch video preview"/>
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>video</span>
+        </a>
+        <div class="work-card video-tile hekate-video-tile reveal-on-scroll" aria-label="Hekate's Torch video placeholder">
+          <span class="play-mark" aria-hidden="true"></span>
+          <span>video</span>
+        </div>
+      </div>
+    </section>
+    <section class="end-credits" id="end-credits">
+      <div class="reveal-on-scroll">
+        <div class="title-rule" aria-hidden="true"></div>
+        <a class="btn" href="mailto:kaceysamiee@gmail.com?subject=Bookings%20%26%20Press">Bookings &amp; Press Inquiries</a>
+      </div>
+    </section>
+  </main>
+  <div class="video-modal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Video player">
+    <div class="video-modal-window">
+      <button class="video-modal-close" type="button" aria-label="Close video">X</button>
+      <iframe
+        class="video-modal-frame"
+        title="Video player"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+  <script>
+    var revealItems = document.querySelectorAll(".reveal-on-scroll");
+    if ("IntersectionObserver" in window) {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.18 });
+
+      revealItems.forEach(function (item) {
+        revealObserver.observe(item);
+      });
+    } else {
+      revealItems.forEach(function (item) {
+        item.classList.add("is-visible");
+      });
+    }
+
+    var videoModal = document.querySelector(".video-modal");
+    var videoFrame = document.querySelector(".video-modal-frame");
+    var videoClose = document.querySelector(".video-modal-close");
+
+    function getYouTubeId(url) {
+      try {
+        var parsedUrl = new URL(url);
+        var pathParts = parsedUrl.pathname.split("/").filter(Boolean);
+
+        if (parsedUrl.hostname.indexOf("youtu.be") !== -1) {
+          return pathParts[0];
+        }
+
+        if (pathParts[0] === "shorts" || pathParts[0] === "embed") {
+          return pathParts[1];
+        }
+
+        return parsedUrl.searchParams.get("v");
+      } catch (error) {
+        return "";
+      }
+    }
+
+    function getVideoOrigin() {
+      if (window.location.protocol === "file:") {
+        return "https://kaceysamiee.com";
+      }
+
+      return window.location.origin;
+    }
+
+    function closeVideoModal() {
+      if (!videoModal || !videoFrame) {
+        return;
+      }
+
+      videoModal.classList.remove("is-open");
+      videoModal.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("video-modal-open");
+      videoFrame.setAttribute("src", "");
+    }
+
+    document.querySelectorAll(".reel-card").forEach(function (card) {
+      card.addEventListener("click", function (event) {
+        var videoId = getYouTubeId(card.getAttribute("href"));
+
+        if (!videoModal || !videoFrame || !videoId) {
+          return;
+        }
+
+        event.preventDefault();
+        var videoOrigin = getVideoOrigin();
+        var embedUrl = "https://www.youtube-nocookie.com/embed/" + videoId
+          + "?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+          + "&origin=" + encodeURIComponent(videoOrigin)
+          + "&widget_referrer=" + encodeURIComponent(window.location.href);
+
+        videoFrame.setAttribute("src", embedUrl);
+        videoModal.classList.add("is-open");
+        videoModal.setAttribute("aria-hidden", "false");
+        document.body.classList.add("video-modal-open");
+        videoClose.focus();
+      });
+    });
+
+    if (videoClose) {
+      videoClose.addEventListener("click", closeVideoModal);
+    }
+
+    if (videoModal) {
+      videoModal.addEventListener("click", function (event) {
+        if (event.target === videoModal) {
+          closeVideoModal();
+        }
+      });
+    }
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape" && videoModal && videoModal.classList.contains("is-open")) {
+        closeVideoModal();
+      }
+    });
+  </script>
+</body>
+</html>

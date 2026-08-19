@@ -189,7 +189,7 @@ a {
   padding: clamp(88px, 12vh, 140px) 0 clamp(72px, 9vw, 110px);
   scroll-margin-top: 0;
   background:
-    linear-gradient(90deg, #bb0030 0, #b9002f 40%, #970024 70%, #680017 100%);
+    linear-gradient(90deg, #5b7ea9 0, #587ba6 40%, #3f5f8b 70%, #1d3d5f 100%);
 }
 
 .mother-bio-section::before {
@@ -198,8 +198,8 @@ a {
   z-index: -1;
   content: "";
   background:
-    radial-gradient(circle at 25% 42%, rgba(191, 0, 45, 0.46), transparent 46%),
-    linear-gradient(90deg, #bd0030 0, #b7002d 42%, #970024 70%, #680017 100%);
+    radial-gradient(circle at 25% 42%, rgba(116, 149, 190, 0.46), transparent 46%),
+    linear-gradient(90deg, #5e81ab 0, #5a7da8 42%, #3f5f8b 70%, #1d3d5f 100%);
 }
 
 .mother-bio-section::after {
@@ -208,8 +208,8 @@ a {
   z-index: -1;
   content: "";
   background:
-    linear-gradient(90deg, transparent 0, transparent 34%, rgba(178, 0, 45, 0.18) 45%, rgba(137, 0, 31, 0.34) 58%, transparent 72%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.12), transparent 20%, transparent 88%, rgba(107, 0, 24, 0.18));
+    linear-gradient(90deg, transparent 0, transparent 34%, rgba(90, 125, 168, 0.18) 45%, rgba(64, 94, 135, 0.34) 58%, transparent 72%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.12), transparent 20%, transparent 88%, rgba(47, 81, 120, 0.18));
 }
 
 .mother-bio-photo {
@@ -272,10 +272,10 @@ a {
 
 .mother-design-section::before {
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.78), rgba(12, 0, 4, 0.94) 24%, rgba(0, 0, 0, 0.9) 100%),
-    radial-gradient(circle at 18% 20%, rgba(198, 0, 52, 0.24), transparent 38%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.78), rgba(2, 6, 12, 0.94) 24%, rgba(0, 0, 0, 0.9) 100%),
+    radial-gradient(circle at 18% 20%, rgba(116, 149, 190, 0.24), transparent 38%),
     radial-gradient(circle at 76% 42%, rgba(199, 160, 77, 0.15), transparent 34%),
-    #050001;
+    #010305;
 }
 
 .mother-design-grid .work-card img {
@@ -284,77 +284,110 @@ a {
 
 .mother-video-tile {
   background:
-    linear-gradient(135deg, rgba(198, 0, 52, 0.42), rgba(0, 0, 0, 0.62)),
-    url("assets/mother-bio-portrait.png") center 58% / cover;
+    linear-gradient(135deg, rgba(91, 126, 169, 0.42), rgba(0, 0, 0, 0.62)),
+    url("assets/oh-my.png") center 58% / cover;
 }
 
-.hekate-hero-section {
+/* Nebula lives on the drones page: same media-section frame as the about page
+   once used, repainted in Airspace so the One World Rule holds, and mirrored --
+   the film frame sits left, the heading right. The columns repeat the design
+   section's 1.2fr/0.8fr split (flipped) so the video runs exactly as wide as
+   the work grid above it. Selectors carry .mother-page so they outrank the
+   .about-media-section base rules that come later. */
+.mother-page .mother-nebula-section {
+  width: auto;
+  margin-left: 0;
+  grid-template-columns: minmax(320px, 1.2fr) minmax(260px, 0.8fr);
+  gap: clamp(34px, 6vw, 90px);
+  align-items: center;
+  align-content: center;
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.mother-page .mother-nebula-section::before {
+  inset: 0 calc(50% - 50vw);
+  background:
+    radial-gradient(circle at 20% 58%, rgba(116, 149, 190, 0.28), transparent 44%),
+    radial-gradient(circle at 82% 34%, rgba(199, 160, 77, 0.14), transparent 32%),
+    #010305;
+}
+
+.mother-nebula-section .about-media-heading {
+  position: static;
+  grid-row: 1;
+  grid-column: 2;
+  text-align: right;
+}
+
+/* One word in a 420px column: the about page's 9vw marquee overflows here,
+   so the heading steps down to fit the frame with air to spare. */
+.mother-nebula-section .about-media-heading h2 {
+  font-size: clamp(3.4rem, 7vw, 7rem);
+}
+
+.mother-nebula-section .about-media-grid {
+  grid-row: 1;
+  grid-column: 1;
+  grid-template-columns: 1fr;
+  grid-auto-rows: auto;
+}
+
+.mother-nebula-section .about-media-card,
+.mother-nebula-section .about-media-card:nth-child(1) {
+  grid-row: auto;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+/* ---------------------------------------------------------------------------
+   The fire page. Hekate's Torch in its own world: one page, one tint --
+   Torchlight, the flame orange lifted from assets/hekates-torch.png -- over
+   page black. The hero sets the title frame straight onto the shipped torch
+   frame; the Airspace blue stays behind on the drones page. The gallery
+   override is scoped to .fire-page so it outranks .actor-gallery-section's
+   later base rule.
+--------------------------------------------------------------------------- */
+
+.fire-page {
+  min-height: 100vh;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 50% 12%, rgba(122, 52, 14, 0.22), transparent 42%),
+    #000000;
+}
+
+.fire-page .subpage-copy {
+  max-width: min(900px, 100%);
+}
+
+.fire-hero {
   position: relative;
   z-index: 1;
-  min-height: 100vh;
-  display: grid;
-  align-items: start;
-  justify-items: start;
-  padding: clamp(132px, 22vh, 220px) 0 clamp(36px, 6vw, 72px);
-  scroll-margin-top: 0;
 }
 
-.hekate-hero-section::before {
+.fire-hero::before {
   position: absolute;
   inset: 0 calc(50% - 50vw);
   z-index: -1;
   content: "";
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.78) 0, rgba(0, 0, 0, 0.44) 38%, rgba(0, 0, 0, 0.1) 66%, rgba(0, 0, 0, 0.66) 100%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.26) 0, rgba(0, 0, 0, 0.08) 46%, rgba(0, 0, 0, 0.84) 100%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.58) 0, rgba(0, 0, 0, 0.16) 40%, rgba(0, 0, 0, 0.2) 62%, rgba(0, 0, 0, 0.88) 100%),
+    radial-gradient(circle at 50% 46%, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.42) 82%),
     url("assets/hekates-torch.png") center center / cover,
-    #030001;
+    #030100;
 }
 
-.hekate-hero-copy {
-  width: min(760px, 100%);
-  margin-left: clamp(52px, 7vw, 96px);
-  text-align: left;
-  text-shadow: 0 5px 32px rgba(0, 0, 0, 0.88);
-}
-
-.hekate-hero-copy h2 {
-  display: grid;
-  gap: clamp(0.03em, 0.5vw, 0.16em);
-  margin: 0;
-  color: #f3e6cf;
-  font-family: var(--font-display);
-  font-size: clamp(4rem, 9vw, 8.4rem);
-  font-weight: 700;
-  line-height: 0.84;
-  white-space: normal;
-}
-
-.hekate-hero-copy h2 span {
-  white-space: nowrap;
-}
-
-.hekate-hero-copy .gold-text {
-  color: #c7a04d;
-  transform: translateX(clamp(22px, 4vw, 72px));
-}
-
-.hekate-gallery-section::before {
+.fire-page .hekate-gallery-section::before {
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.86), rgba(5, 0, 2, 0.94) 24%, rgba(0, 0, 0, 0.9) 100%),
-    radial-gradient(circle at 22% 34%, rgba(198, 0, 52, 0.24), transparent 34%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.86), rgba(4, 1, 0, 0.94) 24%, rgba(0, 0, 0, 0.9) 100%),
+    radial-gradient(circle at 22% 34%, rgba(196, 92, 26, 0.24), transparent 34%),
     radial-gradient(circle at 78% 22%, rgba(199, 160, 77, 0.18), transparent 30%),
-    #030001;
+    #030100;
 }
 
 .hekate-grid .work-card img {
   object-position: center center;
-}
-
-.hekate-video-tile {
-  background:
-    linear-gradient(135deg, rgba(199, 160, 77, 0.34), rgba(104, 0, 28, 0.5), rgba(0, 0, 0, 0.76)),
-    url("assets/hekates-torch.png") center center / cover;
 }
 
 main {
@@ -572,24 +605,6 @@ a.corner-meta {
 
 a.corner-meta:hover,
 a.corner-meta:focus {
-  color: #c7a04d;
-}
-
-/* Mid-page cues stay in flow but speak with the corner cue's voice. */
-.flow-cue {
-  display: inline-block;
-  margin-top: clamp(24px, 4vw, 44px);
-  color: rgba(243, 230, 207, 0.74);
-  font-family: var(--font-mono);
-  font-size: clamp(0.68rem, 0.85vw, 0.8125rem);
-  letter-spacing: 0.18em;
-  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.78);
-  text-transform: uppercase;
-  animation: text-cue-breathe 2.8s ease-in-out infinite;
-}
-
-.flow-cue:hover,
-.flow-cue:focus {
   color: #c7a04d;
 }
 
@@ -1473,15 +1488,6 @@ h1 > span {
   color: #c7a04d;
 }
 
-.about-placeholder-bio {
-  width: min(560px, 100%);
-  margin: clamp(24px, 3vw, 34px) 0 0;
-  color: rgba(243, 230, 207, 0.86);
-  font-size: clamp(1rem, 1.18vw, 1.16rem);
-  font-weight: 450;
-  line-height: 1.62;
-}
-
 .about-media-section {
   position: relative;
   z-index: 1;
@@ -1504,20 +1510,6 @@ h1 > span {
   background:
     radial-gradient(circle at 18% 30%, rgba(199, 160, 77, 0.14), transparent 32%),
     radial-gradient(circle at 82% 56%, rgba(58, 55, 47, 0.44), transparent 44%),
-    #050505;
-}
-
-.fire-section::before {
-  background:
-    radial-gradient(circle at 24% 30%, rgba(199, 160, 77, 0.18), transparent 30%),
-    radial-gradient(circle at 78% 56%, rgba(122, 28, 13, 0.46), transparent 44%),
-    #050505;
-}
-
-.flow-section::before {
-  background:
-    radial-gradient(circle at 20% 28%, rgba(199, 160, 77, 0.12), transparent 32%),
-    radial-gradient(circle at 82% 58%, rgba(34, 58, 52, 0.42), transparent 46%),
     #050505;
 }
 
@@ -1829,11 +1821,11 @@ h1 > span {
   background: #000;
 }
 
+/* 15 tiles: 5 columns x 3 full rows on desktop, 3 x 5 below 1240px */
 .scroll-gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(118px, 150px));
-  gap: clamp(12px, 1.6vw, 18px);
-  justify-content: start;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(16px, 2vw, 30px);
   align-content: start;
 }
 
@@ -1866,6 +1858,12 @@ h1 > span {
 .scroll-gallery-tile-large {
   grid-column: span 1;
   grid-row: span 1;
+}
+
+@media (max-width: 1240px) {
+  .scroll-gallery-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 .work-grid {
@@ -1985,7 +1983,7 @@ h1 > span {
 
 .hekate-video-tile {
   background:
-    linear-gradient(135deg, rgba(199, 160, 77, 0.34), rgba(104, 0, 28, 0.5), rgba(0, 0, 0, 0.76)),
+    linear-gradient(135deg, rgba(199, 160, 77, 0.34), rgba(122, 52, 14, 0.52), rgba(0, 0, 0, 0.76)),
     url("assets/hekates-torch.png") center center / cover;
 }
 
@@ -2156,16 +2154,6 @@ h1 > span {
     grid-auto-rows: clamp(150px, 34vw, 230px);
   }
 
-  .hekate-hero-section,
-  .hekate-gallery-section {
-    align-items: start;
-  }
-
-  .hekate-gallery-section .scroll-gallery-heading {
-    position: relative;
-    top: auto;
-  }
-
   .about-bio-stage {
     padding-top: clamp(96px, 13vh, 132px);
   }
@@ -2231,6 +2219,28 @@ h1 > span {
   .about-media-grid {
     grid-template-columns: 1fr;
     grid-auto-rows: clamp(170px, 44vw, 260px);
+  }
+
+  /* Nebula's mirrored frame collapses back to one column: heading above
+     the film frame, both released from their desktop grid slots. */
+  .mother-page .mother-nebula-section {
+    grid-template-columns: 1fr;
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  .mother-nebula-section .about-media-heading,
+  .mother-nebula-section .about-media-grid {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .mother-nebula-section .about-media-heading {
+    text-align: left;
+  }
+
+  .mother-nebula-section .about-media-grid {
+    grid-auto-rows: auto;
   }
 
   .about-scroll-section,
@@ -2410,11 +2420,11 @@ h1 > span {
     aspect-ratio: 4 / 5;
   }
 
-  .hekate-hero-section::before {
+  .fire-hero::before {
     background:
-      linear-gradient(180deg, rgba(0, 0, 0, 0.52) 0, rgba(0, 0, 0, 0.26) 42%, rgba(0, 0, 0, 0.88) 100%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0, rgba(0, 0, 0, 0.26) 44%, rgba(0, 0, 0, 0.9) 100%),
       url("assets/hekates-torch.png") center center / cover,
-      #030001;
+      #030100;
   }
 
   .video-tile {
@@ -2547,6 +2557,20 @@ h1 > span {
   align-items: center;
 }
 
+/* The Observe CTA on the about hero: the handle stays lowercase -- it is a
+   proper name, not a call-sheet label -- so the uppercase transform is lifted
+   here only. Double the global .btn scale (the em padding rides along) with
+   the credit line's 0.22em tracking, since this button took its place. */
+.about-follow-btn {
+  /* The marquee h1 carries ~0.23em of below-baseline slop (leading + descender
+     allowance) before the rule's symmetric margin starts; matching it here
+     keeps the rule optically centered between NEXT and the button. */
+  margin-top: clamp(8px, 0.8vw + 5px, 17px);
+  font-size: clamp(1.5rem, 1.9vw, 1.625rem);
+  letter-spacing: 0.22em;
+  text-transform: none;
+}
+
 /* ---------------------------------------------------------------------------
    End credits. Every page closes the way a film does: cut to black, then one
    line in the dark -- the bookings button, alone in the frame. The ask sits
@@ -2588,8 +2612,14 @@ h1 > span {
 
 .mother-page .end-credits::before {
   background:
-    radial-gradient(circle at 50% 8%, rgba(198, 0, 52, 0.2), transparent 52%),
-    linear-gradient(180deg, rgba(5, 0, 1, 0.6) 0, #000000 56%);
+    radial-gradient(circle at 50% 8%, rgba(116, 149, 190, 0.2), transparent 52%),
+    linear-gradient(180deg, rgba(1, 3, 5, 0.6) 0, #000000 56%);
+}
+
+.fire-page .end-credits::before {
+  background:
+    radial-gradient(circle at 50% 8%, rgba(122, 52, 14, 0.32), transparent 52%),
+    linear-gradient(180deg, rgba(4, 1, 0, 0.6) 0, #000000 56%);
 }
 
 .about-page .end-credits::before {
@@ -2646,8 +2676,7 @@ button:focus-visible,
     transition-delay: 0ms;
   }
 
-  a.corner-meta,
-  .flow-cue {
+  a.corner-meta {
     animation: none;
     opacity: 0.85;
   }

@@ -36,6 +36,7 @@ jobs:
           cp index.html _site/
           cp actor.html _site/
           cp mother-of-drones.html _site/
+          cp fire.html _site/
           cp about.html _site/
           cp site.css _site/
           cp CNAME _site/
