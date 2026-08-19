@@ -1643,6 +1643,13 @@ h1 > span {
   transform: translateX(clamp(20px, 4vw, 66px));
 }
 
+/* photo gallery's left column is narrower than the other galleries', so its
+   marquee needs a lower cap to stay inside the frame; :where() keeps
+   specificity level so the small-screen override later still wins */
+:where(#photo-reel-gallery) .scroll-gallery-heading h2 {
+  font-size: clamp(3rem, 6.2vw, 5.4rem);
+}
+
 .gallery-hover-preview {
   width: fit-content;
   max-width: 100%;
