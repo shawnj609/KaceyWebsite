@@ -5,34 +5,141 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta name="description" content="Actress and filmmaker page for Kacey Samiee."/>
   <meta name="referrer" content="strict-origin-when-cross-origin"/>
-  <title>Actress and Filmmaker | Kacey Samiee</title>
-  <link rel="stylesheet" href="site.css?v=act-break-20260818"/>
+  <title>Option C — The Slate</title>
+  <link rel="stylesheet" href="../site.css?v=nebula-20260818"/>
+  <style>
+    /* ===== mockup chrome (not part of the option) ===== */
+    .mock-bar {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 60;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px clamp(14px, 2vw, 28px);
+      border-top: 1px solid rgba(243, 230, 207, 0.18);
+      background: rgba(0, 0, 0, 0.78);
+      backdrop-filter: blur(6px);
+      color: rgba(243, 230, 207, 0.85);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .mock-bar a { padding: 2px 6px; color: rgba(243, 230, 207, 0.6); }
+    .mock-bar a:hover { color: #fff8ea; }
+    .mock-bar a[aria-current="page"] { color: #c7a04d; }
+
+    /* ===== OPTION C — the divider shrinks to a quiet full-bleed slate
+       band between hairlines, and the credit is threaded into every
+       project heading below (title, mini rule, mono roles) — each film
+       gets its own title-card grammar, and roles can differ per film. ===== */
+    .filmmaker-slate {
+      position: relative;
+      z-index: 1;
+      width: 100vw;
+      margin-left: calc(50% - 50vw);
+      padding: clamp(52px, 8vh, 88px) clamp(18px, 4vw, 64px);
+      border-top: 1px solid rgba(243, 230, 207, 0.2);
+      border-bottom: 1px solid rgba(243, 230, 207, 0.2);
+      scroll-margin-top: 40px;
+    }
+    .filmmaker-slate::before {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      background:
+        radial-gradient(circle at 18% 40%, rgba(199, 160, 77, 0.14), transparent 34%),
+        #050505;
+    }
+    .filmmaker-slate-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 18px 32px;
+    }
+    .filmmaker-slate h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      color: #f3e6cf;
+      font-size: clamp(1.45rem, 2.4vw, 2.25rem);
+      font-weight: 700;
+      line-height: 1.1;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-shadow: 0 4px 28px rgba(0, 0, 0, 0.82);
+    }
+    .filmmaker-slate h2 .gold-text { color: #c7a04d; }
+    .slate-roles {
+      margin: 0;
+      color: rgba(243, 230, 207, 0.74);
+      font-family: var(--font-mono);
+      font-size: clamp(0.7rem, 0.9vw, 0.84rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .slate-roles .dot { margin: 0 0.5em; opacity: 0.55; }
+
+    .project-credit-rule {
+      width: clamp(40px, 4vw, 64px);
+      height: 1px;
+      margin: clamp(12px, 1.8vh, 18px) 0 clamp(10px, 1.6vh, 14px);
+      background: rgba(243, 230, 207, 0.6);
+    }
+    .project-credit {
+      margin: 0;
+      color: rgba(243, 230, 207, 0.78);
+      font-family: var(--font-mono);
+      font-size: clamp(0.68rem, 0.85vw, 0.8125rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      text-shadow: 0 2px 16px rgba(0, 0, 0, 0.78);
+    }
+    .project-credit .dot { margin: 0 0.5em; opacity: 0.55; }
+  </style>
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body class="solid-page actor-page">
+  <nav class="mock-bar" aria-label="Mockup options">
+    <span>Option C &mdash; The Slate</span>
+    <span>
+      <a href="index.html">Index</a>
+      <a href="option-a.html#reel-gallery">A</a>
+      <a href="option-b.html#reel-gallery">B</a>
+      <a href="option-c.html#reel-gallery" aria-current="page">C</a>
+      <a href="option-d.html#reel-gallery">D</a>
+    </span>
+  </nav>
   <nav class="home-menu" aria-label="Home">
-    <a class="home-icon" href="index.html" aria-label="Home"></a>
+    <a class="home-icon" href="../index.html" aria-label="Home"></a>
   </nav>
   <nav class="corner-nav" aria-label="Site navigation">
-    <a class="swap-link" href="actor.html" aria-current="page">
+    <a class="swap-link" href="../actor.html" aria-current="page">
       <span class="default-label">Earth</span>
       <span class="hover-label">Actress</span>
     </a>
-    <a class="swap-link" href="mother-of-drones.html">
+    <a class="swap-link" href="../mother-of-drones.html">
       <span class="default-label">Air</span>
       <span class="hover-label">Drones</span>
     </a>
-    <a class="swap-link" href="fire.html">
+    <a class="swap-link" href="../fire.html">
       <span class="default-label">Fire</span>
       <span class="hover-label">Dancer</span>
     </a>
-    <a class="swap-link" href="about.html">
+    <a class="swap-link" href="../about.html">
       <span class="default-label">See</span>
       <span class="hover-label">Artist</span>
     </a>
   </nav>
   <div class="actor-portrait-bg" aria-hidden="true">
-    <img src="assets/actor-portrait.jpg" alt=""/>
+    <img src="../assets/actor-portrait.jpg" alt=""/>
   </div>
   <main class="actor-main">
     <section class="actor-hero">
@@ -54,54 +161,54 @@
           <span class="gold-text">Gallery</span>
         </h2>
         <div class="gallery-hover-preview" aria-hidden="true">
-          <img src="assets/media/headshots/Kacey-Waveform-EDIT-194.png" alt=""/>
+          <img src="../assets/media/headshots/Kacey-Waveform-EDIT-194.png" alt=""/>
         </div>
       </div>
       <div class="scroll-gallery-grid" aria-label="Photo and reel gallery">
-        <a class="scroll-gallery-tile reveal-on-scroll" href="assets/media/headshots/Kacey-Waveform-EDIT-194.png">
-          <img src="assets/media/headshots/Kacey-Waveform-EDIT-194.png" alt="Kacey Samiee headshot"/>
+        <a class="scroll-gallery-tile reveal-on-scroll" href="../assets/media/headshots/Kacey-Waveform-EDIT-194.png">
+          <img src="../assets/media/headshots/Kacey-Waveform-EDIT-194.png" alt="Kacey Samiee headshot"/>
         </a>
-        <a class="scroll-gallery-tile reveal-on-scroll" href="assets/media/headshots/621A5291.jpg">
-          <img src="assets/media/headshots/621A5291.jpg" alt="Kacey Samiee headshot"/>
+        <a class="scroll-gallery-tile reveal-on-scroll" href="../assets/media/headshots/621A5291.jpg">
+          <img src="../assets/media/headshots/621A5291.jpg" alt="Kacey Samiee headshot"/>
         </a>
-        <a class="scroll-gallery-tile reveal-on-scroll" href="assets/media/headshots/Kacey-Waveform-EDIT-63.png">
-          <img src="assets/media/headshots/Kacey-Waveform-EDIT-63.png" alt="Kacey Samiee headshot"/>
+        <a class="scroll-gallery-tile reveal-on-scroll" href="../assets/media/headshots/Kacey-Waveform-EDIT-63.png">
+          <img src="../assets/media/headshots/Kacey-Waveform-EDIT-63.png" alt="Kacey Samiee headshot"/>
         </a>
-        <a class="scroll-gallery-tile reveal-on-scroll" href="assets/media/headshots/621A5051.jpg">
-          <img src="assets/media/headshots/621A5051.jpg" alt="Kacey Samiee headshot"/>
+        <a class="scroll-gallery-tile reveal-on-scroll" href="../assets/media/headshots/621A5051.jpg">
+          <img src="../assets/media/headshots/621A5051.jpg" alt="Kacey Samiee headshot"/>
         </a>
-        <a class="scroll-gallery-tile reveal-on-scroll" href="assets/media/headshots/Kacey-Waveform-EDIT-4.png">
-          <img src="assets/media/headshots/Kacey-Waveform-EDIT-4.png" alt="Kacey Samiee headshot"/>
+        <a class="scroll-gallery-tile reveal-on-scroll" href="../assets/media/headshots/Kacey-Waveform-EDIT-4.png">
+          <img src="../assets/media/headshots/Kacey-Waveform-EDIT-4.png" alt="Kacey Samiee headshot"/>
         </a>
-        <a class="scroll-gallery-tile reveal-on-scroll" href="assets/media/headshots/621A5459.jpg">
-          <img src="assets/media/headshots/621A5459.jpg" alt="Kacey Samiee headshot"/>
+        <a class="scroll-gallery-tile reveal-on-scroll" href="../assets/media/headshots/621A5459.jpg">
+          <img src="../assets/media/headshots/621A5459.jpg" alt="Kacey Samiee headshot"/>
         </a>
-        <a class="scroll-gallery-tile reveal-on-scroll" href="assets/media/headshots/621A5123.jpg">
-          <img src="assets/media/headshots/621A5123.jpg" alt="Kacey Samiee headshot"/>
+        <a class="scroll-gallery-tile reveal-on-scroll" href="../assets/media/headshots/621A5123.jpg">
+          <img src="../assets/media/headshots/621A5123.jpg" alt="Kacey Samiee headshot"/>
         </a>
-        <a class="scroll-gallery-tile reveal-on-scroll" href="assets/media/headshots/621A5337.jpg">
-          <img src="assets/media/headshots/621A5337.jpg" alt="Kacey Samiee headshot"/>
+        <a class="scroll-gallery-tile reveal-on-scroll" href="../assets/media/headshots/621A5337.jpg">
+          <img src="../assets/media/headshots/621A5337.jpg" alt="Kacey Samiee headshot"/>
         </a>
-        <a class="scroll-gallery-tile reveal-on-scroll" href="assets/media/headshots/kacey-waveform-edit-1.png">
-          <img src="assets/media/headshots/kacey-waveform-edit-1.png" alt="Kacey Samiee headshot"/>
+        <a class="scroll-gallery-tile reveal-on-scroll" href="../assets/media/headshots/kacey-waveform-edit-1.png">
+          <img src="../assets/media/headshots/kacey-waveform-edit-1.png" alt="Kacey Samiee headshot"/>
         </a>
-        <a class="scroll-gallery-tile reveal-on-scroll" href="assets/media/headshots/621A5172.jpg">
-          <img src="assets/media/headshots/621A5172.jpg" alt="Kacey Samiee headshot"/>
+        <a class="scroll-gallery-tile reveal-on-scroll" href="../assets/media/headshots/621A5172.jpg">
+          <img src="../assets/media/headshots/621A5172.jpg" alt="Kacey Samiee headshot"/>
         </a>
-        <a class="scroll-gallery-tile reveal-on-scroll" href="assets/media/headshots/Kacey-Waveform-EDIT-141.png">
-          <img src="assets/media/headshots/Kacey-Waveform-EDIT-141.png" alt="Kacey Samiee headshot"/>
+        <a class="scroll-gallery-tile reveal-on-scroll" href="../assets/media/headshots/Kacey-Waveform-EDIT-141.png">
+          <img src="../assets/media/headshots/Kacey-Waveform-EDIT-141.png" alt="Kacey Samiee headshot"/>
         </a>
-        <a class="scroll-gallery-tile reveal-on-scroll" href="assets/media/headshots/621A5506.jpg">
-          <img src="assets/media/headshots/621A5506.jpg" alt="Kacey Samiee headshot"/>
+        <a class="scroll-gallery-tile reveal-on-scroll" href="../assets/media/headshots/621A5506.jpg">
+          <img src="../assets/media/headshots/621A5506.jpg" alt="Kacey Samiee headshot"/>
         </a>
-        <a class="scroll-gallery-tile reveal-on-scroll" href="assets/media/headshots/621A5061.jpg">
-          <img src="assets/media/headshots/621A5061.jpg" alt="Kacey Samiee headshot"/>
+        <a class="scroll-gallery-tile reveal-on-scroll" href="../assets/media/headshots/621A5061.jpg">
+          <img src="../assets/media/headshots/621A5061.jpg" alt="Kacey Samiee headshot"/>
         </a>
-        <a class="scroll-gallery-tile reveal-on-scroll" href="assets/media/headshots/621A5288.jpg">
-          <img src="assets/media/headshots/621A5288.jpg" alt="Kacey Samiee headshot"/>
+        <a class="scroll-gallery-tile reveal-on-scroll" href="../assets/media/headshots/621A5288.jpg">
+          <img src="../assets/media/headshots/621A5288.jpg" alt="Kacey Samiee headshot"/>
         </a>
-        <a class="scroll-gallery-tile reveal-on-scroll" href="assets/media/headshots/621A5023.jpg">
-          <img src="assets/media/headshots/621A5023.jpg" alt="Kacey Samiee headshot"/>
+        <a class="scroll-gallery-tile reveal-on-scroll" href="../assets/media/headshots/621A5023.jpg">
+          <img src="../assets/media/headshots/621A5023.jpg" alt="Kacey Samiee headshot"/>
         </a>
       </div>
     </section>
@@ -170,18 +277,21 @@
         </a>
       </div>
     </section>
-    <section class="filmmaker-title-section" id="filmmaker-gallery" aria-labelledby="filmmaker-gallery-title">
-      <div class="act-break-card reveal-on-scroll">
-        <h2 id="filmmaker-gallery-title" class="credit-line act-break-credit"><span class="act-break-role">Written</span><span class="dot">&middot;</span><span class="act-break-role">Directed</span><span class="dot">&middot;</span><span class="act-break-role">Produced</span></h2>
+    <section class="filmmaker-slate" id="filmmaker-gallery" aria-labelledby="filmmaker-gallery-title">
+      <div class="filmmaker-slate-inner reveal-on-scroll">
+        <h2 id="filmmaker-gallery-title">Stuff I <span class="gold-text">Made</span></h2>
+        <p class="slate-roles">Three films<span class="dot">&middot;</span>Written<span class="dot">&middot;</span>Directed<span class="dot">&middot;</span>Produced</p>
       </div>
     </section>
     <section class="filmmaker-project-section" id="anita" aria-labelledby="anita-title">
       <div class="filmmaker-project-heading reveal-on-scroll">
         <h2 id="anita-title">Anita</h2>
+        <div class="project-credit-rule" aria-hidden="true"></div>
+        <p class="project-credit">Writer<span class="dot">&middot;</span>Director<span class="dot">&middot;</span>Producer</p>
       </div>
       <div class="filmmaker-project-grid single-project-grid anita-grid" aria-label="Anita media">
         <figure class="filmmaker-project-hero reveal-on-scroll">
-          <img src="assets/anita-hero.png" alt="Anita scene"/>
+          <img src="../assets/anita-hero.png" alt="Anita scene"/>
         </figure>
         <a class="work-card reel-card reveal-on-scroll" href="https://youtu.be/xChwymiiiWs" target="_blank" rel="noopener">
           <img src="https://img.youtube.com/vi/xChwymiiiWs/hqdefault.jpg" alt="Kacey Samiee filmmaker video preview"/>
@@ -193,10 +303,12 @@
     <section class="filmmaker-project-section" id="lone-star-swing" aria-labelledby="lone-star-swing-title">
       <div class="filmmaker-project-heading reveal-on-scroll">
         <h2 id="lone-star-swing-title">Lone Star Swing</h2>
+        <div class="project-credit-rule" aria-hidden="true"></div>
+        <p class="project-credit">Writer<span class="dot">&middot;</span>Director<span class="dot">&middot;</span>Producer</p>
       </div>
       <div class="filmmaker-project-grid single-project-grid lone-star-swing-grid" aria-label="Lone Star Swing media">
         <figure class="filmmaker-project-hero reveal-on-scroll">
-          <img src="assets/lone-star-swing-hero.png" alt="Lone Star Swing scene"/>
+          <img src="../assets/lone-star-swing-hero.png" alt="Lone Star Swing scene"/>
         </figure>
         <a class="work-card reel-card reveal-on-scroll" href="https://youtu.be/xChwymiiiWs" target="_blank" rel="noopener">
           <img src="https://img.youtube.com/vi/xChwymiiiWs/hqdefault.jpg" alt="Kacey Samiee filmmaker video preview"/>
@@ -208,10 +320,12 @@
     <section class="filmmaker-project-section blood-sisters-section" id="blood-sisters" aria-labelledby="blood-sisters-title">
       <div class="filmmaker-project-heading reveal-on-scroll">
         <h2 id="blood-sisters-title">Blood Sisters</h2>
+        <div class="project-credit-rule" aria-hidden="true"></div>
+        <p class="project-credit">Creator<span class="dot">&middot;</span>Writer<span class="dot">&middot;</span>Director</p>
       </div>
       <div class="filmmaker-project-stack">
         <figure class="filmmaker-project-hero reveal-on-scroll">
-          <img src="assets/blood-sisters-hero.png" alt="Blood Sisters title artwork"/>
+          <img src="../assets/blood-sisters-hero.png" alt="Blood Sisters title artwork"/>
         </figure>
         <div class="filmmaker-project-grid" aria-label="Blood Sisters film thumbnails">
           <a class="work-card reel-card reveal-on-scroll" href="https://youtube.com/shorts/FlboW9VFl68" target="_blank" rel="noopener">

@@ -326,7 +326,7 @@
       },
       {
         "name": "The Call-Sheet Rule",
-        "body": "Monospace is justified by screenplay and call-sheet convention, not 'technical' signaling. It appears on nav, buttons, captions, credits, and metadata \u2014 never in body copy, and never as an eyebrow above headings.",
+        "body": "Monospace is justified by screenplay and call-sheet convention, not 'technical' signaling. It appears on nav, buttons, captions, credits, and metadata \u2014 never in body copy, and never as an eyebrow above headings. One named exception, the Act Break: the actor page's filmmaker divider sets the credit line \u2014 WRITTEN \u00b7 DIRECTED \u00b7 PRODUCED \u2014 at 3\u00d7 scale (.act-break-credit) as its section heading; the call sheet becomes the title card. It is the only mono heading in the system.",
         "section": "typography"
       },
       {

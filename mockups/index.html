@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="noindex"/>
+  <title>"Stuff I Made" — Three Treatments</title>
+  <link rel="stylesheet" href="../site.css?v=nebula-20260818"/>
+  <style>
+    .hub {
+      width: min(880px, calc(100% - 36px));
+      margin: 0 auto;
+      padding: clamp(72px, 12vh, 128px) 0 clamp(96px, 14vh, 160px);
+    }
+    .hub-kicker {
+      margin: 0 0 clamp(28px, 4vh, 44px);
+      color: rgba(243, 230, 207, 0.74);
+      font-family: var(--font-mono);
+      font-size: clamp(0.7rem, 0.9vw, 0.84rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .hub h1 {
+      margin: 0;
+      font-family: var(--font-display);
+      color: #f3e6cf;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.06;
+      text-wrap: balance;
+    }
+    .hub h1 .gold-text { color: #c7a04d; }
+    .hub-problem {
+      width: min(640px, 100%);
+      margin: clamp(24px, 4vh, 38px) 0 0;
+      color: rgba(243, 230, 207, 0.84);
+      font-size: clamp(0.98rem, 1.25vw, 1.12rem);
+      font-weight: 450;
+      line-height: 1.62;
+    }
+    .hub-options {
+      margin-top: clamp(48px, 8vh, 84px);
+      display: grid;
+    }
+    .hub-option {
+      display: block;
+      padding: clamp(28px, 4.5vh, 44px) 0;
+      border-top: 1px solid #232323;
+    }
+    .hub-option:last-child { border-bottom: 1px solid #232323; }
+    .hub-option-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px 28px;
+      flex-wrap: wrap;
+    }
+    .hub-option h2 {
+      margin: 0;
+      font-family: var(--font-display);
+      color: #f3e6cf;
+      font-size: clamp(1.5rem, 2.8vw, 2.3rem);
+      font-weight: 700;
+      line-height: 1.1;
+      transition: color 400ms var(--ease-out);
+    }
+    .hub-option .hub-open {
+      color: rgba(243, 230, 207, 0.6);
+      font-family: var(--font-mono);
+      font-size: clamp(0.68rem, 0.85vw, 0.8125rem);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: color 400ms var(--ease-out);
+    }
+    .hub-option:hover h2 { color: #c7a04d; }
+    .hub-option:hover .hub-open { color: #fff8ea; }
+    .hub-option p {
+      width: min(640px, 100%);
+      margin: clamp(14px, 2vh, 20px) 0 0;
+      color: rgba(243, 230, 207, 0.78);
+      font-size: clamp(0.92rem, 1.15vw, 1.02rem);
+      font-weight: 450;
+      line-height: 1.6;
+    }
+    .hub-note {
+      margin: clamp(36px, 6vh, 56px) 0 0;
+      color: rgba(243, 230, 207, 0.55);
+      font-family: var(--font-mono);
+      font-size: clamp(0.66rem, 0.8vw, 0.78rem);
+      letter-spacing: 0.16em;
+      line-height: 2;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body class="solid-page">
+  <main class="hub">
+    <p class="hub-kicker">Mockups &mdash; actor.html &mdash; scroll each page from the reel gallery down</p>
+    <h1>&ldquo;Stuff I Made&rdquo; &mdash; three <span class="gold-text">treatments</span></h1>
+    <p class="hub-problem">
+      Today the divider uses the exact same stacked-serif-with-one-gold-word grammar as
+      &ldquo;Photo Gallery&rdquo; and &ldquo;Reel Gallery,&rdquo; so it reads as another sibling
+      section instead of a chapter break announcing &ldquo;everything below this, she wrote,
+      directed &amp; produced.&rdquo; Each option breaks that ambiguity a different way. All
+      three are built on the live page and stylesheet &mdash; scroll from the reel gallery
+      into Anita to feel the transition.
+    </p>
+    <div class="hub-options">
+      <a class="hub-option" href="option-a.html#reel-gallery">
+        <span class="hub-option-row">
+          <h2>A &mdash; The Second Cold Open</h2>
+          <span class="hub-open">View &rarr;</span>
+        </span>
+        <p>
+          The divider stops speaking section-heading and starts speaking title-card: one spread
+          line of tracked caps, the hairline rule, and a mono credit line &mdash;
+          &ldquo;WRITTEN &middot; DIRECTED &middot; PRODUCED.&rdquo; The same grammar as the page's own
+          hero, so it reads as a new film beginning. Biggest ceremony, zero new components.
+        </p>
+      </a>
+      <a class="hub-option" href="option-b.html#reel-gallery">
+        <span class="hub-option-row">
+          <h2>B &mdash; The Billing Block</h2>
+          <span class="hub-open">View &rarr;</span>
+        </span>
+        <p>
+          A main-title billing card: the heading, a mono role credit naming her outright
+          (&ldquo;written &middot; directed &middot; produced by Kacey Samiee&rdquo;), then the three films
+          listed like a title-sequence contents slate. Each film name jump-links to its section
+          &mdash; the most explicit &ldquo;here is what follows.&rdquo;
+        </p>
+      </a>
+      <a class="hub-option" href="option-c.html#reel-gallery">
+        <span class="hub-option-row">
+          <h2>C &mdash; The Slate</h2>
+          <span class="hub-open">View &rarr;</span>
+        </span>
+        <p>
+          The divider shrinks to a quiet full-bleed band between hairlines, and the credit moves
+          down into every project heading: title, mini rule, mono roles &mdash; each film gets its
+          own title-card. Roles can differ per project (Blood Sisters shows a placeholder
+          variation), so the credits stay honest as the filmography grows.
+        </p>
+      </a>
+      <a class="hub-option" href="option-d.html#reel-gallery">
+        <span class="hub-option-row">
+          <h2>D &mdash; The Credit Alone</h2>
+          <span class="hub-open">View &rarr;</span>
+        </span>
+        <p>
+          Option A stripped to its last line: no &ldquo;Stuff I Made,&rdquo; no rule &mdash; just
+          the mono credit &ldquo;WRITTEN &middot; DIRECTED &middot; PRODUCED&rdquo; at three times its
+          normal size, alone in the dark. The call sheet becomes the title card; the roles are
+          the whole announcement.
+        </p>
+      </a>
+    </div>
+    <p class="hub-note">
+      Role lines are placeholders &mdash; swap in real credits per film.<br/>
+      A and B can borrow C's per-project credits later; they aren't mutually exclusive.
+    </p>
+  </main>
+</body>
+</html>

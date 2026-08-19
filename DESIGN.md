@@ -139,7 +139,7 @@ Warm light against true black; everything chromatic belongs either to the candle
 - **Label** (400, clamp(0.75rem, 0.95vw, 0.875rem), letter-spacing 0.12–0.18em, UPPERCASE): Fragment Mono for nav links, buttons, card captions, scroll cues, and the modal close — the call-sheet voice.
 
 ### Named Rules
-**The Call-Sheet Rule.** Monospace is justified by screenplay and call-sheet convention, not "technical" signaling. It appears on nav, buttons, captions, credits, and metadata — never in body copy, and never as an eyebrow above headings.
+**The Call-Sheet Rule.** Monospace is justified by screenplay and call-sheet convention, not "technical" signaling. It appears on nav, buttons, captions, credits, and metadata — never in body copy, and never as an eyebrow above headings. One named exception, the Act Break: the actor page's filmmaker divider sets the credit line — WRITTEN · DIRECTED · PRODUCED — at 3× scale (`.act-break-credit`) as its section heading; the call sheet becomes the title card. It is the only mono heading in the system.
 
 **The Marquee Rule.** Page titles (h1) are one spread line of tracked caps, followed by a short hairline rule and a mono credit line — never a stack. One word may carry Old Gold. Section headings (h2) keep the stacked voice: grids of whole `nowrap` lines at line-height 0.82–0.88, one line in Old Gold. The two treatments never trade places.
 
