@@ -2418,7 +2418,8 @@ h1 > span {
     aspect-ratio: 4 / 5;
   }
 
-  .work-grid {
+  .work-grid,
+  .filmmaker-project-grid {
     grid-template-columns: 1fr;
     grid-auto-rows: auto;
   }
