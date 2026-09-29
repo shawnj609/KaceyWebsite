@@ -2,4 +2,5 @@
 Thumbs.db
 *.log
 photo_inbox/
-
+__pycache__/
+*.pyc
