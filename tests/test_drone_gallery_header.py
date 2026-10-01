@@ -5,6 +5,22 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 
+EXPECTED_DRONE_DESIGN_VIDEOS = [
+    ("wPpaF_1U5SU", "Flipside 25 Effigy Render"),
+    ("g6U8P0PHcb4", "FreezerBurn 26 Duck Suff III Render"),
+    ("Izd_hZuCFCk", "Four Seasons render"),
+    ("BOw-psHSoF0", "Viking Ship Funeral Fire Render"),
+    ("IFW1qV5zMw8", "2023 Necker Island New Years Drone Show"),
+    ("dx6Sr3N3Gzk", "2023 Burning Man Drone Design Collab with Zeplin"),
+    ("n6sXgD5Go80", "Banksey Girl With The Red Balloon Drone Render"),
+    ("1oMTPBuUZSo", "2025 ABQ Balloon Fiesta Render"),
+    ("TfgDetMAd5s", "Drone Design for Chinese New Year and Marina Bay Sands"),
+    ("IOym9A9l5Pw", "2023 4th Drone Design at the Sphere"),
+    ("vWwH7TSeENI", "Chinese New Year Render"),
+    ("dgYVwMrPL1k", "Chinese New Year Render And Show"),
+    ("3YX8aV7nboI", "BigAss Render"),
+]
+
 
 class DroneGalleryHeaderTest(unittest.TestCase):
     @classmethod
@@ -50,7 +66,10 @@ class DroneGalleryHeaderTest(unittest.TestCase):
             design_section,
         )
 
-        self.assertEqual(len(card_class_values), 7)
+        self.assertEqual(
+            len(card_class_values),
+            len(EXPECTED_DRONE_DESIGN_VIDEOS),
+        )
         for class_value in card_class_values:
             classes = class_value.split()
             self.assertNotIn("video-tile", classes)
@@ -58,15 +77,27 @@ class DroneGalleryHeaderTest(unittest.TestCase):
 
         self.assertNotIn(".mother-video-tile {", self.css)
 
-    def test_all_seven_youtube_thumbnails_remain(self):
+    def test_design_gallery_matches_drone_show_design_playlist(self):
         design_section = self.html.split('id="design-work"', 1)[1].split(
             "</section>", 1
         )[0]
-        thumbnail_sources = re.findall(
-            r'https://img\.youtube\.com/vi/[^\"]+/hqdefault\.jpg',
-            design_section,
+        card_pattern = re.compile(
+            r'<a class="work-card reel-card reveal-on-scroll" '
+            r'href="https://youtu\.be/([^\"]+)" target="_blank" rel="noopener" '
+            r'aria-label="([^\"]+)">\s*'
+            r'<img src="https://img\.youtube\.com/vi/([^/]+)/hqdefault\.jpg" '
+            r'alt="([^\"]+)"/>\s*'
+            r'<span class="play-mark" aria-hidden="true"></span>\s*'
+            r'<span>([^<]+)</span>\s*</a>'
         )
-        self.assertEqual(len(thumbnail_sources), 7)
+        actual_cards = card_pattern.findall(design_section)
+        expected_cards = [
+            (video_id, title, video_id, title, title)
+            for video_id, title in EXPECTED_DRONE_DESIGN_VIDEOS
+        ]
+
+        self.assertEqual(actual_cards, expected_cards)
+        self.assertNotIn("bO8iNFqhOqs", design_section)
 
 
 if __name__ == "__main__":
