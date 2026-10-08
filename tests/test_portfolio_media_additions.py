@@ -55,6 +55,7 @@ class PortfolioMediaAdditionsTest(unittest.TestCase):
         cls.actor = PageMarkup((ROOT / "actor.html").read_text(encoding="utf-8"))
         cls.mother = PageMarkup((ROOT / "mother-of-drones.html").read_text(encoding="utf-8"))
         cls.fire = PageMarkup((ROOT / "fire.html").read_text(encoding="utf-8"))
+        cls.about = PageMarkup((ROOT / "about.html").read_text(encoding="utf-8"))
         cls.css = (ROOT / "site.css").read_text(encoding="utf-8")
 
     def test_nebula_gallery_exposes_existing_and_five_requested_videos(self):
@@ -248,6 +249,10 @@ class PortfolioMediaAdditionsTest(unittest.TestCase):
         self.assertIn(
             "site.css?v=portfolio-media-20260929",
             self.fire.stylesheets,
+        )
+        self.assertIn(
+            "site.css?v=reconciled-20261007",
+            self.about.stylesheets,
         )
 
 

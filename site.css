@@ -2467,6 +2467,11 @@ h1 > span {
     font-size: clamp(1.8rem, 9vw, 2.2rem);
   }
 
+  .about-heading {
+    width: calc(100% - 28px);
+    margin-left: 28px;
+  }
+
   .voiceover-heading h2 {
     font-size: clamp(2.7rem, 15vw, 4rem);
   }
