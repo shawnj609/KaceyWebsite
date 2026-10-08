@@ -104,27 +104,32 @@ class PortfolioMediaAdditionsTest(unittest.TestCase):
             [f"Season 1, Episode {episode}" for episode in (1, 2, *range(4, 17))],
         )
 
-    def test_voiceover_cards_expose_the_three_requested_demos(self):
-        expected = {
-            "wHCtd7lAQPw": "A Voice in the Wilderness",
-            "78CZWQVsmXA": "Dell VO Demo",
-            "1SMoIUaqG6A": "Micro Power VO Demo",
-        }
-        links_by_href = {link.get("href"): link for link in self.actor.links}
+    def test_voiceover_cards_use_recovered_order(self):
+        expected = [
+            ("Fef8IC-1ktg", "Talk Dirty To Me Intro"),
+            ("wHCtd7lAQPw", "A Voice in the Wilderness"),
+            ("78CZWQVsmXA", "Dell VO Demo"),
+            ("1SMoIUaqG6A", "Micro Power VO Demo"),
+        ]
+        voiceover_links = [
+            link
+            for link in self.actor.links
+            if link.get("section") == "voiceover"
+        ]
         image_sources = {image.get("src") for image in self.actor.images}
-        visible_text = " ".join(self.actor.visible_text)
 
-        for video_id, title in expected.items():
-            href = f"https://youtu.be/{video_id}"
-            self.assertIn(href, links_by_href)
-            self.assertIn("reel-card", links_by_href[href].get("class", "").split())
-            self.assertEqual(links_by_href[href].get("target"), "_blank")
-            self.assertIn("noopener", links_by_href[href].get("rel", "").split())
+        self.assertEqual(
+            [(link.get("href"), link.get("text")) for link in voiceover_links],
+            [(f"https://youtu.be/{video_id}", title) for video_id, title in expected],
+        )
+        for link, (video_id, _title) in zip(voiceover_links, expected):
+            self.assertIn("reel-card", link.get("class", "").split())
+            self.assertEqual(link.get("target"), "_blank")
+            self.assertIn("noopener", link.get("rel", "").split())
             self.assertIn(
                 f"https://img.youtube.com/vi/{video_id}/hqdefault.jpg",
                 image_sources,
             )
-            self.assertIn(title, visible_text)
 
     def test_lone_star_swing_exposes_the_real_trailer(self):
         href = "https://youtu.be/KglUUry5vnM"
@@ -233,7 +238,7 @@ class PortfolioMediaAdditionsTest(unittest.TestCase):
 
     def test_affected_pages_request_the_updated_stylesheet(self):
         self.assertIn(
-            "site.css?v=gallery-grid-20260929",
+            "site.css?v=reconciled-20261007",
             self.actor.stylesheets,
         )
         self.assertIn(
