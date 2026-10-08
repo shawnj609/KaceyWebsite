@@ -239,15 +239,15 @@ class PortfolioMediaAdditionsTest(unittest.TestCase):
 
     def test_affected_pages_request_the_updated_stylesheet(self):
         self.assertIn(
-            "site.css?v=reconciled-20261007",
+            "site.css?v=gallery-cards-20261007",
             self.actor.stylesheets,
         )
         self.assertIn(
-            "site.css?v=reconciled-20261007",
+            "site.css?v=gallery-cards-20261007",
             self.mother.stylesheets,
         )
         self.assertIn(
-            "site.css?v=portfolio-media-20260929",
+            "site.css?v=gallery-cards-20261007",
             self.fire.stylesheets,
         )
         self.assertIn(

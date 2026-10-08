@@ -41,21 +41,27 @@ class DroneGalleryHeaderTest(unittest.TestCase):
             self.html,
         )
 
-    def test_drone_design_section_shares_actor_reel_layout(self):
-        shared_selector = "#reel-gallery,\n.mother-design-section {"
+    def test_drone_design_section_uses_full_width_work_gallery(self):
+        self.assertIn(
+            'class="actor-gallery-section mother-design-section '
+            'full-width-work-gallery"',
+            self.html,
+        )
+
+        shared_selector = ".full-width-work-gallery {"
         self.assertIn(shared_selector, self.css)
         shared_rule = self.css.split(shared_selector, 1)[1].split("}", 1)[0]
         for declaration in (
             "width: 100vw;",
-            "grid-template-columns: clamp(420px, 38vw, 560px) minmax(420px, 1fr);",
-            "gap: clamp(18px, 2.2vw, 34px);",
+            "grid-template-columns: minmax(0, 1fr);",
+            "gap: clamp(48px, 7vw, 84px);",
             "margin-left: calc(50% - 50vw);",
             "padding-right: clamp(18px, 4vw, 64px);",
-            "padding-left: clamp(18px, 3vw, 44px);",
+            "padding-left: clamp(18px, 4vw, 64px);",
         ):
             self.assertIn(declaration, shared_rule)
 
-        self.assertIn(
+        self.assertNotIn(
             "#photo-reel-gallery,\n  #reel-gallery,\n  .mother-design-section {",
             self.css,
         )
