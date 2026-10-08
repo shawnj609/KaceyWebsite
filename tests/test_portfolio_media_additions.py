@@ -237,7 +237,7 @@ class PortfolioMediaAdditionsTest(unittest.TestCase):
             self.actor.stylesheets,
         )
         self.assertIn(
-            "site.css?v=portfolio-media-20260929",
+            "site.css?v=reconciled-20261007",
             self.mother.stylesheets,
         )
         self.assertIn(

@@ -6,6 +6,9 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 
 EXPECTED_DRONE_DESIGN_VIDEOS = [
+    ("CrQbV0Hd5n0", "Necker Island Show vs Render"),
+    ("J-3Gb_1-C48", "2023 Necker Island New Years Show Render"),
+    ("h5r-xJK7PQU", "Chinese New Year Render and Show - Stacked"),
     ("wPpaF_1U5SU", "Flipside 25 Effigy Render"),
     ("g6U8P0PHcb4", "FreezerBurn 26 Duck Suff III Render"),
     ("Izd_hZuCFCk", "Four Seasons render"),
