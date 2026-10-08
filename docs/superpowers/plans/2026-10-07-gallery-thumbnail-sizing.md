@@ -23,7 +23,6 @@
 ### Task 1: Share the Blood Sisters gallery geometry
 
 **Files:**
-- Create: `tests/test_gallery_thumbnail_layout.py`
 - Modify: `actor.html:9,108`
 - Modify: `mother-of-drones.html:9,63`
 - Modify: `fire.html:9,49`
@@ -33,95 +32,13 @@
 - Consumes: Existing `.actor-gallery-section`, `.scroll-gallery-heading`, `.work-grid`, `.work-card`, and `.filmmaker-project-grid` rules.
 - Produces: A reusable `.full-width-work-gallery` section class used by `#reel-gallery`, `#design-work`, and `#hekates-gallery`.
 
-- [ ] **Step 1: Write the failing regression test**
+- [ ] **Step 1: Run the rendered regression check and verify it fails**
 
-Create `tests/test_gallery_thumbnail_layout.py`:
+At a 934px browser width, measure the first card in `#blood-sisters`, `#reel-gallery`, `#design-work`, and `#hekates-gallery` with `getBoundingClientRect()`.
 
-```python
-from pathlib import Path
-import re
-import unittest
+Expected before implementation: Blood Sisters is approximately 276 by 173 pixels while Actor Reels is approximately 133 by 83 pixels and the other target galleries are also materially narrower. This proves the rendered behavior fails the approved requirement before production code changes.
 
-
-ROOT = Path(__file__).resolve().parents[1]
-TARGET_SECTIONS = {
-    "actor.html": "reel-gallery",
-    "mother-of-drones.html": "design-work",
-    "fire.html": "hekates-gallery",
-}
-CACHE_KEY = "site.css?v=gallery-cards-20261007"
-
-
-class GalleryThumbnailLayoutTest(unittest.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        cls.css = (ROOT / "site.css").read_text(encoding="utf-8")
-        cls.pages = {
-            name: (ROOT / name).read_text(encoding="utf-8")
-            for name in TARGET_SECTIONS
-        }
-
-    def css_rule(self, selector):
-        match = re.search(
-            rf"{re.escape(selector)}\s*\{{(?P<body>[^}}]+)\}}",
-            self.css,
-            re.DOTALL,
-        )
-        self.assertIsNotNone(match, selector)
-        return match.group("body")
-
-    def test_target_sections_share_full_width_gallery_class(self):
-        for page, section_id in TARGET_SECTIONS.items():
-            section = re.search(
-                rf'<section class="([^"]+)" id="{section_id}"',
-                self.pages[page],
-            )
-            self.assertIsNotNone(section, page)
-            self.assertIn("full-width-work-gallery", section.group(1), page)
-
-    def test_target_pages_request_the_new_stylesheet_version(self):
-        for page, html in self.pages.items():
-            self.assertIn(CACHE_KEY, html, page)
-
-    def test_full_width_gallery_matches_blood_sisters_geometry(self):
-        body = self.css_rule(".full-width-work-gallery")
-        self.assertIn("width: 100vw", body)
-        self.assertIn("grid-template-columns: minmax(0, 1fr)", body)
-        self.assertIn("margin-left: calc(50% - 50vw)", body)
-        self.assertEqual(body.count("clamp(18px, 4vw, 64px)"), 2)
-
-        work_grid = self.css_rule(".work-grid")
-        reference_grid = self.css_rule(".filmmaker-project-grid")
-        for declaration in (
-            "grid-template-columns: repeat(3, minmax(0, 1fr))",
-            "gap: clamp(12px, 1.6vw, 18px)",
-        ):
-            self.assertIn(declaration, work_grid)
-            self.assertIn(declaration, reference_grid)
-
-    def test_shared_gallery_heading_sits_above_the_grid(self):
-        body = self.css_rule(
-            ".full-width-work-gallery .scroll-gallery-heading"
-        )
-        self.assertIn("position: relative", body)
-        self.assertIn("top: auto", body)
-
-
-if __name__ == "__main__":
-    unittest.main()
-```
-
-- [ ] **Step 2: Run the new test and verify it fails**
-
-Run:
-
-```bash
-python3 -m unittest tests.test_gallery_thumbnail_layout -v
-```
-
-Expected: FAIL because the target sections do not yet include `.full-width-work-gallery`, the CSS rule does not exist, and the new cache key is absent.
-
-- [ ] **Step 3: Add the shared layout class and cache key to the target pages**
+- [ ] **Step 2: Add the shared layout class and cache key to the target pages**
 
 In `actor.html`, change the Actor Reels section and stylesheet link to:
 
@@ -144,7 +61,7 @@ In `fire.html`, change the Hekate's Gallery section and stylesheet link to:
 <section class="actor-gallery-section hekate-gallery-section full-width-work-gallery" id="hekates-gallery" aria-labelledby="hekates-gallery-title">
 ```
 
-- [ ] **Step 4: Implement the shared full-width grid geometry**
+- [ ] **Step 3: Implement the shared full-width grid geometry**
 
 Replace the `#reel-gallery, .mother-design-section` layout rule in `site.css` with:
 
@@ -167,18 +84,17 @@ Replace the `#reel-gallery, .mother-design-section` layout rule in `site.css` wi
 
 Inside `@media (max-width: 860px)`, remove `#reel-gallery` and `.mother-design-section` from the narrow `#photo-reel-gallery` override so `.full-width-work-gallery` retains Blood Sisters' full-width geometry. Leave `#photo-reel-gallery` behavior unchanged.
 
-- [ ] **Step 5: Run the focused test and full test suite**
+- [ ] **Step 4: Run the full automated test suite**
 
 Run:
 
 ```bash
-python3 -m unittest tests.test_gallery_thumbnail_layout -v
 python3 -m unittest discover -s tests -v
 ```
 
-Expected: the focused test passes and the complete suite passes with no failures.
+Expected: the complete suite passes with no failures.
 
-- [ ] **Step 6: Verify the rendered layout**
+- [ ] **Step 5: Verify the rendered layout**
 
 Serve the repository root locally and inspect `actor.html`, `mother-of-drones.html`, and `fire.html` at 934px desktop width and a narrow mobile width.
 
@@ -186,9 +102,9 @@ At 934px, measure the first card in `#blood-sisters`, `#reel-gallery`, `#design-
 
 At mobile width, confirm each target and Blood Sisters renders one full-width `16 / 10` card per row, with no horizontal overflow. Open one playable card in each target gallery and confirm its existing link or modal behavior still works.
 
-- [ ] **Step 7: Commit the implementation**
+- [ ] **Step 6: Commit the implementation**
 
 ```bash
-git add actor.html mother-of-drones.html fire.html site.css tests/test_gallery_thumbnail_layout.py
+git add actor.html mother-of-drones.html fire.html site.css
 git commit -m "fix: unify gallery thumbnail sizing"
 ```
