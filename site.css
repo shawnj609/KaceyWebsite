@@ -282,12 +282,6 @@ a {
   object-position: center 24%;
 }
 
-.mother-video-tile {
-  background:
-    linear-gradient(135deg, rgba(91, 126, 169, 0.42), rgba(0, 0, 0, 0.62)),
-    url("assets/oh-my.png") center 58% / cover;
-}
-
 /* Nebula lives on the drones page: same media-section frame as the about page
    once used, repainted in Airspace so the One World Rule holds, and mirrored --
    the film frame sits left, the heading right. The columns repeat the design
@@ -1615,13 +1609,19 @@ h1 > span {
   padding-left: clamp(18px, 3vw, 44px);
 }
 
-#reel-gallery {
+.full-width-work-gallery {
   width: 100vw;
-  grid-template-columns: clamp(420px, 38vw, 560px) minmax(420px, 1fr);
-  gap: clamp(18px, 2.2vw, 34px);
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(48px, 7vw, 84px);
   margin-left: calc(50% - 50vw);
   padding-right: clamp(18px, 4vw, 64px);
-  padding-left: clamp(18px, 3vw, 44px);
+  padding-left: clamp(18px, 4vw, 64px);
+}
+
+.full-width-work-gallery .scroll-gallery-heading {
+  position: relative;
+  top: auto;
+  width: min(560px, 100%);
 }
 
 .work-section::before {
@@ -2197,8 +2197,7 @@ h1 > span {
     gap: 34px;
   }
 
-  #photo-reel-gallery,
-  #reel-gallery {
+  #photo-reel-gallery {
     width: auto;
     grid-template-columns: 1fr;
     margin-left: 0;
@@ -2469,6 +2468,11 @@ h1 > span {
 
   .about-heading .marquee-title {
     font-size: clamp(1.8rem, 9vw, 2.2rem);
+  }
+
+  .about-heading {
+    width: calc(100% - 28px);
+    margin-left: 28px;
   }
 
   .voiceover-heading h2 {
