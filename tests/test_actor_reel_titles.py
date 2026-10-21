@@ -5,6 +5,8 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPECTED_REELS = [
+    ("https://youtu.be/PerPxqa3BvI", "Acting Reel 1"),
+    ("https://youtu.be/2b9JGv_YawQ", "Acting Reel 2"),
     ("https://youtu.be/tfEpUExAU3w", "Project Rant"),
     ("https://youtu.be/PCdNapCFjbc", "Chumps"),
     ("https://youtu.be/wD5IjAJgzrs", "Trojan"),
