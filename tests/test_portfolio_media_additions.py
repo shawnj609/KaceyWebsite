@@ -58,14 +58,15 @@ class PortfolioMediaAdditionsTest(unittest.TestCase):
         cls.about = PageMarkup((ROOT / "about.html").read_text(encoding="utf-8"))
         cls.css = (ROOT / "site.css").read_text(encoding="utf-8")
 
-    def test_nebula_gallery_exposes_existing_and_five_requested_videos(self):
+    def test_nebula_gallery_exposes_seven_visible_playlist_videos(self):
         expected = {
-            "https://youtu.be/t-AxDWIOE6o": "t-AxDWIOE6o",
             "https://youtu.be/PgifPvlLQBw": "PgifPvlLQBw",
             "https://youtu.be/BlTLerRJiIU": "BlTLerRJiIU",
-            "https://youtube.com/shorts/RlUERpbnBds?feature=share": "RlUERpbnBds",
-            "https://youtu.be/9n_YS0tOaAY": "9n_YS0tOaAY",
-            "https://youtu.be/hEbx6V_iATU": "hEbx6V_iATU",
+            "https://youtu.be/_JWcXqwpHpM": "_JWcXqwpHpM",
+            "https://youtu.be/O_Y0q9a2trc": "O_Y0q9a2trc",
+            "https://youtu.be/RtXhMbsJh1s": "RtXhMbsJh1s",
+            "https://youtu.be/KY9km3P-fsc": "KY9km3P-fsc",
+            "https://youtu.be/dx6Sr3N3Gzk": "dx6Sr3N3Gzk",
         }
         nebula_links = {
             link.get("href"): link
